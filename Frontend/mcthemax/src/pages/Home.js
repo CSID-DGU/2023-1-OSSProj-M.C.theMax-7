@@ -1,9 +1,16 @@
-import React from "react";
+import React, { lazy } from "react";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { LoginState } from "../stores/login-store";
-import Login from "../components/Login/Login";
-import NotLogin from "../components/Login/NotLogin";
+
+const Login = lazy(() => import("../components/Login/Login"));
+const NotLogin = lazy(() => import("../components/Login/NotLogin"));
+const DonggukService = lazy(() =>
+  import("../components/Services/DonggukService")
+);
+const ItService = lazy(() => import("../components/Services/ItService"));
+const Assignment = lazy(() => import("../components/MyClass/Assignment"));
+const Classes = lazy(() => import("../components/MyClass/Classes"));
 
 function Home() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
@@ -14,12 +21,20 @@ function Home() {
       <RightContainer>
         <UpsideContainer>
           <ServiceContainer>
-            <UdrimsContainer>유드림스</UdrimsContainer>
-            <CertpiaContainer>서트피아</CertpiaContainer>
+            <UdrimsContainer>
+              <DonggukService />
+            </UdrimsContainer>
+            <CertpiaContainer>
+              <ItService />
+            </CertpiaContainer>
           </ServiceContainer>
           <MyClassContainer>
-            <AssignmentContainer>내 할 일 보기</AssignmentContainer>
-            <ClassContainer>내 강의실</ClassContainer>
+            <AssignmentContainer>
+              <Assignment />
+            </AssignmentContainer>
+            <ClassContainer>
+              <Classes />
+            </ClassContainer>
           </MyClassContainer>
         </UpsideContainer>
         <NoticeContainer>통합 공지</NoticeContainer>
@@ -48,12 +63,9 @@ const RightContainer = styled.div`
 
 const UpsideContainer = styled.div`
   display: flex;
-  flex: 2;
 `;
 
-const NoticeContainer = styled.div`
-  flex: 1;
-`;
+const NoticeContainer = styled.div``;
 
 const ServiceContainer = styled.div`
   display: flex;
@@ -63,10 +75,12 @@ const ServiceContainer = styled.div`
 
 const UdrimsContainer = styled.div`
   flex: 2;
+  height: 50vh;
 `;
 
 const CertpiaContainer = styled.div`
   flex: 1;
+  height: 25vh;
 `;
 
 const MyClassContainer = styled.div`
@@ -77,10 +91,12 @@ const MyClassContainer = styled.div`
 
 const ClassContainer = styled.div`
   flex: 1;
+  height: 25vh;
 `;
 
 const AssignmentContainer = styled.div`
   flex: 2;
+  height: 50vh;
 `;
 
 export default Home;
