@@ -46,14 +46,14 @@ const Header = styled.div`
 const Body = styled.div`
   display: grid;
   place-items: center;
+  height: 100%;
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin: 30px;
+  gap: 5px;
 `;
 const Grid = styled.div`
-  width: 10vw;
-  height: 10vw;
+  width: 100px;
+  height: 100px;
   background-color: white;
   outline: none;
   border: 1px solid #e6e8e7;
@@ -69,6 +69,7 @@ const Button = styled.button`
   outline: none;
   border: 1px solid #a9a9a9;
   border-radius: 50%;
+  cursor: pointer;
   width: 50px;
   height: 50px;
 `;

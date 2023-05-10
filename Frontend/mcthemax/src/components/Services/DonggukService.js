@@ -61,12 +61,12 @@ const Body = styled.div`
   place-items: center;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin: 30px;
+  gap: 5px;
+  height: 100%;
 `;
 const Grid = styled.div`
-  width: 10vw;
-  height: 10vw;
+  width: 100px;
+  height: 100px;
   background-color: white;
   outline: none;
   border: 1px solid #e6e8e7;
@@ -82,6 +82,7 @@ const Button = styled.button`
   outline: none;
   border: 1px solid #a9a9a9;
   border-radius: 50%;
+  cursor: pointer;
   width: 50px;
   height: 50px;
 `;
