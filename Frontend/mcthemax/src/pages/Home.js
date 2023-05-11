@@ -11,6 +11,7 @@ const DonggukService = lazy(() =>
 const ItService = lazy(() => import("../components/Services/ItService"));
 const Assignment = lazy(() => import("../components/MyClass/Assignment"));
 const Classes = lazy(() => import("../components/MyClass/Classes"));
+const Notice = lazy(() => import("../components/Notice"));
 
 function Home() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
@@ -37,7 +38,9 @@ function Home() {
             </ClassContainer>
           </MyClassContainer>
         </UpsideContainer>
-        <NoticeContainer>통합 공지</NoticeContainer>
+        <NoticeContainer>
+          <Notice />
+        </NoticeContainer>
       </RightContainer>
     </Container>
   );
@@ -65,7 +68,9 @@ const UpsideContainer = styled.div`
   display: flex;
 `;
 
-const NoticeContainer = styled.div``;
+const NoticeContainer = styled.div`
+  height: 25vh;
+`;
 
 const ServiceContainer = styled.div`
   display: flex;
@@ -74,12 +79,10 @@ const ServiceContainer = styled.div`
 `;
 
 const UdrimsContainer = styled.div`
-  flex: 2;
   height: 50vh;
 `;
 
 const CertpiaContainer = styled.div`
-  flex: 1;
   height: 25vh;
 `;
 
@@ -90,12 +93,10 @@ const MyClassContainer = styled.div`
 `;
 
 const ClassContainer = styled.div`
-  flex: 1;
   height: 25vh;
 `;
 
 const AssignmentContainer = styled.div`
-  flex: 2;
   height: 50vh;
 `;
 
