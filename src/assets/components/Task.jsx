@@ -1,7 +1,6 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
-import { Avatar, Image } from "antd";
 
 const Container = styled.div`
   border-radius: 10px;
@@ -15,27 +14,23 @@ const Container = styled.div`
   background-color: ${(props) => bgcolorChange(props)};
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  box-sizing: border-box;
   flex-direction: column;
 `;
 
 const TextContent = styled.div``;
 
-const Icons = styled.div`
-  display: flex;
-  justify-content: end;
-  padding: 2px;
-`;
 function bgcolorChange(props) {
   return props.isDragging
-    ? "lightgreen"
+    ? "#d5ff96"
     : props.isDraggable
     ? props.isBacklog
       ? "#F2D7D5"
       : "#DCDCDC"
     : props.isBacklog
     ? "#F2D7D5"
-    : "#EAF4FC";
+    : "#fcfce8";
 }
 
 export default function Task({ task, index }) {
@@ -57,19 +52,12 @@ export default function Task({ task, index }) {
             </span>
           </div>
           <div
-            style={{ display: "flex", justifyContent: "center", padding: 2 }}
+            style={{ display: "flex", justifyContent: "center", padding: 20 }}
           >
             <TextContent>{task.title}</TextContent>
           </div>
-          <Icons>
-            <div>
-              <Avatar
-                onClick={() => console.log(task)}
-                src={"https://joesch.moe/api/v1/random?key=" + task.id}
-              />
-            </div>
-          </Icons>
           {provided.placeholder}
+          {/* 위에 코드를 반드시 첨부해야 에러가 뜨지 않음 */}
         </Container>
       )}
     </Draggable>

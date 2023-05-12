@@ -1,4 +1,4 @@
-/* hide scrollbar but allow scrolling */
+/* 스크롤 기능은 가능하지만 스크롤바가 안보이게끔 */
 .column {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
