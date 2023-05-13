@@ -24,6 +24,9 @@ public class Lecture {
     @JoinColumn(name = "department_code")
     private Department department;
 
+    @Column(name="lecture_name")
+    private String name;
+
     @Column(name="grade")
     private Long grade;
 
