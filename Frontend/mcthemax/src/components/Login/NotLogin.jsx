@@ -4,9 +4,46 @@ import { Orange, Yellow } from "../../assets/color/color";
 import RadioGroup from "./Radio/RadioGroup";
 import Radio from "./Radio/Radio";
 import { useState } from "react";
+import { useFormik } from "formik";
+import { LoginApi } from "../../api/authApi";
+import { useRecoilState } from "recoil";
+import { LoginState } from "../../stores/login-store";
+import { useNavigate } from "react-router-dom";
 
 const NotLogin = () => {
-  const [value, setValue] = useState("student");
+  // console.log(isLoggedIn, setIsLoggedIn);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const [value, setValue] = useState("STUDENT");
+
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      id: "",
+      password: "",
+      authority: value,
+    },
+    onSubmit: (values, { setSubmitting }) => {
+      setTimeout(() => {
+        let data = {
+          id: values.id,
+          password: values.password,
+          authority: value,
+        };
+        console.log(data);
+        setIsLoggedIn(true);
+        // navigate("/");
+        // LoginApi(data).then((res) => {
+        //   console.log(res);
+        //   if (res.code === 200) {
+        //     window.localStorage.setItem("AUTH-TOKEN", res.data);
+        //     setIsLoggedIn(true);
+        //   }
+        // });
+      }, 500);
+    },
+  });
+
   return (
     <Container>
       <Header>
@@ -17,23 +54,30 @@ const NotLogin = () => {
         <Slogan>세상을 비추는 힘, 세상을 깨우는 이름</Slogan>
         <FormContainer>
           <RadioGroup label="로그인 권한" value={value} onChange={setValue}>
-            <Radio value="student" key="student">
+            <Radio value="STUDENT" key="student">
               학습자
             </Radio>
-            <Radio value="professor" key="professor">
+            <Radio value="PROFESSOR" key="professor">
               교수자
             </Radio>
           </RadioGroup>
-          {value === "student" ? (
-            <Form>
+          {value === "STUDENT" ? (
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit();
+              }}
+            >
               <InputContainer>
                 학번
                 <Input
                   required
-                  id="s_number"
+                  id="id"
                   type="text"
-                  name="s_number"
+                  name="id"
                   placeholder="ID"
+                  onChange={formik.handleChange}
+                  value={formik.values.id || ""}
                 />
               </InputContainer>
               <InputContainer>
@@ -43,20 +87,24 @@ const NotLogin = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
+                  onChange={formik.handleChange}
+                  value={formik.values.password || ""}
                 />
               </InputContainer>
               <LoginButton>로그인</LoginButton>
             </Form>
           ) : (
-            <Form>
+            <Form onSubmit={formik.handleSubmit}>
               <InputContainer>
                 교번
                 <Input
                   required
-                  id="p_number"
+                  id="id"
                   type="text"
-                  name="p_number"
+                  name="id"
                   placeholder="ID"
+                  onChange={formik.handleChange}
+                  value={formik.values.id || ""}
                 />
               </InputContainer>
               <InputContainer>
@@ -66,6 +114,8 @@ const NotLogin = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
+                  onChange={formik.handleChange}
+                  value={formik.values.password || ""}
                 />
               </InputContainer>
               <LoginButton>로그인</LoginButton>

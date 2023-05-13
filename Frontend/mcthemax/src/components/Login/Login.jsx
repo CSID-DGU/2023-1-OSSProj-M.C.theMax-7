@@ -4,8 +4,29 @@ import profile from "../../assets/img/dgu-profile-logo.png";
 import { Orange, Yellow } from "../../assets/color/color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { LogoutApi } from "../../api/authApi";
+import { LoginState } from "../../stores/login-store";
+import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const navigate = useNavigate();
+  const logoutHandler = () => {
+    let data = {
+      "AUTH-TOKEN": window.localStorage.getItem("AUTH-TOKEN"),
+    };
+    setIsLoggedIn(false);
+    // navigate("/");
+    // LogoutApi(data).then((res) => {
+    //   console.log(res);
+    //   if (res.status === 200) {
+    //     window.localStorage.removeItem("AUTH-TOKEN");
+    //     setIsLoggedIn(false);
+    //   }
+    // });
+  };
+
   return (
     <Container>
       <Header>
@@ -20,7 +41,7 @@ const Login = () => {
         </Bio>
         <Name>정원호 님</Name>
         <Buttons>
-          <LogoutButton>로그아웃</LogoutButton>
+          <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
           <ChangePasswordButton>비밀번호 변경</ChangePasswordButton>
         </Buttons>
         <Alarm>

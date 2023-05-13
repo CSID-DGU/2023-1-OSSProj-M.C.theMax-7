@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { LoginState } from "../stores/login-store";
 
 const Login = lazy(() => import("../components/Login/Login"));
@@ -14,7 +14,7 @@ const Classes = lazy(() => import("../components/MyClass/Classes"));
 const Notice = lazy(() => import("../components/Notice"));
 
 function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const isLoggedIn = useRecoilValue(LoginState);
 
   return (
     <div>
