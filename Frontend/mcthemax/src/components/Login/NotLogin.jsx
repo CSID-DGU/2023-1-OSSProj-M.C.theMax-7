@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import logo from "../../assets/img/dgu-logo.png";
 import { Orange, Yellow } from "../../assets/color/color";
+import RadioGroup from "./Radio/RadioGroup";
+import Radio from "./Radio/Radio";
+import { useState } from "react";
 
 const NotLogin = () => {
+  const [value, setValue] = useState("student");
   return (
     <Container>
       <Header>
@@ -11,8 +15,63 @@ const NotLogin = () => {
       </Header>
       <Body>
         <Slogan>세상을 비추는 힘, 세상을 깨우는 이름</Slogan>
-
-        <LoginButton>로그인</LoginButton>
+        <FormContainer>
+          <RadioGroup label="로그인 권한" value={value} onChange={setValue}>
+            <Radio value="student" key="student">
+              학습자
+            </Radio>
+            <Radio value="professor" key="professor">
+              교수자
+            </Radio>
+          </RadioGroup>
+          {value === "student" ? (
+            <Form>
+              <InputContainer>
+                학번
+                <Input
+                  required
+                  id="s_number"
+                  type="text"
+                  name="s_number"
+                  placeholder="ID"
+                />
+              </InputContainer>
+              <InputContainer>
+                비밀번호
+                <Input
+                  required
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </InputContainer>
+              <LoginButton>로그인</LoginButton>
+            </Form>
+          ) : (
+            <Form>
+              <InputContainer>
+                교번
+                <Input
+                  required
+                  id="p_number"
+                  type="text"
+                  name="p_number"
+                  placeholder="ID"
+                />
+              </InputContainer>
+              <InputContainer>
+                비밀번호
+                <Input
+                  required
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </InputContainer>
+              <LoginButton>로그인</LoginButton>
+            </Form>
+          )}
+        </FormContainer>
       </Body>
       <Footer>
         <Bold>서울캠퍼스</Bold> 04620 서울특별시 중구 필동로 1길 30 <br />
@@ -53,7 +112,7 @@ const Text = styled.div`
 `;
 
 const Body = styled.div`
-  flex: 4;
+  flex: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +124,7 @@ const Slogan = styled.div`
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: large;
   font-weight: bold;
-  margin-top: 30vh;
+  margin-top: 10vh;
 `;
 
 const LoginButton = styled.button`
@@ -74,7 +133,7 @@ const LoginButton = styled.button`
   cursor: pointer;
   width: 20vw;
   padding: 10px 20px;
-  margin-top: 10vh;
+  margin-top: 5vh;
   font-size: 16px;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-weight: 500;
@@ -90,7 +149,7 @@ const Footer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-top: 10vh;
+  margin: 1vh 0;
   flex: 1;
   border-top: 1px solid #414a4c;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
@@ -98,7 +157,41 @@ const Footer = styled.div`
 `;
 
 const Bold = styled.div`
+  font-weight: 900;
+  margin: 15px 0;
+  padding: 0;
+`;
+
+const FormContainer = styled.div`
+  margin-top: 10vh;
+`;
+
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1rem;
+`;
+
+const InputContainer = styled.div`
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+`;
+
+const Input = styled.input`
+  display: inline-block;
+  border: 1px solid #e6e8e7;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  height: 30px;
+  line-height: 1rem;
+  padding: 0 10px;
 `;
 
 export default NotLogin;
