@@ -17,32 +17,34 @@ function Home() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
 
   return (
-    <Container>
+    <div>
       <LoginContainer>{isLoggedIn ? <Login /> : <NotLogin />}</LoginContainer>
-      <RightContainer>
-        <UpsideContainer>
-          <ServiceContainer>
-            <UdrimsContainer>
-              <DonggukService />
-            </UdrimsContainer>
-            <CertpiaContainer>
-              <ItService />
-            </CertpiaContainer>
-          </ServiceContainer>
-          <MyClassContainer>
-            <AssignmentContainer>
-              <Assignment />
-            </AssignmentContainer>
-            <ClassContainer>
-              <Classes />
-            </ClassContainer>
-          </MyClassContainer>
-        </UpsideContainer>
-        <NoticeContainer>
-          <Notice />
-        </NoticeContainer>
-      </RightContainer>
-    </Container>
+      <Container>
+        <RightContainer>
+          <UpsideContainer>
+            <ServiceContainer>
+              <UdrimsContainer>
+                <DonggukService />
+              </UdrimsContainer>
+              <CertpiaContainer>
+                <ItService />
+              </CertpiaContainer>
+            </ServiceContainer>
+            <MyClassContainer>
+              <AssignmentContainer>
+                <Assignment />
+              </AssignmentContainer>
+              <ClassContainer>
+                <Classes />
+              </ClassContainer>
+            </MyClassContainer>
+          </UpsideContainer>
+          <NoticeContainer>
+            <Notice />
+          </NoticeContainer>
+        </RightContainer>
+      </Container>
+    </div>
   );
 }
 
@@ -54,23 +56,25 @@ const Container = styled.div`
 
 const LoginContainer = styled.div`
   flex: 2;
-  position: sticky;
+  position: fixed;
   align-items: flex-start;
+  width: 27vw;
 `;
 
 const RightContainer = styled.div`
   display: flex;
+  position: relative;
+  left: 27vw;
+  width: 73vw;
   flex-direction: column;
-  flex: 5;
+  /* flex: 5; */
 `;
 
 const UpsideContainer = styled.div`
   display: flex;
 `;
 
-const NoticeContainer = styled.div`
-  height: 25vh;
-`;
+const NoticeContainer = styled.div``;
 
 const ServiceContainer = styled.div`
   display: flex;
