@@ -31,7 +31,7 @@ const Login = () => {
     <Container>
       <Header>
         <Logo src={logo} />
-        <Text>동국 포털 서비스</Text>
+        <Text>동국대학교 포털</Text>
       </Header>
       <Body>
         <Photo src={profile} />
