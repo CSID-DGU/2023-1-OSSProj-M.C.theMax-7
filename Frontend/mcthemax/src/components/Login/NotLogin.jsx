@@ -122,7 +122,7 @@ const Body = styled.div`
 const Slogan = styled.div`
   text-align: center;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
-  font-size: large;
+  font-size: 22px;
   font-weight: bold;
   margin-top: 10vh;
 `;

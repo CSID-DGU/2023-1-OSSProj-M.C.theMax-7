@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import RadioContext from "./RadioContext";
 import styled from "styled-components";
-import { Yellow } from "../../../assets/color/color";
 
 const Radio = ({ children, value, name, defaultChecked, disabled }) => {
   const group = useContext(RadioContext);

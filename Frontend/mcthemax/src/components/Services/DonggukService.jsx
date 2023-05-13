@@ -48,7 +48,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: 1px solid #e6e8e7;
+  /* border: 1px solid #e6e8e7; */
 `;
 const Header = styled.div`
   margin: 10px;

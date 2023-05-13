@@ -71,7 +71,7 @@ const Notice = () => {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  border: 1px solid #e6e8e7;
+  border-top: 1px solid #e6e8e7;
 `;
 
 const Header = styled.div`
