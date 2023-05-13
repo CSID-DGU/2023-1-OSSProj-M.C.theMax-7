@@ -26,4 +26,6 @@ public class Student {
     @JoinColumn(name = "department_code")
     private Department department;
 
+    @Column(name="semester")
+    private int semester;
 }
