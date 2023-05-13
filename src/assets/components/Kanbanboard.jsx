@@ -11,14 +11,14 @@ export default function KanbanBoard() {
   // inprogress는 todo에 있는 칸반들을 자의로 drag drop할 수 있게끔 설정
 
   // JSONplaceholder 로 백엔드 서버 대신 API시도
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/todos")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setCompleted(json.filter((task) => task.completed));
-  //       setIncomplete(json.filter((task) => !task.completed));
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((response) => response.json())
+      .then((json) => {
+        setCompleted(json.filter((task) => task.completed));
+        setIncomplete(json.filter((task) => !task.completed));
+      });
+  }, []);
 
   const handleDragEnd = (result) => {
     const { destination, source, draggableId } = result;
