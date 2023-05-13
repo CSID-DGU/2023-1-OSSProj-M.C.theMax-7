@@ -77,6 +77,13 @@ public class UserController {
         return "no user or not correct password";
     }
 
+//    @GetMapping("/logout")
+//    public String logoutUser(@RequestHeader @Valid LogoutUserRequest request) {
+//        if(request.token.equals()) {
+//            return "logout successful";
+//        }
+//    }
+
     @Data
     static class CreateUserRequest {
         private User user;
@@ -91,5 +98,9 @@ public class UserController {
         private Long id;
         private String pw;
         private UserStatus userStatus;
+    }
+
+    static class LogoutUserRequest {
+        private String token;
     }
 }
