@@ -12,9 +12,10 @@ import com.mcthemax.service.StudentService;
 import com.mcthemax.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.login.LoginException;
 import javax.validation.Valid;
@@ -27,6 +28,7 @@ import static com.mcthemax.domain.user.UserStatus.STUDENT;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserService userService;
@@ -36,7 +38,7 @@ public class UserController {
 
     // signup
     @PostMapping("/signup")
-    public CreateUserResponse saveUser(@RequestBody @Valid CreateUserRequest request) {
+    public User saveUser(@RequestBody @Valid CreateUserRequest request) {
         User user = request.getUser();
         Department department = request.getDepartment();
 
@@ -60,9 +62,20 @@ public class UserController {
             professorService.save(professor);
         }
 
-        return new CreateUserResponse(id);
+        return user;
     }
 
+    // login
+    @PostMapping("/signin")
+    public String loginUser(@RequestBody @Valid LoginUserRequest request) {
+        Long id = request.getId();
+        Optional<User> user = userService.findById(id);
+
+        if(user.get().getPw().equals(request.getPw())) {
+            return "login success";
+        }
+        return "no user or not correct password";
+    }
 
     @Data
     static class CreateUserRequest {
@@ -74,11 +87,9 @@ public class UserController {
     }
 
     @Data
-    private class CreateUserResponse {
+    static class LoginUserRequest {
         private Long id;
-
-        public CreateUserResponse(Long id){
-            this.id = id;
-        }
+        private String pw;
+        private UserStatus userStatus;
     }
 }
