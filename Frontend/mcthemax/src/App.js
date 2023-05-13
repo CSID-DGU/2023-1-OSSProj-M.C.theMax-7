@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -7,9 +8,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );
