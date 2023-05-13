@@ -2,6 +2,7 @@ package com.mcthemax.domain.user;
 
 import com.mcthemax.domain.Department;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="student")
 @Getter @Setter
+@NoArgsConstructor
 public class Student {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

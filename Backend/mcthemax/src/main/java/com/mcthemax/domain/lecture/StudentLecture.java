@@ -21,7 +21,7 @@ public class StudentLecture {
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="lecture_id")
-    private com.mcthemax.domain.lecture.Lecture lecture;
+    private Lecture lecture;
 
     @Column(name="score")
     private String score;
