@@ -5,7 +5,6 @@ import com.mcthemax.domain.user.Professor;
 import com.mcthemax.domain.user.Student;
 import com.mcthemax.domain.user.User;
 import com.mcthemax.domain.user.UserStatus;
-import com.mcthemax.repository.UserRepository;
 import com.mcthemax.service.DepartmentService;
 import com.mcthemax.service.ProfessorService;
 import com.mcthemax.service.StudentService;
@@ -13,13 +12,9 @@ import com.mcthemax.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.security.auth.login.LoginException;
 import javax.validation.Valid;
-import javax.validation.constraints.Null;
 
 import java.util.Optional;
 
@@ -67,14 +62,14 @@ public class UserController {
 
     // login
     @PostMapping("/signin")
-    public String loginUser(@RequestBody @Valid LoginUserRequest request) {
+    public Optional<User> loginUser(@RequestBody @Valid LoginUserRequest request) {
         Long id = request.getId();
         Optional<User> user = userService.findById(id);
 
         if(user.get().getPw().equals(request.getPw())) {
-            return "login success";
+            return user;
         }
-        return "no user or not correct password";
+        return null;
     }
 
 //    @GetMapping("/logout")
