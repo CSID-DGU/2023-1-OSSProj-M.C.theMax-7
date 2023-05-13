@@ -24,8 +24,8 @@ const Classes = () => {
         {isLoggedIn ? (
           <Lectures>
             {data &&
-              data.map((lecture) => (
-                <LectureContainer>
+              data.map((lecture, index) => (
+                <LectureContainer key={index}>
                   <Lecture>{lecture.name}</Lecture>
                   <Button>강의실 가기</Button>
                 </LectureContainer>
