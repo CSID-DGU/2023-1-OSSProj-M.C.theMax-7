@@ -66,7 +66,7 @@ export default function KanbanBoard() {
       >  
         <Column title={"TO DO"} tasks={todo} id={"1"} />
         <Column title={"DONE"} tasks={done} id={"2"} />
-        <Column title={"BACKLOG"} tasks={[]} id={"3"} />
+        <Column title={"TASKS"} tasks={[]} id={"3"} />
       </div>
     </DragDropContext>
   );
