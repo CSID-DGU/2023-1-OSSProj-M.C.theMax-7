@@ -11,6 +11,7 @@ const NotLogin = () => {
       </Header>
       <Body>
         <Slogan>세상을 비추는 힘, 세상을 깨우는 이름</Slogan>
+
         <LoginButton>로그인</LoginButton>
       </Body>
       <Footer>

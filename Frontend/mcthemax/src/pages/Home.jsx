@@ -55,7 +55,6 @@ const Container = styled.div`
 `;
 
 const LoginContainer = styled.div`
-  flex: 2;
   position: fixed;
   align-items: flex-start;
   width: 27vw;
@@ -67,7 +66,6 @@ const RightContainer = styled.div`
   left: 27vw;
   width: 73vw;
   flex-direction: column;
-  /* flex: 5; */
 `;
 
 const UpsideContainer = styled.div`
