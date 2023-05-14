@@ -35,6 +35,7 @@ public class AssignmentService {
                 currentStudentAssignment.setAssignmentName(assignment.getName());
                 currentStudentAssignment.setLectureName(currentStudentLecture.getLecture().getName());
                 currentStudentAssignment.setAssignmentStatus(assignment.getStatus());
+                currentStudentAssignment.setDueDate(assignment.getDueDate());
                 currentStudentAssignments.add(currentStudentAssignment);
             }
         }
