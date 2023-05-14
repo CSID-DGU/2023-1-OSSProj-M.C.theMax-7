@@ -62,12 +62,12 @@ public class UserController {
 
     // login
     @PostMapping("/signin")
-    public Optional<User> loginUser(@RequestBody @Valid LoginUserRequest request) {
+    public Student loginUser(@RequestBody @Valid LoginUserRequest request) {
         Long id = request.getId();
         Optional<User> user = userService.findById(id);
-
+        Student student = studentService.findByUser(user);
         if(user.get().getPw().equals(request.getPw())) {
-            return user;
+            return student;
         }
         return null;
     }
