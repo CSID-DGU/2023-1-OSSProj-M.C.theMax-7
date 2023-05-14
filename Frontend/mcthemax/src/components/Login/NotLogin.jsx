@@ -23,23 +23,22 @@ const NotLogin = () => {
       password: "",
       authority: value,
     },
+
     onSubmit: (values, { setSubmitting }) => {
       setTimeout(() => {
         let data = {
           id: values.id,
-          password: values.password,
+          pw: values.password,
           authority: value,
         };
-        console.log(data);
-        setIsLoggedIn(true);
-        // navigate("/");
-        // LoginApi(data).then((res) => {
-        //   console.log(res);
-        //   if (res.code === 200) {
-        //     window.localStorage.setItem("AUTH-TOKEN", res.data);
-        //     setIsLoggedIn(true);
-        //   }
-        // });
+        // setIsLoggedIn(true);
+        LoginApi(data).then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            window.localStorage.setItem("AUTH-TOKEN", res.data.id);
+            setIsLoggedIn(true);
+          }
+        });
       }, 500);
     },
   });
