@@ -1,16 +1,16 @@
-import styled from "styled-components";
 import { useRecoilValue } from "recoil";
+import styled from "styled-components";
 import { LoginState } from "../../stores/login-store";
 
-const Classes = () => {
+const Assignment = () => {
   const isLoggedIn = useRecoilValue(LoginState);
 
   return (
     <Container>
-      <Header>내 강의실</Header>
+      <Header>내 할 일 보기</Header>
       <Body>
         {isLoggedIn ? (
-          "내 강의들"
+          "칸반 들어갈 위치"
         ) : (
           <PleaseLogin>로그인 후 이용해주세요</PleaseLogin>
         )}
@@ -24,7 +24,8 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: 1px solid #e6e8e7;
+  border-left: 1px solid #e6e8e7;
+  border-bottom: 1px solid #e6e8e7;
 `;
 
 const Header = styled.div`
@@ -48,4 +49,4 @@ const PleaseLogin = styled.div`
   font-size: large;
 `;
 
-export default Classes;
+export default Assignment;

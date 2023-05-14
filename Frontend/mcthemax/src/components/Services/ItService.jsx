@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faCheckToSlot,
-  faLaptopMedical,
-  faFileInvoice,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faFileInvoice } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
 
 const ItService = () => {
@@ -35,7 +30,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: 1px solid #e6e8e7;
+  border-top: 1px solid #e6e8e7;
 `;
 const Header = styled.div`
   margin: 10px;

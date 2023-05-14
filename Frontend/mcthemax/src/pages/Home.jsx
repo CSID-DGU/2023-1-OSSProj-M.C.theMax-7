@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { LoginState } from "../stores/login-store";
 
 const Login = lazy(() => import("../components/Login/Login"));
@@ -11,35 +11,40 @@ const DonggukService = lazy(() =>
 const ItService = lazy(() => import("../components/Services/ItService"));
 const Assignment = lazy(() => import("../components/MyClass/Assignment"));
 const Classes = lazy(() => import("../components/MyClass/Classes"));
+const Notice = lazy(() => import("../components/Notice"));
 
 function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const isLoggedIn = useRecoilValue(LoginState);
 
   return (
-    <Container>
+    <div>
       <LoginContainer>{isLoggedIn ? <Login /> : <NotLogin />}</LoginContainer>
-      <RightContainer>
-        <UpsideContainer>
-          <ServiceContainer>
-            <UdrimsContainer>
-              <DonggukService />
-            </UdrimsContainer>
-            <CertpiaContainer>
-              <ItService />
-            </CertpiaContainer>
-          </ServiceContainer>
-          <MyClassContainer>
-            <AssignmentContainer>
-              <Assignment />
-            </AssignmentContainer>
-            <ClassContainer>
-              <Classes />
-            </ClassContainer>
-          </MyClassContainer>
-        </UpsideContainer>
-        <NoticeContainer>통합 공지</NoticeContainer>
-      </RightContainer>
-    </Container>
+      <Container>
+        <RightContainer>
+          <UpsideContainer>
+            <ServiceContainer>
+              <UdrimsContainer>
+                <DonggukService />
+              </UdrimsContainer>
+              <CertpiaContainer>
+                <ItService />
+              </CertpiaContainer>
+            </ServiceContainer>
+            <MyClassContainer>
+              <AssignmentContainer>
+                <Assignment />
+              </AssignmentContainer>
+              <ClassContainer>
+                <Classes />
+              </ClassContainer>
+            </MyClassContainer>
+          </UpsideContainer>
+          <NoticeContainer>
+            <Notice />
+          </NoticeContainer>
+        </RightContainer>
+      </Container>
+    </div>
   );
 }
 
@@ -50,15 +55,17 @@ const Container = styled.div`
 `;
 
 const LoginContainer = styled.div`
-  flex: 2;
-  position: sticky;
+  position: fixed;
   align-items: flex-start;
+  width: 27vw;
 `;
 
 const RightContainer = styled.div`
   display: flex;
+  position: relative;
+  left: 27vw;
+  width: 73vw;
   flex-direction: column;
-  flex: 5;
 `;
 
 const UpsideContainer = styled.div`
@@ -74,12 +81,10 @@ const ServiceContainer = styled.div`
 `;
 
 const UdrimsContainer = styled.div`
-  flex: 2;
   height: 50vh;
 `;
 
 const CertpiaContainer = styled.div`
-  flex: 1;
   height: 25vh;
 `;
 
@@ -90,12 +95,10 @@ const MyClassContainer = styled.div`
 `;
 
 const ClassContainer = styled.div`
-  flex: 1;
   height: 25vh;
 `;
 
 const AssignmentContainer = styled.div`
-  flex: 2;
   height: 50vh;
 `;
 
