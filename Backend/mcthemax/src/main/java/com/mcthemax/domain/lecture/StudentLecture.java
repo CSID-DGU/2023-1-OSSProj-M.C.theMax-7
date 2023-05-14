@@ -1,10 +1,12 @@
 package com.mcthemax.domain.lecture;
 
+import com.mcthemax.domain.Assignment;
 import com.mcthemax.domain.user.Student;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="student_lecture")
@@ -40,5 +42,8 @@ public class StudentLecture {
 
     @Column(name="assignment")
     private int assignmentScore;
+
+    @OneToMany(mappedBy = "studentLecture")
+    private List<Assignment> assignments;
 
 }
