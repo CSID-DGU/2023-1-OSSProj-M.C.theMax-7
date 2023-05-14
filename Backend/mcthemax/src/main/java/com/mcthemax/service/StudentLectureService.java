@@ -2,6 +2,7 @@ package com.mcthemax.service;
 
 import com.mcthemax.domain.lecture.CurrentStudentLectureDTO;
 import com.mcthemax.domain.lecture.StudentLecture;
+import com.mcthemax.domain.user.Student;
 import com.mcthemax.repository.LectureRepository;
 import com.mcthemax.repository.StudentLectureRepository;
 import com.mcthemax.repository.StudentRepository;
@@ -14,6 +15,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,6 +27,13 @@ public class StudentLectureService {
 
     @PersistenceContext
     private EntityManager entityManager;
+    /**
+     * 학생 별 모든 강의 정보 가져오기
+     */
+    public List<StudentLecture> findAll (Long student_id){
+        Optional<Student> student = studentRepository.findById(student_id);
+        return studentLectureRepository.findAllByStudent(student);
+    }
     /**
      * 수강신청
      */
@@ -72,4 +81,5 @@ public class StudentLectureService {
         }
         return result;
     }
+
 }
