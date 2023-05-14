@@ -4,17 +4,19 @@ import styled from "styled-components";
 
 const Container = styled.div`
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 2px grey;
+  border: 1px solid #e6e8e7;
+  box-shadow: 1px 1px 1px 1px grey;
   padding: 8px;
   color: #000;
   margin-bottom: 8px;
-  min-height: 90px;
+  height: 10vh;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: ${(props) => bgcolorChange(props)};
+  /* background-color: ${(props) => bgcolorChange(props)}; */
+  background-color: white;
   cursor: pointer;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   box-sizing: border-box;
   flex-direction: column;
 `;
@@ -43,16 +45,16 @@ export default function Task({ task, index }) {
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
         >
-          <div style={{ display: "flex", justifyContent: "start", padding: 2 }}>
+          {/* <div style={{ display: "flex", justifyContent: "start", padding: 2 }}>
             <span>
               <small>
                 #{task.id}
                 {"  "}
               </small>
             </span>
-          </div>
+          </div> */}
           <div
-            style={{ display: "flex", justifyContent: "center", padding: 20 }}
+            style={{ display: "flex", justifyContent: "center", padding: 5 }}
           >
             <TextContent>{task.title}</TextContent>
           </div>
