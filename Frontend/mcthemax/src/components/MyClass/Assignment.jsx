@@ -1,6 +1,9 @@
+import { lazy } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { LoginState } from "../../stores/login-store";
+
+const Kanbanboard = lazy(() => import("./Kanban/Kanbanboard"))
 
 const Assignment = () => {
   const isLoggedIn = useRecoilValue(LoginState);
@@ -10,7 +13,7 @@ const Assignment = () => {
       <Header>내 할 일 보기</Header>
       <Body>
         {isLoggedIn ? (
-          "칸반 들어갈 위치"
+          <Kanbanboard />
         ) : (
           <PleaseLogin>로그인 후 이용해주세요</PleaseLogin>
         )}
