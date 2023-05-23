@@ -43,7 +43,7 @@ const Container = styled.div`
   border-radius: 10px;
   border: 1px solid #e6e8e7;
   box-shadow: 1px 1px 1px 1px grey;
-  padding: 8px;
+  padding: 2px;
   color: #000;
   margin-bottom: 8px;
   height: 8vh;
@@ -59,7 +59,6 @@ const Container = styled.div`
 
 const DueDate = styled.div`
   font-family: "Spoqa Han Sans Neo", "sans-serif";
-  margin-bottom: 0.5rem;
   font-size: 11px;
   font-weight: bold;
   color: ${Orange};
@@ -76,10 +75,8 @@ const AssignmentContainer = styled.div`
 const AssignmentName = styled.div`
   font-weight: bold;
   font-size: 14px;
-  margin-bottom: 1rem;
 `;
 
 const AssignmentClass = styled.div`
   font-size: 10px;
-  margin-bottom: 0.1rem;
 `;
