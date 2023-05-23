@@ -2,30 +2,30 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { LoginState } from "../../stores/login-store";
 import { Orange } from "../../assets/color/color";
+import { useEffect, useState } from "react";
+import { getClassApi } from "../../api/studentApi";
 
 const Classes = () => {
   const isLoggedIn = useRecoilValue(LoginState);
+  const [classes, setClasses] = useState([]);
 
-  const data = [
-    {
-      id: "1",
-      name: "오픈소스소프트웨어프로젝트",
-    },
-    { id: "2", name: "컴퓨터공학종합설계1" },
-    { id: "3", name: "일본한자음쉽게이해하기" },
-    { id: "4", name: "컴퓨터네트워킹" },
-    { id: "5", name: "개별연구(CS 감성챗봇 연구)" },
-  ];
+  useEffect(() => {
+    let id = window.localStorage.getItem("AUTH-TOKEN");
+    getClassApi(id).then((res) => {
+      setClasses(res.data);
+    });
+  }, []);
 
+  console.log(classes);
   return (
     <Container>
       <Header>내 강의실</Header>
       <Body>
         {isLoggedIn ? (
           <Lectures>
-            {data &&
-              data.map((lecture, index) => (
-                <LectureContainer key={index}>
+            {classes &&
+              classes.map((lecture) => (
+                <LectureContainer key={lecture.id}>
                   <Lecture>{lecture.name}</Lecture>
                   <Button>강의실 가기</Button>
                 </LectureContainer>

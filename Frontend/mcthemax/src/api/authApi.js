@@ -5,8 +5,7 @@ export const LoginApi = async (data) => {
     `${process.env.REACT_APP_SERVER_URL}/signin`,
     data
   );
-  console.log(response);
-  return response.data;
+  return response;
 };
 
 export const LogoutApi = async (data) => {

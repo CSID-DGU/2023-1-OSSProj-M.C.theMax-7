@@ -6,11 +6,11 @@ import { Droppable } from "react-beautiful-dnd";
 // drop이 가능한 기능 페이지
 
 const Container = styled.div`
-  margin: 0px 3px;
-  background-color: #fcefde;
+  margin: 0px 1vw;
+  background-color: #ffffff;
   border-radius: 10px;
-  width: 300px;
-  height: 475px;
+  width: 15vw;
+  height: 40vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -20,31 +20,31 @@ const Container = styled.div`
 const Title = styled.h3`
   padding: 8px;
   text-align: center;
-  color: white;
+  color: black;
   font-weight: 700;
 `;
 
 const TaskList = styled.div`
   padding: 3px;
   transition: background-color 0.2s ease;
-  background-color: #fcefde;
+  background-color: #ffffff;
   flex-grow: 1;
   min-height: 100px;
 `;
 
-export default function Column({ title, tasks, id }) {
+export default function Column({ title, tasks, id, backgroundColor }) {
   return (
     <Container className="column">
       <Title
         style={{
-          top: 15,
-          backgroundColor: "#fcb35b",
+          // top: 10,
+          backgroundColor: backgroundColor,
           position: "sticky",
         }}
       >
         {title}
       </Title>
-      <Droppable  droppableId={id}>
+      <Droppable droppableId={id}>
         {/* task drop 위치 */}
         {(provided, snapshot) => (
           <TaskList
@@ -55,7 +55,7 @@ export default function Column({ title, tasks, id }) {
             {tasks.map((task, index) => (
               <Task key={index} index={index} task={task} />
             ))}
-            {provided.placeholder} 
+            {provided.placeholder}
             {/* 위 코드를 지우면 에러발생 */}
           </TaskList>
         )}
