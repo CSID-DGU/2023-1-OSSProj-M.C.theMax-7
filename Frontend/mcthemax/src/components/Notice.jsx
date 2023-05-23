@@ -45,6 +45,18 @@ const Notice = () => {
       author: "관리자",
       date: "2023-05-10",
     },
+    {
+      id: "8",
+      title: "2023년 깍쟁이장학 선발 일정",
+      author: "관리자",
+      date: "2023-05-10",
+    },
+    {
+      id: "9",
+      title: "2023년 깍쟁이장학 선발 일정",
+      author: "관리자",
+      date: "2023-05-10",
+    },
   ];
   return (
     <Container>
