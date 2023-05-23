@@ -59,6 +59,9 @@ const NotLogin = () => {
             <Radio value="PROFESSOR" key="professor">
               교수자
             </Radio>
+            <Radio value="STAFF" key="staff">
+              교직원
+            </Radio>
           </RadioGroup>
           {value === "STUDENT" ? (
             <Form

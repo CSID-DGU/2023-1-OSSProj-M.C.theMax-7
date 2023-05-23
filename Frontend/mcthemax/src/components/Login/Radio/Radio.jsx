@@ -21,7 +21,7 @@ const Radio = ({ children, value, name, defaultChecked, disabled }) => {
 };
 
 const Label = styled.label`
-  margin: 0 3vw;
+  margin: 0 1vw;
 `;
 
 const Input = styled.input.attrs({ type: "radio" })`
