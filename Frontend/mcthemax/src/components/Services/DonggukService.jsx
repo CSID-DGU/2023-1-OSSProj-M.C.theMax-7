@@ -7,15 +7,28 @@ import {
   faLaptopMedical,
 } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { LoginState } from "../../stores/login-store";
 
 const DonggukService = () => {
-  // onClick만 하면 됨
+  const navigate = useNavigate();
+  const isLoggedIn = useRecoilValue(LoginState);
+
+  const udrimsHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/udrims");
+    }
+  };
+
   return (
     <Container>
       <Header>Dongguk Service</Header>
       <Body>
         <Grid>
-          <Button>
+          <Button onClick={udrimsHandler}>
             <FontAwesomeIcon icon={faLaptopMedical} size="2x" color={Orange} />
           </Button>
           <Text>학사 정보 시스템</Text>
