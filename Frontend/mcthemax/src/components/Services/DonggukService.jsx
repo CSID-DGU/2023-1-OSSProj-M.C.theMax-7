@@ -7,9 +7,22 @@ import {
   faLaptopMedical,
 } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
+import { useNavigate } from "react-router-dom";
+import {useRecoilValue} from "recoil";
+import {LoginState} from "../../stores/login-store";
 
 const DonggukService = () => {
   // onClick만 하면 됨
+  const navigate = useNavigate();
+  const isLoggedIn = useRecoilValue(LoginState);
+
+  const eclassHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/eclass");
+    }
+  }
   return (
     <Container>
       <Header>Dongguk Service</Header>
@@ -33,7 +46,7 @@ const DonggukService = () => {
           <Text>성적 조회</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={eclassHandler}>
             <FontAwesomeIcon icon={faClipboard} size="2x" color={Orange} />
           </Button>
           <Text>이클래스</Text>
