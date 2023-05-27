@@ -5,8 +5,6 @@ import Login from "../components/Login/Login";
 import NotLogin from "../components/Login/NotLogin";
 import { LoginState } from "../stores/login-store";
 
-// const Login = lazy(() => import("../components/Login/Login"));
-// const NotLogin = lazy(() => import("../components/Login/NotLogin"));
 
 export default function Eclass() {
     const isLoggedIn = useRecoilValue(LoginState);
