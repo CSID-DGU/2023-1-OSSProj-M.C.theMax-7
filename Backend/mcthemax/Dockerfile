@@ -8,6 +8,9 @@ WORKDIR .
 COPY gradlew .
 COPY gradle gradle
 
+# Gradle 권한 부여 
+RUN chmod +x gradlew
+
 # Gradle 의존성 다운로드
 RUN ./gradlew --version
 
@@ -19,9 +22,6 @@ COPY src src
 
 # 소스 코드 복사
 COPY src src
-
-RUN chmod +x gradlew
-
 # 애플리케이션 빌드
 RUN ./gradlew build
 
