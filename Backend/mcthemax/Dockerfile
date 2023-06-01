@@ -20,7 +20,7 @@ COPY src src
 # 소스 코드 복사
 COPY src src
 
-RUN chmod +x ./gradlew
+RUN chmod +x gradlew
 
 # 애플리케이션 빌드
 RUN ./gradlew build
