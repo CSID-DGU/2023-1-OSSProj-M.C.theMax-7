@@ -8,6 +8,10 @@ import { lazy } from "react";
 
 const Header = lazy(() => import("../components/Udrims/Header"));
 const Menu = lazy(() => import("../components/Udrims/Menu"));
+const Authority = lazy(() => import("../components/Udrims/contents/Authority"));
+const Grade = lazy(() => import("../components/Udrims/contents/Grade"));
+const Record = lazy(() => import("../components/Udrims/contents/Record"));
+const Timetable = lazy(() => import("../components/Udrims/contents/Timetable"));
 
 function Udrims() {
   const isLoggedIn = useRecoilValue(LoginState);
@@ -31,6 +35,8 @@ function Udrims() {
       <Container>
         <CategoryContainer>
           <Menu category={category} />
+          {/* 카테고리 상태에 따라 컴포넌트 출력 */}
+          <Authority />
         </CategoryContainer>
       </Container>
     </>
