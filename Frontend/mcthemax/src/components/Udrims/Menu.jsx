@@ -8,6 +8,7 @@ const Menu = ({ category }) => {
   const selectedCategory = CATEGORIES.find(
     (currentCategory) => category === currentCategory.id
   ).subcategories;
+
   const changeColor = (e) => {
     setIsActive(() => {
       return e.target.value;
@@ -45,12 +46,12 @@ const MenuContainer = styled.div`
   flex-direction: column;
   top: 10vh;
   height: 90vh;
-  border-right: 1px solid #a9a9a9;
+  border-right: 1px solid #e6e8e7;
 `;
 
 const M = styled.button`
   background-color: white;
-  border: 1px solid ${DarkGray};
+  border: 1px solid #e6e8e7;
   border-right: none;
   font-size: 16px;
   font-weight: bold;
