@@ -17,7 +17,6 @@ RUN ./gradlew --version
 # 프로젝트 설정 파일 복사
 COPY build.gradle .
 COPY settings.gradle .
-COPY src src
 # COPY gradle.properties .
 
 # 소스 코드 복사

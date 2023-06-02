@@ -1,7 +1,6 @@
 aws:
   secretsmanager:
-    name: mcthemax/rds-secret
-    prefix: /ecs
+    name: /ecs/mcthemax/rds-secret
 
 cloud:
   aws:

@@ -1,6 +1,9 @@
 spring:
-  profiles:
-    active: aws, profile
+  datasource:
+    url : ${RDS_HOSTNAME}
+    username : ${RDS_USERNAME}
+    password : ${RDS_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
@@ -14,3 +17,4 @@ spring:
     properties:
       hibernate.format_sql: true
       hibernate.enable_lazy_load_no_trans: true
+    
