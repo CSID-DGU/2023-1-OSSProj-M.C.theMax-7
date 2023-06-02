@@ -1,8 +1,10 @@
 aws:
   secretsmanager:
-    name: /ecs/mcthemax/rds-secret
-
+    name: mcthemax
 cloud:
   aws:
     region:
       static: ap-northeast-2
+
+
+

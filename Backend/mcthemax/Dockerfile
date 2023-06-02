@@ -34,26 +34,3 @@ COPY --from=builder build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 
 CMD ["java","-jar","app.jar"]
-
-
-# WORKDIR .
-
-# COPY gradlew .
-
-# COPY gradlew build
-
-# COPY build.gradle .
-
-# COPY settings.gradle . 
-
-# COPY src src
-
-# RUN chmod +x ./gradlew
-
-# RUN ./gradlew build
-
-# COPY build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
-
-# EXPOSE 8080
-
-# CMD ["java","-jar","app.jar"]
