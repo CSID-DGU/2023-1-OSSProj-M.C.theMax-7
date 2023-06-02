@@ -1,19 +1,31 @@
 import styled from "styled-components";
 import { DarkGray, Orange } from "../../assets/color/color";
 import { CATEGORIES } from "../../utils/udrims_category";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { CategoryState, SubCategoryState } from "../../stores/category-store";
 
-const Menu = ({ category }) => {
+const Menu = () => {
   const [isActive, setIsActive] = useState("");
+  const category = useRecoilValue(CategoryState);
+  const [subcategory, setSubcategory] = useRecoilState(SubCategoryState);
+
   const selectedCategory = CATEGORIES.find(
     (currentCategory) => category === currentCategory.id
   ).subcategories;
 
   const changeColor = (e) => {
     setIsActive(() => {
+      setSubcategory(Number(e.target.value) + 1);
       return e.target.value;
     });
   };
+
+  useEffect(() => {
+    setIsActive(() => {
+      return 0;
+    });
+  }, [category]);
 
   return (
     <Container>

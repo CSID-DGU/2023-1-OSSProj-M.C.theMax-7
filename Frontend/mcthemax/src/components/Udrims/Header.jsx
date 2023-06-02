@@ -3,10 +3,14 @@ import { MenuLightGray, Orange } from "../../assets/color/color";
 import logo from "../../assets/img/dgu-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { CategoryState, SubCategoryState } from "../../stores/category-store";
 
-const Header = ({ getCategory }) => {
+const Header = () => {
   const [isActive, setIsActive] = useState("");
+  const [category, setCategory] = useRecoilState(CategoryState);
+  const [subcategory, setSubcategory] = useRecoilState(SubCategoryState);
 
   const changeColor = () => {
     setIsActive((prev) => {
@@ -31,7 +35,8 @@ const Header = ({ getCategory }) => {
             className={isActive == 0 ? "active" : ""}
             id="1"
             onClick={() => {
-              getCategory(1);
+              setCategory(1);
+              setSubcategory(1);
               changeColor();
             }}
           >
@@ -41,7 +46,8 @@ const Header = ({ getCategory }) => {
             className={isActive == 1 ? "active" : ""}
             id="2"
             onClick={() => {
-              getCategory(2);
+              setCategory(2);
+              setSubcategory(1);
               changeColor();
             }}
           >

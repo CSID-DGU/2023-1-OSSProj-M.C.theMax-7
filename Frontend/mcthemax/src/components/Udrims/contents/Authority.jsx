@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { DarkGray, Orange, PhantomB } from "../../../assets/color/color";
 import { headers } from "./AuthTable";
+import { useState } from "react";
 
 const Authority = () => {
   const datas = [
@@ -13,6 +14,8 @@ const Authority = () => {
     },
   ];
   const headerKey = headers.map((header) => header.value);
+
+  const [isChecked, setIsChecked] = useState(true);
   return (
     <Container>
       <H2>대표권한변경</H2>
@@ -49,7 +52,11 @@ const Authority = () => {
                   {headerKey.map((key) =>
                     key == "authStatus" ? (
                       <TD key={key + index}>
-                        <input type="checkbox" checked></input>
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => setIsChecked(!isChecked)}
+                        ></input>
                       </TD>
                     ) : (
                       <TD key={key + index}>{data[key]}</TD>
