@@ -1,43 +1,113 @@
+import React, {lazy, useState} from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import dummy from "../../db/ClassDB.json"
+import dummy from "../../db/ClassDB.json";
+import dum from "../../db/MAIN_DATA.json"
+// import { Link } from "react-router-dom";
 
-const EclassHome = (option) => {
-    const options = [
-        {value: "ossp", name: "오픈소스프로젝트", professor: "김동호" },
-        {value: "comnetwork", name: "컴퓨터네트워킹", professor: "안종석"},
-        {value: "analysis", name: "해석개론", professor: "안재욱"},
-        {value: "comthinking", name: "계산적 사고법", professor: "손윤식"}
-    ];
+const Assignment = lazy(() => import("./features/Assignment"));
+const Attendance = lazy(() => import("./features/Attendance"));
+const Notification = lazy(() => import("./features/Notification"));
+const Score = lazy(() => import("./features/Score"));
+const Classprof = lazy(() => import("./class_prof"));
 
+const EclassHome = () => {
+    
+    const [content, setContent] = useState();
+    const [classes, setClasses] = useState("origin");
     const handleChange = (e) => {
         console.log(e.target.value);
+        setClasses(e.target.value);
     };
+    const handleClickButton = e => {
+        const {name} = e.target;
+        setContent(name);
+    };
+    const selectComponent = {
+        first: <Assignment name={classes} />,
+        second: <Notification name={classes} />,
+        third: <Attendance name={classes} />,
+        fourth: <Score name={classes} />
+    }
 
     return(
-        <div>
-            <Select className="eclass_name" onChange={handleChange}>
-                <option value="disabled selected" > 강의실을 선택하세요</option>
-                {option && options.map((option) => (
+        <div>          
+            <Select className="eclass_name"  onChange={handleChange} value={classes}>
+                <option value="origin" > 강의실을 선택하세요</option>
+                {dummy.classes.map((option) => (
                     <option
-                        key={option.value}
-                        value={option.value}
-                        defaultValue={PaymentResponse.defaultValue === option.value}
+                        key={option.id}
+                        value={option.name}
+                        // 새로고침 후 reset 안하게끔 하려면
+                        // defaultValue={option.defaultValue === option.value}
                     >
                         {option.name}
                     </option>
                 ))}
             </Select>
-            
+            <Header> {classes} | <Classprof name={classes}/> </Header>
+            <Container>
+                {dum.MAIN_DATA.map(data => {
+                    return(
+                        <Button onClick={handleClickButton} name={data.name} key={data.id}>
+                            {data.text}
+                        </Button>
+                    );
+                })}
+            </Container>
+            {content && <Content>{selectComponent[content]}</Content>}
         </div>
     );
 };
 
 const Select = styled.select`
-    display: block;
-    margin: 1rem;
-    width: 20vw;
-    height: 5vh;
+  display: block;
+  margin: 1rem;
+  width: 17vw;
+  height: 5vh;
+  border-radius: 1rem;
 `;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 1rem;
+  width: 20vw;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 0.5rem;
+
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+  height: 7vh;
+  width: 30vw;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0rem 2.5rem;
+  width: 67vw;
+  height: 60vh;
+  border: 1px solid black;
+`;
+const Button = styled.button`
+
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  color: #111111;
+  background-color: #eeeeee;
+  border-radius: 2rem;
+`;
+
 
 export default EclassHome;

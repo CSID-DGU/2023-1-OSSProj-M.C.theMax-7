@@ -1,0 +1,8 @@
+{
+    "MAIN_DATA" : [
+        {"id": 1, "name": "first", "text": "과제"},
+        {"id": 2, "name": "second", "text": "공지사항"},
+        {"id": 3, "name": "third", "text": "출석부"},
+        {"id": 4, "name": "fourth", "text": "성적"}
+    ] 
+}
