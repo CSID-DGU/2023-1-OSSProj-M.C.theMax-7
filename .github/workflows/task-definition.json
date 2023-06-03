@@ -1,0 +1,100 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381892238049:task-definition/mcthemax-task-def:2",
+    "containerDefinitions": [
+        {
+            "name": "mcthemax-con",
+            "image": "381892238049.dkr.ecr.ap-northeast-2.amazonaws.com/mcthemax:2ac68b9ea0cb88a8aa1d7d429361c6ee3244422e",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "mcthemax-con-8080-tcp",
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "RDS_USERNAME",
+                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_USERNAME::"
+                },
+                {
+                    "name": "RDS_HOSTNAME",
+                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_HOSTNAME::"
+                },
+                {
+                    "name": "RDS_PASSWORD",
+                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_PASSWORD::"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/mcthemax-task-def",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "mcthemax-task-def",
+    "taskRoleArn": "arn:aws:iam::381892238049:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::381892238049:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-06-03T10:51:29.086Z",
+    "registeredBy": "arn:aws:iam::381892238049:root",
+    "tags": []
+}
