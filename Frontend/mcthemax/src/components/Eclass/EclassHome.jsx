@@ -19,7 +19,7 @@ const EclassHome = () => {
         console.log(e.target.value);
         setClasses(e.target.value);
     };
-    const handleClickButton = e => {
+    const handleClickButton = (e) => {
         const {name} = e.target;
         setContent(name);
     };
@@ -87,7 +87,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin: 1rem;
-  height: 7vh;
+  height: 6vh;
   width: 30vw;
 `;
 
@@ -101,12 +101,14 @@ const Content = styled.div`
   border: 1px solid black;
 `;
 const Button = styled.button`
-
-  padding: 1rem 2rem;
-  margin-right: 1rem;
-  color: #111111;
-  background-color: #eeeeee;
-  border-radius: 2rem;
+  width: 90px;
+  margin-left: 0.35rem;
+  color: #FBF8EF;
+  background-color: #FAAC58;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #FF8000;
 `;
 
 
