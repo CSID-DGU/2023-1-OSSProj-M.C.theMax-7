@@ -1,50 +1,113 @@
-name: Frontend S3 deploy
+# name: Frontend S3 deploy
+
+# on:
+#   push:
+#     branches: [ "feature/#23" ]
+#   # pull_request:
+#   #   branches: [ "main" ]
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
+
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#         cache: 'npm'
+#         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
+#     - name: Generate Environment Varable
+#       run: 
+#         echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
+#     - name: npm install
+#       run: 
+#         cd Frontend/mcthemax && npm install
+#       env : 
+#           CI : false
+#     - name: npm run build 
+#       run : 
+#         cd Frontend/mcthemax && npm run build 
+#       env : 
+#         CI : false
+#       # CI/CD 배포 환경 분할 시에는 waring 문제도 해결 해야 함. (임시방편)
+
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: ap-northeast-2
+
+#     - name: Deploy AWS S3
+#       run: 
+#         aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
+
+
+name: Deploy to Amazon ECS
 
 on:
   push:
     branches: [ "feature/#23" ]
-  # pull_request:
-  #   branches: [ "main" ]
+
+env:
+  AWS_REGION: ap-northeast-2
+  ECR_REPOSITORY: mcthemax-front         
+  # ECS_SERVICE: mcthemax-svc
+  # ECS_CLUSTER: mcthemaxCluster
+  # CONTAINER_NAME: mcthemax-con 
+  # ECS_TASK_DEFINITION: .github/workflows/task-definition.json
+permissions:
+  contents: read
 
 jobs:
-  build:
-
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
+    environment: production
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: './Frontend/mcthemax/package-lock.json'
-    - name: Generate Environment Varable
-      run: 
-        echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
-    - name: npm install
-      run: 
-        cd Frontend/mcthemax && npm install
-      env : 
-          CI : false
-    - name: npm run build 
-      run : 
-        cd Frontend/mcthemax && npm run build 
-      env : 
-        CI : false
-      # CI/CD 배포 환경 분할 시에는 waring 문제도 해결 해야 함. (임시방편)
+    - name: Checkout
+      uses: actions/checkout@v3
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-northeast-2
+        aws-region: ${{ env.AWS_REGION }}
 
-    - name: Deploy AWS S3
-      run: 
-        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG Frontend/mcthemax/
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+    # - name: Fill in the new image ID in the Amazon ECS task definition
+    #   id: task-def
+    #   uses: aws-actions/amazon-ecs-render-task-definition@v1
+    #   with:
+    #     task-definition: ${{ env.ECS_TASK_DEFINITION }}
+    #     container-name: ${{ env.CONTAINER_NAME }}
+    #     image: ${{ steps.build-image.outputs.image }}
+
+    # - name: Deploy Amazon ECS task definition
+    #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+    #   with:
+    #     task-definition: ${{ steps.task-def.outputs.task-definition }}
+    #     service: ${{ env.ECS_SERVICE }}
+    #     cluster: ${{ env.ECS_CLUSTER }}
+    #     wait-for-service-stability: true

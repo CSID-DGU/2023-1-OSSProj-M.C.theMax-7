@@ -7,9 +7,9 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: mcthemax           
-  ECS_SERVICE: mcthemax-svc
-  ECS_CLUSTER: mcthemaxCluster
-  CONTAINER_NAME: mcthemax-con 
+  ECS_SERVICE: mcthemax-server-service
+  ECS_CLUSTER: MctheMaxCluster
+  CONTAINER_NAME: mcthemax-con-back
   ECS_TASK_DEFINITION: .github/workflows/task-definition.json
 permissions:
   contents: read
