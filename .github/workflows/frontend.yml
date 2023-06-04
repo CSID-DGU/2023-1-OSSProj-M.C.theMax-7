@@ -7,7 +7,7 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: mcthemax-front         
-  ECS_SERVICE: mcthemax-front-svc
+  ECS_SERVICE: mcthemax-front-service
   ECS_CLUSTER: MctheMaxCluster
   CONTAINER_NAME: mcthemax-con-front
   ECS_TASK_DEFINITION: .github/workflows/front-task-definition.json
