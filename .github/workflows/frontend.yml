@@ -30,7 +30,7 @@ jobs:
           CI : false
     - name: npm run build 
       run : 
-        cd Frontend/mcthemax && npm build 
+        cd Frontend/mcthemax && npm run build 
       env : 
         CI : false
       # CI/CD 배포 환경 분할 시에는 waring 문제도 해결 해야 함. (임시방편)
