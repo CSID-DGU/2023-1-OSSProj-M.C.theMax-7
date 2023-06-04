@@ -25,14 +25,12 @@ jobs:
         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
     - name: npm install
       run: 
-        cd Frontend/mcthemax
-        npm install 
+        cd Frontend/mcthemax && npm install
       env : 
           CI : false
     - name: npm run build 
       run : 
-        cd Frontend/mcthemax
-        npm build
+        cd Frontend/mcthemax && npm build 
       env : 
         CI : false
       # CI/CD 배포 환경 분할 시에는 waring 문제도 해결 해야 함. (임시방편)
