@@ -24,7 +24,8 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
     - name: Generate Environment Varable
-    echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
+      run: 
+        echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
     - name: npm install
       run: 
         cd Frontend/mcthemax && npm install
