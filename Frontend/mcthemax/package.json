@@ -24,8 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "PORT=3000 REACT_APP_ENDPOINT=https://mcthemax.click:3000 react-scripts start",
+    "build": "REACT_APP_ENDPOINT=https://mcthemax.click:3000 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
