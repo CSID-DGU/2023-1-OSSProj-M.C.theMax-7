@@ -14,7 +14,7 @@ const Classprof = lazy(() => import("./class_prof"));
 const EclassHome = () => {
     
     const [content, setContent] = useState();
-    const [classes, setClasses] = useState("origin");
+    const [classes, setClasses] = useState("강의실을 선택하세요");
     const handleChange = (e) => {
         console.log(e.target.value);
         setClasses(e.target.value);
@@ -33,7 +33,7 @@ const EclassHome = () => {
     return(
         <div>          
             <Select className="eclass_name"  onChange={handleChange} value={classes}>
-                <option value="origin" > 강의실을 선택하세요</option>
+                <option value="강의실을 선택하세요" > 강의실을 선택하세요</option>
                 {dummy.classes.map((option) => (
                     <option
                         key={option.id}
@@ -45,7 +45,7 @@ const EclassHome = () => {
                     </option>
                 ))}
             </Select>
-            <Header> {classes} | <Classprof name={classes}/> </Header>
+            <Header>  {classes} <Classprof name={classes}/>  </Header>
             <Container>
                 {dum.MAIN_DATA.map(data => {
                     return(
