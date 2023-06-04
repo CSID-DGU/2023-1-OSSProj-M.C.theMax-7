@@ -23,18 +23,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
-    
-    - name : set up path
-      run : 
-        cd Frontend/mcthemax
-    
     - name: npm install
       run: 
+        cd Frontend/mcthemax
         npm install 
       env : 
           CI : false
     - name: npm run build 
       run : 
+        cd Frontend/mcthemax
         npm build
       env : 
         CI : false
