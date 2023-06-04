@@ -10,9 +10,7 @@ COPY . .
 
 RUN npm run build
 
-# EXPOSE 3000
-
-# CMD "npm" "run" "start"
+ENV REACT_APP_SERVER_URL=http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com
 
 FROM nginx:1.19-alpine
 
