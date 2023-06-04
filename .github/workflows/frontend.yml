@@ -23,6 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
+    - name: Generate Environment Varable
+    echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
     - name: npm install
       run: 
         cd Frontend/mcthemax && npm install
@@ -44,4 +46,4 @@ jobs:
 
     - name: Deploy AWS S3
       run: 
-        aws s3 sync ./build s3://mcthemax-frontend
+        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
