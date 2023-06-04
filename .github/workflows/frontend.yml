@@ -1,56 +1,4 @@
-# name: Frontend S3 deploy
-
-# on:
-#   push:
-#     branches: [ "feature/#23" ]
-#   # pull_request:
-#   #   branches: [ "main" ]
-
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [16.x]
-
-#     steps:
-#     - uses: actions/checkout@v3
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#         cache: 'npm'
-#         cache-dependency-path: './Frontend/mcthemax/package-lock.json'
-#     - name: Generate Environment Varable
-#       run: 
-#         echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> Frontend/mcthemax/.env
-#     - name: npm install
-#       run: 
-#         cd Frontend/mcthemax && npm install
-#       env : 
-#           CI : false
-#     - name: npm run build 
-#       run : 
-#         cd Frontend/mcthemax && npm run build 
-#       env : 
-#         CI : false
-#       # CI/CD 배포 환경 분할 시에는 waring 문제도 해결 해야 함. (임시방편)
-
-#     - name: Configure AWS credentials
-#       uses: aws-actions/configure-aws-credentials@v1
-#       with:
-#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#         aws-region: ap-northeast-2
-
-#     - name: Deploy AWS S3
-#       run: 
-#         aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
-
-
-name: Deploy to Amazon ECS
+name: Frontend S3 deploy
 
 on:
   push:
@@ -59,10 +7,10 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: mcthemax-front         
-  # ECS_SERVICE: mcthemax-svc
-  # ECS_CLUSTER: mcthemaxCluster
-  # CONTAINER_NAME: mcthemax-con 
-  # ECS_TASK_DEFINITION: .github/workflows/task-definition.json
+  ECS_SERVICE: mcthemax-front-svc
+  ECS_CLUSTER: MctheMaxCluster
+  CONTAINER_NAME: mcthemax-con-front
+  ECS_TASK_DEFINITION: .github/workflows/front-task-definition.json
 permissions:
   contents: read
 

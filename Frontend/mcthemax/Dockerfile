@@ -2,6 +2,10 @@ FROM node:16-alpine as builder
 
 WORKDIR .
 
+ARG REACT_APP_SERVER_URL
+
+ENV REACT_APP_SERVER_URL=http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com:8080
+
 COPY package*.json ./
 
 RUN npm install
@@ -9,8 +13,6 @@ RUN npm install
 COPY . .
 
 RUN npm run build
-
-ENV REACT_APP_SERVER_URL=http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com
 
 FROM nginx:1.19-alpine
 

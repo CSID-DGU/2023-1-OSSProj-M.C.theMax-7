@@ -1,4 +1,4 @@
-name: Deploy to Amazon ECS
+name: Backend S3 deploy
 
 on:
   push:
@@ -10,7 +10,7 @@ env:
   ECS_SERVICE: mcthemax-server-service
   ECS_CLUSTER: MctheMaxCluster
   CONTAINER_NAME: mcthemax-con-back
-  ECS_TASK_DEFINITION: .github/workflows/task-definition.json
+  ECS_TASK_DEFINITION: .github/workflows/back-task-definition.json
 permissions:
   contents: read
 

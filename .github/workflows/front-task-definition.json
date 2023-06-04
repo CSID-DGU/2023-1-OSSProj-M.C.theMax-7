@@ -1,34 +1,21 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381892238049:task-definition/mcthemax-task-def:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381892238049:task-definition/mcthemax-front-task:3",
     "containerDefinitions": [
         {
-            "name": "mcthemax-con",
-            "image": "381892238049.dkr.ecr.ap-northeast-2.amazonaws.com/mcthemax:2ac68b9ea0cb88a8aa1d7d429361c6ee3244422e",
+            "name": "mcthemax-con-front",
+            "image": "381892238049.dkr.ecr.ap-northeast-2.amazonaws.com/mcthemax-front:52ad8243aacd8d0c3fe66b2131cb48b89e9d921b",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "mcthemax-con-8080-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
+                    "name": "mcthemax-con-front-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
             ],
             "essential": true,
-            "environment": [
-                {
-                    "name": "RDS_USERNAME",
-                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_USERNAME::"
-                },
-                {
-                    "name": "RDS_HOSTNAME",
-                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_HOSTNAME::"
-                },
-                {
-                    "name": "RDS_PASSWORD",
-                    "value": "arn:aws:secretsmanager:ap-northeast-2:381892238049:secret:/secret/mcthemax-OFzUnw:RDS_PASSWORD::"
-                }
-            ],
+            "environment": [],
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
@@ -37,18 +24,18 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/mcthemax-task-def",
+                    "awslogs-group": "/ecs/mcthemax-front-task",
                     "awslogs-region": "ap-northeast-2",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
         }
     ],
-    "family": "mcthemax-task-def",
+    "family": "mcthemax-front-task",
     "taskRoleArn": "arn:aws:iam::381892238049:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::381892238049:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -94,7 +81,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-06-03T10:51:29.086Z",
+    "registeredAt": "2023-06-04T19:17:03.353Z",
     "registeredBy": "arn:aws:iam::381892238049:root",
     "tags": []
 }
