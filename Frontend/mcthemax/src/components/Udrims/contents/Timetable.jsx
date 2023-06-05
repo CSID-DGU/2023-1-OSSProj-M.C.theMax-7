@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import { Orange } from "../../../assets/color/color";
 
 const Timetable = () => {
-  return <Container>개인 강의 시간표 조회</Container>;
+  return (
+    <Container>
+      <H2>개인 강의 시간표 조회</H2>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -15,6 +20,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
+`;
+
+const H2 = styled.h2`
+  align-self: flex-start;
+  margin-left: 2.5vw;
+  color: ${Orange};
 `;
 
 export default Timetable;

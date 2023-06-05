@@ -15,8 +15,8 @@ export const AppNexus = () => {
   const subcategory = useRecoilValue(SubCategoryState);
 
   if (category === 1) return <Authority />;
-  if (category == 2 && subcategory == 1) return <Record />;
-  if (category == 2 && subcategory == 2) return <Timetable />;
-  if (category == 2 && subcategory == 3) return <Grade />;
+  if (category === 2 && subcategory === 1) return <Record />;
+  if (category === 2 && subcategory === 2) return <Timetable />;
+  if (category === 2 && subcategory === 3) return <Grade />;
   return <></>;
 };

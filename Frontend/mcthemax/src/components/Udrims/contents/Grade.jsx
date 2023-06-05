@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import { Orange } from "../../../assets/color/color";
 
 const Grade = () => {
-  return <Container>금학기 성적 관리</Container>;
+  return (
+    <Container>
+      <H2>금학기 성적 관리</H2>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -15,6 +20,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
+`;
+
+const H2 = styled.h2`
+  align-self: flex-start;
+  margin-left: 2.5vw;
+  color: ${Orange};
 `;
 
 export default Grade;
