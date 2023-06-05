@@ -6,11 +6,13 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { CategoryState, SubCategoryState } from "../../stores/category-store";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setIsActive] = useState("");
   const [category, setCategory] = useRecoilState(CategoryState);
   const [subcategory, setSubcategory] = useRecoilState(SubCategoryState);
+  const navigate = useNavigate();
 
   const changeColor = () => {
     setIsActive((prev) => {
@@ -18,9 +20,13 @@ const Header = () => {
     });
   };
 
+  const imgHandler = () => {
+    navigate("/");
+  };
+
   return (
     <Container>
-      <Img src={logo} alt="dgu-logo" />
+      <Img src={logo} alt="dgu-logo" onClick={imgHandler} />
       <SubHeader>
         <UserBar>
           <Button>Password</Button>
@@ -78,6 +84,7 @@ const Img = styled.img`
   width: 145px;
   height: 51px;
   margin: 15px;
+  cursor: pointer;
 `;
 
 const SubHeader = styled.div`
