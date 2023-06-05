@@ -4,7 +4,7 @@ WORKDIR .
 
 ARG REACT_APP_SERVER_URL
 
-ENV REACT_APP_SERVER_URL=https://mcthemax.click
+ENV REACT_APP_SERVER_URL=http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com
 
 COPY package*.json ./
 
