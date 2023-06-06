@@ -13,6 +13,8 @@ const Menu = lazy(() => import("../components/Udrims/Menu"));
 
 function Udrims() {
   const isLoggedIn = useRecoilValue(LoginState);
+  const [category, setCategory] = useRecoilState(CategoryState);
+  const [subcategory, setSubcategory] = useRecoilState(SubCategoryState);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +22,8 @@ function Udrims() {
       alert("로그인 후 이용해주세요.");
       navigate("/");
     }
+    setCategory(1);
+    setSubcategory(1);
   }, []);
 
   return (
