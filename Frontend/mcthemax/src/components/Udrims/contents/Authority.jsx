@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { DarkGray, Orange, PhantomB } from "../../../assets/color/color";
-import { headers } from "./AuthTable";
+import { headers } from "../../../utils/AuthTable";
 import { useState } from "react";
 
 const Authority = () => {
