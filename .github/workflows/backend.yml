@@ -6,8 +6,8 @@ on:
       - feature/#23
 env:
   S3_BUCKET_NAME: mcthemax-backend-ec2 
-  CODE_DEPLOY_APPLICATION_NAME: mcthemax-backed-ec2 //CodeDeploy생성시 어플리케이션명
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mcthemax-codedeploy-group //CodeDeploy를 생성후 어플리케이션 내부의 배포그룹명
+  CODE_DEPLOY_APPLICATION_NAME: mcthemax-backed-ec2
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mcthemax-codedeploy-group 
 
 permissions:
   contents: read
