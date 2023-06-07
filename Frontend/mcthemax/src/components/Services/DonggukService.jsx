@@ -23,6 +23,14 @@ const DonggukService = () => {
     }
   };
 
+  const certpiaHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/certpia");
+    }
+  };
+
   return (
     <Container>
       <Header>Dongguk Service</Header>
@@ -40,7 +48,7 @@ const DonggukService = () => {
           <Text>수강 신청</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={certpiaHandler}>
             <FontAwesomeIcon icon={faChartColumn} size="2x" color={Orange} />
           </Button>
           <Text>성적 조회</Text>
