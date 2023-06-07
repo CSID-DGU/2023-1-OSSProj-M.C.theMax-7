@@ -1,14 +1,10 @@
 name: Frontend S3 deploy
-
-# master branch에 push가 발생했을 경우 아래 수행 
 on:
   push:
     branches:
       - feature/#23   
-
 jobs:
   build:
-		# 실행할 os는 ubuntu:latest로 설정 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
