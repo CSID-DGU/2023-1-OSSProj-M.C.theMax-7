@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home"));
 const Udrims = lazy(() => import("./pages/Udrims"));
-const Certpia = lazy(() => import("./components/Certpia"));
+const Certpia = lazy(() => import("./components/Certpia/Certpia"));
 
 function App() {
   return (

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Orange } from "../assets/color/color";
-import { CHEADERS } from "../utils/CertpiaUtils";
-import logo from "../assets/img/dgu-black-logo.png";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Orange } from "../../assets/color/color";
+import { CHEADERS } from "../../utils/CertpiaUtils";
+import logo from "../../assets/img/dgu-black-logo.png";
+import { useEffect, useState, useRef } from "react";
 import moment from "moment";
+import makePdf from "./make_pdf";
 
 const Certpia = () => {
   const datas = [
@@ -53,17 +53,22 @@ const Certpia = () => {
   ];
 
   const headerKey = CHEADERS.map((header) => header.value);
+
   const onClick = async (e) => {
     e.preventDefault();
+    await makePdf.viewWithPdf();
   };
+
   const [nowDate, setNowDate] = useState();
+
   useEffect(() => {
     setNowDate(moment(new Date()).format("YYYY-MM-DD hh:mm:ss"));
   }, []);
 
+  const ref = useRef();
   return (
     <Container>
-      <Paper>
+      <Paper ref={ref}>
         <Content>
           <Title>2023학년도 1학기 성적증명서</Title>
           <UserInfo>
