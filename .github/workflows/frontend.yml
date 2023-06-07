@@ -19,8 +19,6 @@ jobs:
           npm run build
         env:
           CI: false
-					# 빌드 작업 시 기본적은 warning 로그는 모두 error로 취급
-					# CI를 false로 지정할 시 warning 무시가 가능
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
