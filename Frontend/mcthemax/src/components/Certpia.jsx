@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { Orange } from "../assets/color/color";
 import { CHEADERS } from "../utils/CertpiaUtils";
+import logo from "../assets/img/dgu-black-logo.png";
+import { useEffect } from "react";
+import { useState } from "react";
+import moment from "moment";
 
 const Certpia = () => {
   const datas = [
@@ -52,6 +56,11 @@ const Certpia = () => {
   const onClick = async (e) => {
     e.preventDefault();
   };
+  const [nowDate, setNowDate] = useState();
+  useEffect(() => {
+    setNowDate(moment(new Date()).format("YYYY-MM-DD hh:mm:ss"));
+  }, []);
+
   return (
     <Container>
       <Paper>
@@ -105,7 +114,11 @@ const Certpia = () => {
             </Table>
           </TableContainer>
         </Content>
-        <Footer>zz</Footer>
+        <Footer>
+          <Img src={logo} />
+          <Print>출력자: 정*호(201811****)</Print>
+          <Print>출력일: {nowDate} </Print>
+        </Footer>
       </Paper>
       <Button onClick={onClick}>PDF로 보기</Button>
     </Container>
@@ -158,7 +171,7 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 18px;
+  font-size: 18pt;
   font-weight: bold;
   margin-top: 10px;
   text-decoration: underline;
@@ -237,10 +250,20 @@ const TD = styled.td`
 
 const Footer = styled.div`
   display: flex;
-  justify-content: space-around;
   align-items: center;
   margin-top: 120px;
   border-top: 1px solid black;
+  justify-content: space-between;
+`;
+
+const Img = styled.img`
+  width: 90px;
+  margin: 0 10px;
+`;
+
+const Print = styled.div`
+  font-size: 6pt;
+  margin: 0 5px;
 `;
 
 export default Certpia;
