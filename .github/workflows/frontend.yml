@@ -1,61 +1,38 @@
 name: Frontend S3 deploy
 
+# master branch에 push가 발생했을 경우 아래 수행 
 on:
   push:
-    branches: [ "feature/#23" ]
-
-env:
-  AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: mcthemax-front         
-  ECS_SERVICE: mcthemax-front-service
-  ECS_CLUSTER: MctheMaxCluster
-  CONTAINER_NAME: mcthemax-con-front
-  ECS_TASK_DEFINITION: .github/workflows/front-task-definition.json
-permissions:
-  contents: read
+    branches:
+      - feature/#23   
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+		# 실행할 os는 ubuntu:latest로 설정 
     runs-on: ubuntu-latest
-    environment: production
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v3
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - name: npm install
+        run:
+          npm install
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      - name: npm build
+        run: 
+          npm run build
+        env:
+          CI: false
+					# 빌드 작업 시 기본적은 warning 로그는 모두 error로 취급
+					# CI를 false로 지정할 시 warning 무시가 가능
 
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG Frontend/mcthemax/
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
 
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
-
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
+      - name: Deploy AWS S3
+        run: 
+          aws s3 sync --delete --region ap-northeast-2 Frontend/mcthemax/build s3:::mcthemax-frontend

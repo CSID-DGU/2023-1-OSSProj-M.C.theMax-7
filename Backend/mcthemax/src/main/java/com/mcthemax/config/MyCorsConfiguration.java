@@ -14,7 +14,7 @@ public class MyCorsConfiguration {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com","https://mcthemax.click")
+                        .allowedOrigins("http://mcthemax-server-alb-130935858.ap-northeast-2.elb.amazonaws.com","https://mcthemax.click","http://localhost:3000")
                         .allowedMethods("GET", "POST")
                         .allowCredentials(true)
                         .maxAge(3600);
