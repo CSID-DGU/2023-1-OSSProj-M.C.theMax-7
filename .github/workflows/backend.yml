@@ -1,16 +1,14 @@
-name: Backend S3 deploy
+name: Deploy to Amazon EC2
 
 on:
   push:
-    branches: [ "feature/#23" ]
-
+    branches:
+      - feature/#23
 env:
-  AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: mcthemax           
-  ECS_SERVICE: mcthemax-server-service
-  ECS_CLUSTER: MctheMaxCluster
-  CONTAINER_NAME: mcthemax-con-back
-  ECS_TASK_DEFINITION: .github/workflows/back-task-definition.json
+  S3_BUCKET_NAME: mcthemax-backend-ec2 //S3의 버킷명
+  CODE_DEPLOY_APPLICATION_NAME: mcthemax-backed-ec2 //CodeDeploy생성시 어플리케이션명
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mcthemax-codedeploy-group //CodeDeploy를 생성후 어플리케이션 내부의 배포그룹명
+
 permissions:
   contents: read
 
@@ -19,43 +17,41 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - name: Set up JDK 11 //프로젝트 JDK에 맞는 버전 설정 (build.gradle 참고)
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11' //프로젝트 JDK에 맞는 버전 설정 (build.gradle 참고)
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG Backend/mcthemax/
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+      - name: Build with Gradle
+        run: ./gradlew clean build
 
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} //IAM의 ACCESS KEY ID를 GITHUB SECRET KEY로 설정
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} //GITHUB SECRET KEY로 설정
+          aws-region: ${{ secrets.AWS_REGION }} //GITHUB SECRET KEY중 AWS_REGION의 값을 ap-northeast-2로 설정
 
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
+      - name: Upload to AWS S3
+        run: |
+          aws deploy push \
+            --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+            --ignore-hidden-files \
+            --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
+            --source .
+
+      - name: Deploy to AWS EC2 from S3
+        run: |
+          aws deploy create-deployment \
+            --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+            --deployment-config-name CodeDeployDefault.AllAtOnce \
+            --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+            --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
