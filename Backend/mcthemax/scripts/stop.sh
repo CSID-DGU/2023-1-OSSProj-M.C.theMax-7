@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-PROJECT_ROOT="/home/ubuntu/app"
-JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
+PROJECT_ROOT="/home/ubuntu/build/mcthemax"
+JAR_FILE="$PROJECT_ROOT/mcthemax.jar"
 
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
 
