@@ -33,7 +33,7 @@ jobs:
 
       - name: Build with Gradle
         run: 
-          cd Backend/mcthemax && ./gradlew clean build
+          cd Backend/mcthemax && ./gradlew bootJar
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -48,7 +48,7 @@ jobs:
             --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
             --ignore-hidden-files \
             --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
-            --source .
+            --source Backend/mcthemax/
 
       - name: Deploy to AWS EC2 from S3
         run: |
