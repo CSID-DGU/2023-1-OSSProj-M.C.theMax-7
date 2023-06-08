@@ -7,7 +7,7 @@ on:
 env:
   S3_BUCKET_NAME: mcthemax-backend-ec2 
   CODE_DEPLOY_APPLICATION_NAME: mcthemax-backed-ec2
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mcthemax-codedeploy-group 
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mmax-group
 
 permissions:
   contents: read
