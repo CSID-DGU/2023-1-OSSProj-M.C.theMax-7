@@ -2,7 +2,9 @@ name: Deploy to Amazon EC2
 
 on:
   push:
-    branches: [ "feature/#23" ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 env:
   S3_BUCKET_NAME: mcthemax-backend-ec2 
   CODE_DEPLOY_APPLICATION_NAME: m-test

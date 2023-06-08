@@ -2,9 +2,9 @@ name: Frontend S3 deploy
 
 on:
   push:
-    branches: [ "feature/#23" ]
-  # pull_request:
-  #   branches: [ "main" ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
