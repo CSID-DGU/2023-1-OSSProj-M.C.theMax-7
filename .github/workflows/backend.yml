@@ -6,8 +6,8 @@ on:
       - feature/#23
 env:
   S3_BUCKET_NAME: mcthemax-backend-ec2 
-  CODE_DEPLOY_APPLICATION_NAME: mcthemax-app
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: mcthemax-group
+  CODE_DEPLOY_APPLICATION_NAME: m-test
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: m-test-group
 
 permissions:
   contents: read
