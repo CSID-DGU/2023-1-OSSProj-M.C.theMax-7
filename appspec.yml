@@ -2,22 +2,23 @@ version: 0.0
 os: linux
 
 files:
-  - source:  /Backend/mcthemax/
-    destination: /home/ubuntu/build
+  - source:  Backend/mcthemax
+    destination: /home/ubuntu/mcthemax/build
     overwrite: yes
 
 permissions:
-  - object: /
+  - object: /home/ubuntu/build/mcthemax
     pattern: "**"
     owner: ubuntu
     group: ubuntu
+    mode: 755
 
 hooks:
-  AfterInstall:
-    - location: /Backend/mcthemax/scripts/stop.sh
+  BeforeInstall:
+    - location: Backend/mcthemax/scripts/stop.sh
       timeout: 60
       runas: ubuntu
-  ApplicationStart:
-    - location: /Backend/mcthemax/scripts/start.sh
+  AfterInstall:
+    - location: Backend/mcthemax/scripts/start.sh
       timeout: 60
       runas: ubuntu
