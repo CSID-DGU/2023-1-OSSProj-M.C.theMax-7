@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source:  Backend/mcthemax
-    destination: /home/ubuntu/mcthemax/build
+    destination: /home/ubuntu/build
     overwrite: yes
 
 permissions:
