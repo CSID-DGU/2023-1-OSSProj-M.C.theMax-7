@@ -16,7 +16,10 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
 
-        config.addAllowedOrigin("http://localhost:8080","https://mcthemax.click","https://www.mcthemax.click","http://localhost:3000");
+        config.addAllowedOrigin("http://localhost:8080");
+        config.addAllowedOrigin("https://mcthemax.click");
+        config.addAllowedOrigin("https://www.mcthemax.click");
+        config.addAllowedOrigin("http://localhost:3000");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
