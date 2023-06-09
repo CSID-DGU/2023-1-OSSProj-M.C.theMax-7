@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { Orange } from "../../assets/color/color";
 import { CHEADERS } from "../../utils/CertpiaUtils";
 import logo from "../../assets/img/dgu-black-logo.png";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import "./Certpia.css";
 import moment from "moment";
 import makePdf from "./make_pdf";
+import { QRCodeSVG } from "qrcode.react";
 
 const Certpia = () => {
   const datas = [
@@ -65,11 +67,13 @@ const Certpia = () => {
     setNowDate(moment(new Date()).format("YYYY-MM-DD hh:mm:ss"));
   }, []);
 
-  const ref = useRef();
   return (
-    <Container>
-      <Paper ref={ref}>
+    <div className="div_container">
+      <div className="div_paper">
         <Content>
+          <QRContainer>
+            <QRCodeSVG value="www.naver.com" size="32" />
+          </QRContainer>
           <Title>2023학년도 1학기 성적증명서</Title>
           <UserInfo>
             <UserContainer>
@@ -124,31 +128,11 @@ const Certpia = () => {
           <Print>출력자: 정*호(201811****)</Print>
           <Print>출력일: {nowDate} </Print>
         </Footer>
-      </Paper>
+      </div>
       <Button onClick={onClick}>PDF로 보기</Button>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 150vh;
-  width: 100%;
-  background-color: grey;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
-`;
-
-const Paper = styled.div`
-  height: 842px;
-  width: 595px;
-  margin: 30px;
-  margin-top: 0;
-  background-color: white;
-  text-align: center;
-`;
 
 const Button = styled.button`
   position: fixed;
@@ -182,11 +166,15 @@ const Title = styled.div`
   text-decoration: underline;
 `;
 
+const QRContainer = styled.div`
+  margin-left: 500px;
+`;
+
 const UserInfo = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 50px;
-  width: 535px;
+  width: 500px;
 `;
 
 const UserContainer = styled.div`
@@ -221,7 +209,7 @@ const SubTitle = styled.div`
 `;
 
 const Info = styled.div`
-  font-size: 10pt;
+  font-size: 8pt;
   margin-left: 5px;
 `;
 
@@ -232,7 +220,7 @@ const TableContainer = styled.div`
 const Table = styled.table`
   border: 1px solid black;
   margin-top: 20px;
-  width: 535px;
+  width: 500px;
   border-spacing: 0px;
   border-collapse: collapse;
   font-size: 10pt;
@@ -256,7 +244,7 @@ const TD = styled.td`
 const Footer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 80px;
   border-top: 1px solid black;
   justify-content: space-between;
 `;

@@ -8,11 +8,11 @@ const makePdf = {
     const pdf = makePdf._converToPdf(imageFile);
   },
   _converToImg: async () => {
-    const paper = document.querySelector("Paper");
-    console.log(paper);
+    const paper = document.querySelector(".div_container > .div_paper");
     const canvas = await html2canvas(paper);
+    console.log(canvas);
     const imageFile = canvas.toDataURL("image/png", 1.0);
-
+    console.log(imageFile);
     return imageFile;
   },
   _converToPdf: (imageFile) => {
