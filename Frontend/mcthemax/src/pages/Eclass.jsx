@@ -1,18 +1,19 @@
 import React, { lazy } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import Login from "../components/Login/Login";
 import NotLogin from "../components/Login/NotLogin";
 import { LoginState } from "../stores/login-store";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import EclassHome from "../components/Eclass/EclassHome";
+import { AppStart } from "../components/Eclass/features/AppStart";
+import { FeatureState } from "../stores/class-store";
+import { selectedValueState } from "../stores/class-store";
 
-const Eclasshome = lazy(() => import("../components/Eclass/EclassHome"));
+const EclassHome = lazy(() => import("../components/Eclass/EclassHome"));
 
-export default function Eclass() {
+export default function Eclass(){
     const isLoggedIn = useRecoilValue(LoginState);
-
+    const [feature, setFeature] = useRecoilState(FeatureState);
+    
     return (
         <div>
             <LoginContainer>{isLoggedIn ? <Login /> : <Login />}</LoginContainer>
@@ -22,6 +23,7 @@ export default function Eclass() {
                 </Ehompage>
                 <ClassContainer>
                   <EclassHome/>
+                  <AppStart />
                 </ClassContainer>  
             </Container>
         </div>
@@ -60,9 +62,10 @@ const Text = styled.div`
 
 const ClassContainer = styled.div`
   display: flex;
+  flex-direction: column;
   position: relative;
   left: 28vw;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   width: 71vw;
   height: 87vh;
 `;
