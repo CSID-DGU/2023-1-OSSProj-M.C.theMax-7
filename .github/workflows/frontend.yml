@@ -47,5 +47,5 @@ jobs:
 
     - name: Deploy AWS S3
       run: 
-        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend && aws cloudfront create-invalidation --profil=mcthemaxKwan --distribution-id ${{ secrets.distribution_id }} --paths /*
+        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend && aws cloudfront create-invalidation --profile=mcthemaxKwan --distribution-id ${{ secrets.distribution_id }} --paths /*
         
