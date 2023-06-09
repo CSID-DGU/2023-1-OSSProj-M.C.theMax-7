@@ -31,7 +31,8 @@
     "start": "PORT=3000 REACT_APP_SERVER_URL=https://mcthemax.click react-scripts start",
     "build": " REACT_APP_SERVER_URL=https://mcthemax.click react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "invalidate": "aws cloudfront create-invalidation --profil=mcthemaxKwan --distribution-id ${{ secrets.distribution_id }} --paths /*"
   },
   "eslintConfig": {
     "extends": [
