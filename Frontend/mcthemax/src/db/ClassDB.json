@@ -112,6 +112,19 @@
           }
     ],
     "assignment" : [
-        {}
+        {
+          "id": "1",
+          "title" : "2023년 깍쟁이장학 선발 일정 ",
+          "assignmentName": "8주차 회의록",
+          "lectureName" : "오픈소스프로젝트",
+          "completed" : "DONE"
+        }
+    ],
+    "score" : [
+        {
+          "id" :"1",
+          "name": "오픈소스프로젝트"
+        }
+
     ]
 }
