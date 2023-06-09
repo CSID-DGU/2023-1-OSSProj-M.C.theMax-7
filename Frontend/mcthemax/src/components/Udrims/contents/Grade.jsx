@@ -93,7 +93,6 @@ const Grade = () => {
           <Name>과제3 만점점수</Name>
           <Data>{datas[0].phoneNum}</Data>
         </DataContainer>
-        <DataContainer></DataContainer>
       </GradeContainer>
     </Container>
   );
