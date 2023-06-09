@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import dummy from "../../../db/ClassDB.json";
+import dummy from "../../../db/ClassDB";
 import { useTable } from 'react-table';
 
 const Notification = (props) => {
@@ -65,7 +65,7 @@ const Text = styled. div`
 
 const Body = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   margin-top: 10px;
   height: 50vh;
   border: 1px solid black;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import dummy from "../../db/ClassDB.json";
+import dummy from "../../db/ClassDB";
 
 const Classprof = (props) => {
     //console.log(props);

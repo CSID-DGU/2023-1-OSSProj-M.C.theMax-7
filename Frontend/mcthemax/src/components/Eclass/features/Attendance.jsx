@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import dummy from "../../../db/ClassDB.json"
+import dummy from "../../../db/ClassDB"
 import { useTable } from 'react-table';
 import React from "react";
 // import "./table.css"
@@ -23,8 +23,6 @@ const Attendance = (props) => {
     ], []);
 
     const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({columns, data});
-
-
 
     return(
         <div>
@@ -69,7 +67,8 @@ const Text = styled. div`
 
 const Body = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-item:center;
   margin-top: 10px;
   height: 50vh;
   border: 1px solid black;

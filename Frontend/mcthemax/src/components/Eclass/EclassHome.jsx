@@ -1,61 +1,43 @@
-import React, {lazy, useState} from "react";
+import React, {lazy, useState, useEffect} from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import dummy from "../../db/ClassDB.json";
-import dum from "../../db/MAIN_DATA.json"
-// import { Link } from "react-router-dom";
+import dummy from "../../db/ClassDB";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { FeatureState } from "../../stores/class-store";
+import { ExitFeats } from "./features/ExitFeats";
+import { selectedValueState } from "../../stores/class-store";
+import axios from 'axios';
 
-const Assignment = lazy(() => import("./features/Assignment"));
-const Attendance = lazy(() => import("./features/Attendance"));
-const Notification = lazy(() => import("./features/Notification"));
-const Score = lazy(() => import("./features/Score"));
 const Classprof = lazy(() => import("./class_prof"));
 
 const EclassHome = () => {
-    
-    const [content, setContent] = useState();
-    const [classes, setClasses] = useState("강의실을 선택하세요");
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        setClasses(e.target.value);
+    const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
+    const handleSelectChange = (e) => {
+        setSelectedValue(e.target.value);
     };
-    const handleClickButton = (e) => {
-        const {name} = e.target;
-        setContent(name);
-    };
-    const selectComponent = {
-        first: <Assignment name={classes} />,
-        second: <Notification name={classes} />,
-        third: <Attendance name={classes} />,
-        fourth: <Score name={classes} />
-    }
+
+    const [feature, setFeature] = useRecoilState(FeatureState);
+    useEffect(() => {
+      setFeature(1);
+    }, []);
 
     return(
         <div>          
-            <Select className="eclass_name"  onChange={handleChange} value={classes}>
-                <option value="강의실을 선택하세요" > 강의실을 선택하세요</option>
+            <Select className="eclass_name"  onChange={handleSelectChange} value={selectedValue}>
+                <option value="" > 강의실을 선택하세요</option>
                 {dummy.classes.map((option) => (
                     <option
                         key={option.id}
                         value={option.name}
-                        // 새로고침 후 reset 안하게끔 하려면
-                        // defaultValue={option.defaultValue === option.value}
                     >
                         {option.name}
                     </option>
                 ))}
             </Select>
-            <Header>  {classes} <Classprof name={classes}/>  </Header>
+
+            <Header>  {selectedValue} <Classprof name={selectedValue}/>  </Header>
             <Container>
-                {dum.MAIN_DATA.map(data => {
-                    return(
-                        <Button onClick={handleClickButton} name={data.name} key={data.id}>
-                            {data.text}
-                        </Button>
-                    );
-                })}
-            </Container>
-            {content && <Content>{selectComponent[content]}</Content>}
+                <ExitFeats name={selectedValue}/>
+            </Container>    
         </div>
     );
 };
@@ -91,25 +73,6 @@ const Container = styled.div`
   width: 30vw;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0rem 2.5rem;
-  width: 67vw;
-  height: 60vh;
-  border: 1px solid black;
-`;
-const Button = styled.button`
-  width: 90px;
-  margin-left: 0.35rem;
-  color: #FBF8EF;
-  background-color: #FAAC58;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid #FF8000;
-`;
 
 
 export default EclassHome;
