@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
-// Droppable, Draggable 은 필요하지 않음
-// Drag&Dropcontext만 필요할 뿐
 import Column from "./Column";
 // import { getAssignmentApi } from "../../../api/studentApi";
 
-export default function KanbanBoard() {
+export default function KanbanBoard({props = []}) {
   const [done, setDone] = useState([]);
   const [doing, setDoing] = useState([]);
   const [todo, setTodo] = useState([]);
@@ -22,6 +20,12 @@ export default function KanbanBoard() {
   //     );
   //   });
   // }, []);
+
+  useEffect(() => {
+    console.log(props);
+    setDone(props.filter((task) => task.completed === "DONE"));
+    setTodo(props.filter((task) => task.completed === "TODO"));
+  }, []);
 
   const handleDragEnd = (result) => {
     const { destination, source, draggableId } = result;
