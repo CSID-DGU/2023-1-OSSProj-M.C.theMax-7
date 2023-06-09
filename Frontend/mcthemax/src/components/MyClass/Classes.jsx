@@ -10,7 +10,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    let id = window.localStorage.getItem("AUTH-TOKEN");
+    let id = window.localStorage.getItem("X-AUTH-TOKEN");
     getClassApi(id).then((res) => {
       setClasses(res.data);
     });
