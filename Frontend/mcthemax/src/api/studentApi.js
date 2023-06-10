@@ -15,18 +15,22 @@ export const getStudentInfoApi = async (data) => {
 
 export const getClassApi = async (data) => {
   let config = {
-    headers: {"X-AUTH-TOKEN":data},
+    headers: { "X-AUTH-TOKEN": data },
   };
-
   const response = await api.get(
-    `${process.env.REACT_APP_SERVER_URL}/studentLecture/2023`,config
+    `${process.env.REACT_APP_SERVER_URL}/studentLecture/2023`,
+    config
   );
   return response;
 };
 
-export const getAssignmentApi = async (id) => {
+export const getAssignmentApi = async (data) => {
+  let config = {
+    headers: { "X-AUTH-TOKEN": data },
+  };
   const response = await api.get(
-    `${process.env.REACT_APP_SERVER_URL}/assignment/${id}/2023`
+    `${process.env.REACT_APP_SERVER_URL}/assignment/2023`,
+    config
   );
   return response;
 };
