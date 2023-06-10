@@ -8,9 +8,14 @@ import { LogoutApi } from "../../api/authApi";
 import { LoginState } from "../../stores/login-store";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
+import { lazy, useState } from "react";
+import { ModalState } from "../../stores/modal-store";
+
+const Modal = lazy(() => import("../Modal"));
 
 const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const [isModal, setIsModal] = useRecoilState(ModalState);
   const navigate = useNavigate();
   const logoutHandler = () => {
     LogoutApi().then((res) => {
@@ -22,10 +27,14 @@ const Login = () => {
     });
   };
 
+  const logoHandler = () => {
+    navigate("/");
+  };
+
   return (
     <Container>
       <Header>
-        <Logo src={logo} />
+        <Logo src={logo} onClick={logoHandler} />
         <Text>동국대학교 포털</Text>
       </Header>
       <Body>
@@ -39,7 +48,11 @@ const Login = () => {
           <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
           <ChangePasswordButton>비밀번호 변경</ChangePasswordButton>
         </Buttons>
-        <Alarm>
+        <Alarm
+          onClick={() => {
+            setIsModal(true);
+          }}
+        >
           <FontAwesomeIcon icon={faBell} color={Orange} size="2x" />
           <AlertText>즐겨 찾기 알림</AlertText>
           <AlertNumber>0</AlertNumber>
@@ -52,6 +65,7 @@ const Login = () => {
         10326 경기도 고양시 일산동구 동국로32 동국대학교 바이오메디캠퍼스
         <br /> TEL: 02-2260-3114
       </Footer>
+      {isModal && <Modal />}
     </Container>
   );
 };
@@ -74,6 +88,7 @@ const Logo = styled.img`
   flex: 1;
   width: 100px;
   margin: 5px 10px 5px 10px;
+  cursor: pointer;
 `;
 
 const Text = styled.div`

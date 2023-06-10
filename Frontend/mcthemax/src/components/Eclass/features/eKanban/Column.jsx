@@ -9,7 +9,7 @@ const Container = styled.div`
   margin: 0px 1vw;
   background-color: #ffffff;
   border-radius: 10px;
-  width: 17vw;
+  width: 20vw;
   height: 40vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -37,7 +37,6 @@ export default function Column({ title, tasks, id, backgroundColor }) {
     <Container className="column">
       <Title
         style={{
-          // top: 10,
           backgroundColor: backgroundColor,
           position: "sticky",
         }}
