@@ -4,6 +4,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 // Drag&Dropcontext만 필요할 뿐
 import Column from "./Column";
 import { getAssignmentApi } from "../../../api/studentApi";
+import { Orange } from "../../../assets/color/color";
 
 export default function KanbanBoard() {
   const [done, setDone] = useState([]);
@@ -14,13 +15,7 @@ export default function KanbanBoard() {
   // JSONplaceholder 로 백엔드 서버 대신 API시도
   useEffect(() => {
     let id = window.localStorage.getItem("X-AUTH-TOKEN");
-    // fetch("https://jsonplaceholder.typicode.com/todos")
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     setDone(json.filter((task) => task.completed === "DONE"));
-    //     setTodo(json.filter((task) => task.completed === "TODO"));
-    //   });
+
     getAssignmentApi(id).then((res) => {
       console.log(res.data);
       setDone(
@@ -79,14 +74,9 @@ export default function KanbanBoard() {
           title={"TO DO"}
           tasks={todo}
           id={"1"}
-          backgroundColor={"#D6E4EE"}
+          backgroundColor={Orange}
         />
-        <Column
-          title={"DONE"}
-          tasks={done}
-          id={"2"}
-          backgroundColor={"#DEECDC"}
-        />
+        <Column title={"DONE"} tasks={done} id={"2"} backgroundColor={Orange} />
         {/* <Column title={"TASKS"} tasks={[]} id={"3"} /> */}
       </div>
     </DragDropContext>
