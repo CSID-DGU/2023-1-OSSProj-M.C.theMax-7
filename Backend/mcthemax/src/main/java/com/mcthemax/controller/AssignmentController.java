@@ -4,6 +4,7 @@ import com.mcthemax.domain.lecture.CurrentStudentAssignmentDTO;
 import com.mcthemax.domain.user.Student;
 import com.mcthemax.domain.user.User;
 import com.mcthemax.service.AssignmentService;
+import com.mcthemax.service.LectureService;
 import com.mcthemax.service.StudentService;
 import com.mcthemax.service.UserService;
 import lombok.RequiredArgsConstructor;

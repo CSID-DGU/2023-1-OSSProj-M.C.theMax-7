@@ -25,6 +25,9 @@ public class Lecture {
     @JoinColumn(name = "department_code")
     private Department department;
 
+    @Column(name="professor_name")
+    private String p_name;
+
     @Column(name="lecture_name")
     private String name;
 

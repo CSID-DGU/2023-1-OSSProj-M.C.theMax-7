@@ -111,6 +111,7 @@ public class StudentLectureService {
                     .grade(studentlecture.getLecture().getGrade())
                     .classroom(studentlecture.getLecture().getClassroom())
                     .lectureTime(studentlecture.getLecture().getLectureTime())
+                    .score(studentlecture.getScore())
                     .build();
             result.add(c);
         }
@@ -137,7 +138,9 @@ public class StudentLectureService {
             for (Assignment assignment : assignments) {
                 CurrentStudentAssignmentDTO currentStudentAssignmentDTO = new CurrentStudentAssignmentDTO();
                 currentStudentAssignmentDTO.setId(assignment.getId());
+                currentStudentAssignmentDTO.setAssignmentName(assignment.getName());
                 currentStudentAssignmentDTO.setScore(assignment.getScore());
+                currentStudentAssignmentDTO.setMax_score(assignment.getMax_score());
                 currentStudentAssignments.add(currentStudentAssignmentDTO);
             }
             CurrentScoreDTO c = CurrentScoreDTO.builder()
@@ -146,8 +149,12 @@ public class StudentLectureService {
                     .grade(studentlecture.getLecture().getGrade())
                     .attendence(studentlecture.getAttendanceScore())
                     .midterm(studentlecture.getMidtermScore())
+                    .midterm_max(studentlecture.getMidtermMax())
                     .fin(studentlecture.getFinalScore())
+                    .fin_max(studentlecture.getFinalMax())
                     .assignments(currentStudentAssignments)
+                    .professor(studentlecture.getLecture().getP_name())
+                    .score(studentlecture.getScore())
                     .build();
             result.add(c);
         }

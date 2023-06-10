@@ -1,4 +1,12 @@
 package com.mcthemax.domain.response;
 
-public class MapResult {
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.HashMap;
+
+@Getter
+@Setter
+public class MapResult<T> extends CommonResult {
+    private HashMap<T, T> map;
 }
