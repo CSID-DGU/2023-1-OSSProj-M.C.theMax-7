@@ -24,7 +24,6 @@ function Udrims() {
       navigate("/");
     }
     let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    console.log(data);
     udrimsAuth(data).then((res) => console.log(res));
     setCategory(1);
     setSubcategory(1);

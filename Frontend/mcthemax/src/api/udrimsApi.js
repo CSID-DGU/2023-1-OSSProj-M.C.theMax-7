@@ -42,5 +42,5 @@ export const getGrade = async (data) => {
     `${process.env.REACT_APP_SERVER_URL}/udrims/score`,
     config
   );
-  return response;
+  return response.data;
 };
