@@ -11,6 +11,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CurrentStudentLectureDTO {
-    public Long id;
+    private Long id;
     private String name;
+    private String lectureCode;
+    private String lectureName;
+    private String professor;
+
 }
