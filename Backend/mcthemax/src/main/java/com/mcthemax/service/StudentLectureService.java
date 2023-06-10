@@ -1,8 +1,9 @@
 package com.mcthemax.service;
 
-import com.mcthemax.domain.lecture.CurrentStudentLectureDTO;
-import com.mcthemax.domain.lecture.StudentLecture;
+import com.mcthemax.domain.Assignment;
+import com.mcthemax.domain.lecture.*;
 import com.mcthemax.domain.user.Student;
+import com.mcthemax.repository.AssignmentRepository;
 import com.mcthemax.repository.LectureRepository;
 import com.mcthemax.repository.StudentLectureRepository;
 import com.mcthemax.repository.StudentRepository;
@@ -24,6 +25,7 @@ public class StudentLectureService {
     private final StudentLectureRepository studentLectureRepository;
     private final StudentRepository studentRepository;
     private final LectureRepository lectureRepository;
+    private final AssignmentRepository assignmentRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -33,6 +35,11 @@ public class StudentLectureService {
     public List<StudentLecture> findAll (Long student_id){
         Optional<Student> student = studentRepository.findById(student_id);
         return studentLectureRepository.findAllByStudent(student);
+    }
+
+    public Optional<StudentLecture> findById (Long lecture_id) {
+        Optional<StudentLecture> studentLecture = studentLectureRepository.findById(lecture_id);
+        return studentLecture;
     }
     /**
      * 수강신청
@@ -82,4 +89,68 @@ public class StudentLectureService {
         return result;
     }
 
+    @Transactional
+    public List<CurrentLectureDTO> GetCurrentCourse(Long student_id) {
+        String jpql = "SELECT s1 " +
+                "FROM StudentLecture s1 " +
+                "JOIN s1.student s " +
+                "JOIN s1.lecture l " +
+                "WHERE s.id = :student_id " +
+                "AND s.semester = l.semester ";
+
+        TypedQuery<StudentLecture> query = entityManager.createQuery(
+                jpql,
+                StudentLecture.class);
+        query.setParameter("student_id",student_id);
+        List<StudentLecture> sl = query.getResultList();
+        List<CurrentLectureDTO> result = new ArrayList<>();
+        for (StudentLecture studentlecture : sl ){
+            CurrentLectureDTO c = CurrentLectureDTO.builder()
+                    .id(studentlecture.getLecture().getId())
+                    .name(studentlecture.getLecture().getName())
+                    .grade(studentlecture.getLecture().getGrade())
+                    .classroom(studentlecture.getLecture().getClassroom())
+                    .lectureTime(studentlecture.getLecture().getLectureTime())
+                    .build();
+            result.add(c);
+        }
+        return result;
+    }
+
+    @Transactional
+    public List<CurrentScoreDTO> GetCurrentScore(Long student_id) {
+        String jpql = "SELECT s1 " +
+                "FROM StudentLecture s1 " +
+                "JOIN s1.student s " +
+                "JOIN s1.lecture l " +
+                "WHERE s.id = :student_id ";
+
+        TypedQuery<StudentLecture> query = entityManager.createQuery(
+                jpql,
+                StudentLecture.class);
+        query.setParameter("student_id",student_id);
+        List<StudentLecture> sl = query.getResultList();
+        List<CurrentScoreDTO> result = new ArrayList<>();
+        for (StudentLecture studentlecture : sl ) {
+            List<Assignment> assignments = studentlecture.getAssignments();
+            List<CurrentStudentAssignmentDTO> currentStudentAssignments = new ArrayList<>();
+            for (Assignment assignment : assignments) {
+                CurrentStudentAssignmentDTO currentStudentAssignmentDTO = new CurrentStudentAssignmentDTO();
+                currentStudentAssignmentDTO.setId(assignment.getId());
+                currentStudentAssignmentDTO.setScore(assignment.getScore());
+                currentStudentAssignments.add(currentStudentAssignmentDTO);
+            }
+            CurrentScoreDTO c = CurrentScoreDTO.builder()
+                    .num(studentlecture.getLecture().getCode())
+                    .name(studentlecture.getLecture().getName())
+                    .grade(studentlecture.getLecture().getGrade())
+                    .attendence(studentlecture.getAttendanceScore())
+                    .midterm(studentlecture.getMidtermScore())
+                    .fin(studentlecture.getFinalScore())
+                    .assignments(currentStudentAssignments)
+                    .build();
+            result.add(c);
+        }
+        return result;
+    }
 }

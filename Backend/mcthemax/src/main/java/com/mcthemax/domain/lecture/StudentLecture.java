@@ -1,5 +1,6 @@
 package com.mcthemax.domain.lecture;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mcthemax.domain.Assignment;
 import com.mcthemax.domain.user.Student;
 import lombok.Getter;
