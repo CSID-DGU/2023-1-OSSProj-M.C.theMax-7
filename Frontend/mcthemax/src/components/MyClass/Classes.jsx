@@ -7,14 +7,16 @@ import { getClassApi } from "../../api/studentApi";
 
 const Classes = () => {
   const isLoggedIn = useRecoilValue(LoginState);
-  const [classes, setClasses] = useState([]);
+  const [classes, setClasses] = useState();
 
   useEffect(() => {
-    let id = window.localStorage.getItem("X-AUTH-TOKEN");
-    getClassApi(id).then((res) => {
-      setClasses(res.data);
-    });
-  }, []);
+    if (isLoggedIn) {
+      let id = window.localStorage.getItem("X-AUTH-TOKEN");
+      getClassApi(id).then((res) => {
+        setClasses(res.data);
+      });
+    }
+  }, [isLoggedIn]);
 
   console.log(classes);
   return (
