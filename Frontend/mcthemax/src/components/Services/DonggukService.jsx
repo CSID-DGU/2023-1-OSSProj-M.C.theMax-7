@@ -30,7 +30,6 @@ const DonggukService = () => {
       navigate("/certpia");
     }
   };
-
   return (
     <Container>
       <Header>Dongguk Service</Header>
