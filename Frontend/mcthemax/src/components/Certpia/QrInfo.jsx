@@ -46,39 +46,20 @@ const QrInfo = () => {
 };
 
 const Container = styled.div`
-  position: fixed;
-  top: 10vh;
-  left: 15vw;
-  width: 85vw;
-  height: 90vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 90vh;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   scroll-behavior: auto;
-`;
-
-const H2 = styled.h2`
-  align-self: flex-start;
-  margin-left: 2.5vw;
-  color: ${Orange};
 `;
 
 const Title = styled.div`
   font-weight: bold;
   font-size: 14px;
   align-self: flex-start;
-  margin-left: 2.5vw;
-  margin-bottom: 1vh;
-`;
-
-const LectureContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  border: 1px solid #e6e8e7;
-  width: 80vw;
-  height: 10vh;
+  margin-left: 10vw;
   margin-bottom: 1vh;
 `;
 
@@ -109,26 +90,6 @@ const Name = styled.div`
 `;
 
 const Data = styled.div``;
-
-const LectureMap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Lecture = styled.button`
-  margin: 10px;
-  border: 1px solid #e6e8e7;
-  background-color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 14px;
-  width: 15vw;
-  cursor: pointer;
-  &:hover {
-    background-color: ${Orange};
-  }
-`;
 
 const FinalGrade = styled.div`
   font-weight: bold;
