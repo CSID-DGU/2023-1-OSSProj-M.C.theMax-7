@@ -14,12 +14,11 @@ const Login = () => {
   const navigate = useNavigate();
   const logoutHandler = () => {
     LogoutApi().then((res) => {
-      console.log(res);
-      // if (res.status === 200) {
-      //   window.localStorage.removeItem("X-AUTH-TOKEN");
-      //   setIsLoggedIn(false);
-      //   navigate("/")
-      // }
+      if (res.status === 200) {
+        window.localStorage.removeItem("X-AUTH-TOKEN");
+        setIsLoggedIn(false);
+        navigate("/");
+      }
     });
   };
 
@@ -62,6 +61,7 @@ const Container = styled.div`
   flex-direction: column;
   background-color: ${Orange};
   height: 100vh;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
 
 const Header = styled.div`
@@ -79,7 +79,6 @@ const Logo = styled.img`
 const Text = styled.div`
   flex: 2;
   text-align: center;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: x-large;
   font-weight: bold;
 `;
