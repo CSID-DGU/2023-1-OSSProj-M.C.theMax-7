@@ -13,7 +13,7 @@ export default function KanbanBoard() {
 
   // JSONplaceholder 로 백엔드 서버 대신 API시도
   useEffect(() => {
-    let id = window.localStorage.getItem("AUTH-TOKEN");
+    let id = window.localStorage.getItem("X-AUTH-TOKEN");
     // fetch("https://jsonplaceholder.typicode.com/todos")
     //   .then((response) => response.json())
     //   .then((json) => {

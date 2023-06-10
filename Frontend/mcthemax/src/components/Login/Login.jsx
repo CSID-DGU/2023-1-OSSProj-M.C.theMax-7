@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const logoutHandler = () => {
     let data = {
-      "AUTH-TOKEN": window.localStorage.getItem("AUTH-TOKEN"),
+      "AUTH-TOKEN": window.localStorage.getItem("X-AUTH-TOKEN"),
     };
     setIsLoggedIn(false);
     // navigate("/");
