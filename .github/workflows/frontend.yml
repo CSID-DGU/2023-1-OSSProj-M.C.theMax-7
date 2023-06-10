@@ -43,5 +43,5 @@ jobs:
 
     - name: Deploy AWS S3
       run: 
-        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
+        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend --delete
         
