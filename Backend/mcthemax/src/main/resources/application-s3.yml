@@ -1,0 +1,12 @@
+cloud:
+  aws:
+    s3:
+      bucket: mcthemax-pdf
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+      auto: false
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
