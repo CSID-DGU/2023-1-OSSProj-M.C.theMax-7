@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { DarkGray, Orange, PhantomB } from "../../../assets/color/color";
 import { headers } from "../../../utils/AuthTable";
 import { useState } from "react";
+import { useEffect } from "react";
+import { getInfo } from "../../../api/udrimsApi";
 
 const Authority = () => {
   const datas = [
@@ -16,6 +18,7 @@ const Authority = () => {
   const headerKey = headers.map((header) => header.value);
 
   const [isChecked, setIsChecked] = useState(true);
+
   return (
     <Container>
       <H2>대표권한변경</H2>
