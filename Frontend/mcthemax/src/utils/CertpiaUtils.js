@@ -5,14 +5,14 @@ export const CHEADERS = [
   },
   {
     text: "교과목명",
-    value: "lectureName",
+    value: "name",
   },
   {
     text: "학점",
-    value: "credit",
+    value: "grade",
   },
   {
     text: "성적",
-    value: "grade",
+    value: "score",
   },
 ];

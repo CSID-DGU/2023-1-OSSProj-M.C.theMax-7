@@ -1,20 +1,32 @@
 import styled from "styled-components";
 import { DarkGray, Orange } from "../../assets/color/color";
+import { useEffect, useState } from "react";
+import { getGrade } from "../../api/udrimsApi";
 
 const QrInfo = () => {
-  const datas = [
-    {
-      number: "2018112039",
-      name: "정원호",
-      syear: "4",
-      birthDate: "1998-08-24",
-      college: "공과대학",
-      department: "컴퓨터정보통신공학부",
-      major: "컴퓨터공학전공",
-      userState: "학생",
-      phoneNum: "010-4173-5893",
-    },
-  ];
+  // const datas = [
+  //   {
+  //     number: "2018112039",
+  //     name: "정원호",
+  //     syear: "4",
+  //     birthDate: "1998-08-24",
+  //     college: "공과대학",
+  //     department: "컴퓨터정보통신공학부",
+  //     major: "컴퓨터공학전공",
+  //     userState: "학생",
+  //     phoneNum: "010-4173-5893",
+  //   },
+  // ];
+
+  const [datas, setDatas] = useState();
+
+  useEffect(() => {
+    let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    getGrade(data).then((res) => {
+      setDatas(res.list);
+    });
+  }, []);
+
   return (
     <Container>
       <Title>2023학년도 1학기 성적</Title>
@@ -24,19 +36,19 @@ const QrInfo = () => {
             <>
               <DataContainer>
                 <Name>교과목명</Name>
-                <Data>{datas[0].birthDate}</Data>
+                <Data>{data.name}</Data>
               </DataContainer>
               <DataContainer>
                 <Name>담당교원</Name>
-                <Data>{datas[0].number}</Data>
+                <Data>{data.professor}</Data>
               </DataContainer>
               <DataContainer>
                 <Name>학점</Name>
-                <Data>{datas[0].college}</Data>
+                <Data>{data.grade}</Data>
               </DataContainer>
               <DataContainer>
                 <Name>성적</Name>
-                <Data>{datas[0].phoneNum}</Data>
+                <Data>{data.score}</Data>
               </DataContainer>
             </>
           ))}

@@ -9,14 +9,15 @@ const makePdf = {
 
     const pdf = makePdf._converToPdf(imageFile);
 
-    makePdf._sendToServer(pdf);
+    console.log(imageFile, pdf);
+
+    // makePdf._sendToServer(pdf);
   },
   _converToImg: async () => {
     const paper = document.querySelector(".div_container > .div_paper");
     const canvas = await html2canvas(paper);
     console.log(canvas);
     const imageFile = canvas.toDataURL("image/png", 1.0);
-    console.log(imageFile);
     return imageFile;
   },
   _converToPdf: (imageFile) => {
@@ -33,38 +34,19 @@ const makePdf = {
     return pdf;
   },
 
-  _sendToServer: async (pdf) => {
-    const formData = new FormData();
+  // _sendToServer: async (pdf) => {
+  //   const formData = new FormData();
 
-    formData.append("file", pdf);
-    formData.append("type", "pdf");
-    formData.append("name", "test");
+  //   formData.append("file", pdf);
+  //   formData.append("type", "pdf");
+  //   formData.append("name", "test");
 
-    for (let value of formData.values()) {
-      console.log(value);
-    }
+  //   for (let value of formData.values()) {
+  //     console.log(value);
+  //   }
 
-    await uploadPdf(pdf).then((res) => console.log(res));
-
-    // const res = await axios.post(
-    //   `${process.env.REACT_APP_SERVER_URL}/certpia/upload`,
-    //   formData,
-    //   {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   }
-    // );
-
-    // if (res.data.code === 1) {
-    //   window.open(`${util.mode()}${res.data.link}`);
-    // }
-    // console.log({ res });
-
-    // setTimeout(() => {
-    //   makePdf._isLoading = false;
-    // }, 2000);
-  },
+  //   await uploadPdf(formData).then((res) => console.log(res));
+  // },
 };
 
 export default makePdf;
