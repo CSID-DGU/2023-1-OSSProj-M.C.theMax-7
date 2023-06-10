@@ -59,7 +59,7 @@ public class StudentLectureService {
         return studentLecture.getId();
     }
     /**
-     * 현학기 수강정보 가져오기
+     * 현학기 수강정보 가져오기 (홈 버전)
      */
     @Transactional(readOnly = true)
     public List<CurrentStudentLectureDTO> GetCurrentSemesterCourse(Long student_id, String lectureYear){
@@ -83,6 +83,39 @@ public class StudentLectureService {
             CurrentStudentLectureDTO c = CurrentStudentLectureDTO.builder()
                     .id(studentlecture.getId())
                     .name(studentlecture.getLecture().getName())
+                    .build();
+            result.add(c);
+        }
+        return result;
+    }
+    /**
+     * 현학기 수강정보 가져오기 (이클래스 버전)
+     */
+    @Transactional(readOnly = true)
+    public List<CurrentStudentLectureDTO> GetEclassCurrentSemesterCourse(Long student_id, String lectureYear){
+
+        String jpql = "SELECT s1 " +
+                "FROM StudentLecture s1 " +
+                "JOIN s1.student s " +
+                "JOIN s1.lecture l " +
+                "WHERE s.id = :student_id " +
+                "AND s.semester = l.semester " +
+                "AND l.lectureYear = :lecture_year";
+
+        TypedQuery<StudentLecture> query = entityManager.createQuery(
+                jpql,
+                StudentLecture.class);
+        query.setParameter("student_id",student_id);
+        query.setParameter("lecture_year",lectureYear);
+        List<StudentLecture> sl = query.getResultList();
+        List<CurrentStudentLectureDTO> result = new ArrayList<>();
+        for (StudentLecture studentlecture : sl ){
+            CurrentStudentLectureDTO c = CurrentStudentLectureDTO.builder()
+                    .id(studentlecture.getId())
+                    .name(studentlecture.getLecture().getName())
+                    .lectureCode(studentlecture.getLecture().getCode())
+                    .lectureName(studentlecture.getLecture().getName())
+                    .professor(studentlecture.getLecture().getProfessor().getUser().getName())
                     .build();
             result.add(c);
         }
