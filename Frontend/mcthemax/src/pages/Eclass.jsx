@@ -7,36 +7,45 @@ import { LoginState } from "../stores/login-store";
 import { AppStart } from "../components/Eclass/features/AppStart";
 import { FeatureState } from "../stores/class-store";
 import { selectedValueState } from "../stores/class-store";
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const EclassHome = lazy(() => import("../components/Eclass/EclassHome"));
+const ExitFeat = lazy(() => import("../components/Eclass/features/ExitFeats"));
 
-export default function Eclass(){
-    const isLoggedIn = useRecoilValue(LoginState);
-    const [feature, setFeature] = useRecoilState(FeatureState);
-    // const navigate = useNavigate();
+export default function Eclass() {
+  const isLoggedIn = useRecoilValue(LoginState);
+  const [feature, setFeature] = useRecoilState(FeatureState);
+  const selectedValue = useRecoilValue(selectedValueState);
+  const navigate = useNavigate();
 
-    // useEffect(() => {
-    //   if (isLoggedIn === false) {
-    //     alert("로그인 후 이용해주세요.");
-    //     navigate("/");
-    //   }
-    // }, []);
-    
-    return (
-        <div>
-            <LoginContainer>{isLoggedIn ? <Login /> : <Login />}</LoginContainer>
-            <Container>
-                <Ehompage>
-                  <Text>📝 Online 캠퍼스</Text>
-                </Ehompage>
-                <ClassContainer>
-                  <EclassHome/>
-                  <AppStart />
-                </ClassContainer>  
-            </Container>
-        </div>
-    );
+  useEffect(() => {
+    if (isLoggedIn === false) {
+      alert("로그인 후 이용해주세요.");
+      navigate("/");
+    }
+  }, []);
+
+  return (
+    <div>
+      <LoginContainer>
+        <Login />
+      </LoginContainer>
+      <Container>
+        <Ehompage>
+          <Text>E-Class</Text>
+        </Ehompage>
+        <ClassContainer>
+          <SelectClass>
+            <EclassHome />
+          </SelectClass>
+          <ClassDetail>
+            <ExitFeat name={selectedValue} />
+            <AppStart />
+          </ClassDetail>
+        </ClassContainer>
+      </Container>
+    </div>
+  );
 }
 
 const LoginContainer = styled.div`
@@ -50,31 +59,41 @@ const Container = styled.div`
   flex-direction: column;
   width: 73vw;
   height: 100vh;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
 
 const Ehompage = styled.div`
   display: flex;
   position: relative;
   flex-direction: row;
-  height: 7vh;
+  margin-left: 1vw;
   left: 27vw;
-  margin-top: 1rem;
+  height: 10vh;
+  align-items: center;
 `;
 
 const Text = styled.div`
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 20px;
   color: black;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
 
 const ClassContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  left: 28vw;
-  border: 1px solid lightgray;
-  width: 71vw;
-  height: 87vh;
+  left: 27vw;
+  width: 73vw;
+`;
+
+const SelectClass = styled.div`
+  border: 1px solid #e6e8e7;
+  height: 30vh;
+`;
+
+const ClassDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e6e8e7;
+  height: 60vh;
 `;

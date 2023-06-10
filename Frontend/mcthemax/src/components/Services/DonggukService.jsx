@@ -30,6 +30,13 @@ const DonggukService = () => {
       navigate("/certpia");
     }
   };
+  const eclassHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/eclass");
+    }
+  };
   return (
     <Container>
       <Header>Dongguk Service</Header>
@@ -53,7 +60,7 @@ const DonggukService = () => {
           <Text>성적 조회</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={eclassHandler}>
             <FontAwesomeIcon icon={faClipboard} size="2x" color={Orange} />
           </Button>
           <Text>이클래스</Text>

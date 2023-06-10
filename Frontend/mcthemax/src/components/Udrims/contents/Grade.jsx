@@ -2,25 +2,19 @@ import styled from "styled-components";
 import { DarkGray, Orange } from "../../../assets/color/color";
 import { useEffect } from "react";
 import { getGrade } from "../../../api/udrimsApi";
-const datas = [
-  {
-    number: "2018112039",
-    name: "정원호",
-    syear: "4",
-    birthDate: "1998-08-24",
-    college: "공과대학",
-    department: "컴퓨터정보통신공학부",
-    major: "컴퓨터공학전공",
-    userState: "학생",
-    phoneNum: "010-4173-5893",
-  },
-];
+import { useState } from "react";
 
 const Grade = () => {
+  const [datas, setDatas] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   useEffect(() => {
     let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    getGrade(data).then((res) => console.log(res));
+    getGrade(data).then((res) => {
+      setDatas(res.list);
+    });
   }, []);
+
   return (
     <Container>
       <H2>금학기 성적 관리</H2>
@@ -29,8 +23,8 @@ const Grade = () => {
         {datas &&
           datas.map((lecture, index) => (
             <LectureMap>
-              <Lecture key={index}>컴퓨터네트워킹</Lecture>
-              <FinalGrade>최종 성적: A+</FinalGrade>
+              <Lecture key={index}>{lecture.name}</Lecture>
+              <FinalGrade>최종 성적: {lecture.score}</FinalGrade>
             </LectureMap>
           ))}
       </LectureContainer>
@@ -38,67 +32,67 @@ const Grade = () => {
       <GradeContainer>
         <DataContainer>
           <Name>학수번호</Name>
-          <Data>{datas[0].name}</Data>
+          <Data>{datas[selectedIndex].num}</Data>
         </DataContainer>
         <DataContainer>
           <Name>교과목명</Name>
-          <Data>{datas[0].birthDate}</Data>
+          <Data>{datas[selectedIndex].name}</Data>
         </DataContainer>
         <DataContainer>
           <Name>담당교원</Name>
-          <Data>{datas[0].number}</Data>
+          <Data>{datas[selectedIndex].professor}</Data>
         </DataContainer>
         <DataContainer>
           <Name>학점</Name>
-          <Data>{datas[0].college}</Data>
+          <Data>{datas[selectedIndex].grade}</Data>
         </DataContainer>
         <DataContainer>
           <Name>출석</Name>
-          <Data>{datas[0].department}</Data>
+          <Data>{datas[selectedIndex].attendence}</Data>
         </DataContainer>
         <DataContainer>
           <Name>출석 만점점수</Name>
-          <Data>{datas[0].major}</Data>
+          <Data>{datas[selectedIndex].attendence_max}</Data>
         </DataContainer>
         <DataContainer>
           <Name>중간고사</Name>
-          <Data>{datas[0].syear}</Data>
+          <Data>{datas[selectedIndex].midterm}</Data>
         </DataContainer>
         <DataContainer>
           <Name>중간고사 만점점수</Name>
-          <Data>{datas[0].userState}</Data>
+          <Data>{datas[selectedIndex].midterm_max}</Data>
         </DataContainer>
         <DataContainer>
           <Name>기말고사</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].fin}</Data>
         </DataContainer>
         <DataContainer>
           <Name>기말고사 만점점수</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].fin_max}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제1</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[0].score}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제1 만점점수</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[0].max_score}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제2</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[1].score}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제2 만점점수</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[1].max_score}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제3</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[2].score}</Data>
         </DataContainer>
         <DataContainer>
           <Name>과제3 만점점수</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{datas[selectedIndex].assignment[2].max_score}</Data>
         </DataContainer>
       </GradeContainer>
     </Container>
