@@ -40,7 +40,6 @@ export const getGrade = async (data) => {
   };
   const response = await api.get(
     `${process.env.REACT_APP_SERVER_URL}/udrims/score`,
-    null,
     config
   );
   return response;

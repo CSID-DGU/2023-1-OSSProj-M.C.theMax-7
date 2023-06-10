@@ -13,9 +13,13 @@ export const getStudentInfoApi = async (data) => {
   return response;
 };
 
-export const getClassApi = async (id) => {
+export const getClassApi = async (data) => {
+  let config = {
+    headers: {"X-AUTH-TOKEN":data},
+  };
+
   const response = await api.get(
-    `${process.env.REACT_APP_SERVER_URL}/studentLecture/${id}/2023`
+    `${process.env.REACT_APP_SERVER_URL}/studentLecture/2023`,config
   );
   return response;
 };
