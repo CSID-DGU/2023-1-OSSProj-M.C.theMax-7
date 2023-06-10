@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { DarkGray, Orange } from "../../../assets/color/color";
+import { useEffect } from "react";
+import { getGrade } from "../../../api/udrimsApi";
 const datas = [
   {
     number: "2018112039",
@@ -13,7 +15,12 @@ const datas = [
     phoneNum: "010-4173-5893",
   },
 ];
+
 const Grade = () => {
+  useEffect(() => {
+    let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    getGrade(data).then((res) => console.log(res));
+  }, []);
   return (
     <Container>
       <H2>금학기 성적 관리</H2>

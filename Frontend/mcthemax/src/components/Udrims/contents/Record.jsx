@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { DarkGray, Orange } from "../../../assets/color/color";
 import { useEffect } from "react";
+import { getInfo } from "../../../api/udrimsApi";
 
 const datas = [
   {
@@ -17,6 +18,8 @@ const datas = [
 ];
 
 const Record = () => {
+  let data = window.localStorage.getItem("X-AUTH-TOKEN");
+  getInfo(data).then((res) => console.log(res));
   return (
     <Container>
       <H2>학적부 열람</H2>

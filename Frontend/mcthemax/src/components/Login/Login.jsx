@@ -13,18 +13,14 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const navigate = useNavigate();
   const logoutHandler = () => {
-    let data = {
-      "AUTH-TOKEN": window.localStorage.getItem("X-AUTH-TOKEN"),
-    };
-    setIsLoggedIn(false);
-    // navigate("/");
-    // LogoutApi(data).then((res) => {
-    //   console.log(res);
-    //   if (res.status === 200) {
-    //     window.localStorage.removeItem("AUTH-TOKEN");
-    //     setIsLoggedIn(false);
-    //   }
-    // });
+    LogoutApi().then((res) => {
+      console.log(res);
+      // if (res.status === 200) {
+      //   window.localStorage.removeItem("X-AUTH-TOKEN");
+      //   setIsLoggedIn(false);
+      //   navigate("/")
+      // }
+    });
   };
 
   return (
