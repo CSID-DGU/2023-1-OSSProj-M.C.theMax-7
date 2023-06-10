@@ -1,11 +1,11 @@
 spring:
-#  datasource:
-#    url : ${RDS_HOSTNAME}
-#    username : ${RDS_USERNAME}
-#    password : ${RDS_PASSWORD}
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-  profiles:
-    active: mysql
+  datasource:
+    url : ${RDS_HOSTNAME}
+    username : ${RDS_USERNAME}
+    password : ${RDS_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  profiles:
+#    active: mysql
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
