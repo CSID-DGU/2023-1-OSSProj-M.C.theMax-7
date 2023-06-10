@@ -1,21 +1,37 @@
 package com.mcthemax.controller;
 
 import com.mcthemax.domain.lecture.CurrentStudentAssignmentDTO;
+import com.mcthemax.domain.user.Student;
+import com.mcthemax.domain.user.User;
 import com.mcthemax.service.AssignmentService;
+import com.mcthemax.service.StudentService;
+import com.mcthemax.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
 public class AssignmentController {
     private final AssignmentService assignmentService;
+    private final UserService userService;
+    private final StudentService studentService;
 
-    @GetMapping("/assignment/{studentId}/{currentYear}")
-    public List<CurrentStudentAssignmentDTO> getAssignmentCurrentSemester (@PathVariable("studentId") Long studentId, @PathVariable("currentYear") String currentYear){
+    @GetMapping("/assignment/{currentYear}")
+    public List<CurrentStudentAssignmentDTO> getAssignmentCurrentSemester (@PathVariable("currentYear") String currentYear){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String id = authentication.getName();
+
+        Optional<User> user = userService.findByUsername(id);
+        Student student = studentService.findByUser(user);
+        Long studentId = student.getId();
+
         return assignmentService.getCurrentAssignmentInfo(studentId,currentYear);
     }
 }
