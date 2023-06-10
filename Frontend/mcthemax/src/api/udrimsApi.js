@@ -47,8 +47,9 @@ export const getGrade = async (data) => {
 
 export const uploadPdf = async (data) => {
   let config = {
-    headers: { "content-type": "multipart/form-data" },
+    headers: { "Content-Type": "multipart/form-data" },
   };
+
   const response = await api.post(
     `${process.env.REACT_APP_SERVER_URL}/certpia/upload`,
     data,

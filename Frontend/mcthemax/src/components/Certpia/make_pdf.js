@@ -1,6 +1,7 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { uploadPdf } from "../../api/udrimsApi";
+import axios from "axios";
 
 const makePdf = {
   viewWithPdf: async () => {
@@ -26,27 +27,34 @@ const makePdf = {
     doc.addImage(imageFile, "JPEG", 0, 0, pageWidth, pageHeight);
 
     window.open(doc.output("bloburl"));
-
     const pdf = new File([doc.output("blob")], "test.pdf", {
       type: "application/pdf",
     });
     return pdf;
   },
+
   _sendToServer: async (pdf) => {
-    const formData = new FormData();
-    formData.append("file", pdf);
-    formData.append("type", "pdf");
-    formData.append("name", "test");
+    // let formData = new FormData();
 
-    await uploadPdf(formData).then((res) => {
-      console.log(res);
-    });
+    // formData.append("file", pdf);
+    // formData.append("type", "pdf");
+    // formData.append("name", "test");
 
-    // const res = await axios.post("/pdf/upload_file", formData, {
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // });
+    // for (let value of formData.values()) {
+    //   console.log(value);
+    // }
+
+    uploadPdf(pdf).then((res) => console.log(res));
+
+    // const res = await axios.post(
+    //   `${process.env.REACT_APP_SERVER_URL}/certpia/upload`,
+    //   formData,
+    //   {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   }
+    // );
 
     // if (res.data.code === 1) {
     //   window.open(`${util.mode()}${res.data.link}`);
