@@ -2,12 +2,12 @@ package com.mcthemax.service;
 
 import com.mcthemax.domain.response.CommonResult;
 import com.mcthemax.domain.response.ListResult;
+import com.mcthemax.domain.response.MapResult;
 import com.mcthemax.domain.response.SingleResult;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ResponseService {
@@ -28,9 +28,13 @@ public class ResponseService {
         return result;
     }
 
-//    public <T> MapResult<T> getMapResult(HashMap<T> map, int code, String msg) {
-//
-//    }
+    public <T> MapResult<T> getMapResult(HashMap<String, Object> map, int code, String msg) {
+        MapResult<T> result = new MapResult<>();
+        result.setMap((HashMap<T, T>) map);
+        result.setCode(code);
+        result.setMessage(msg);
+        return result;
+    }
     public CommonResult getCommonResult(int code, String msg) {
         CommonResult result = new CommonResult();
         result.setCode(code);

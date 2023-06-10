@@ -111,6 +111,7 @@ public class StudentLectureService {
                     .grade(studentlecture.getLecture().getGrade())
                     .classroom(studentlecture.getLecture().getClassroom())
                     .lectureTime(studentlecture.getLecture().getLectureTime())
+                    .score(studentlecture.getScore())
                     .build();
             result.add(c);
         }

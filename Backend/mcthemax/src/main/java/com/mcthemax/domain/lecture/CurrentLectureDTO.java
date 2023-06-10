@@ -13,4 +13,5 @@ public class CurrentLectureDTO {
     public Long grade;
     public String classroom;
     public String lectureTime;
+    public String score;
 }
