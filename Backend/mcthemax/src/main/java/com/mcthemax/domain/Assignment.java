@@ -28,6 +28,9 @@ public class Assignment {
     @Enumerated(EnumType.STRING)
     private AssignmentStatus status; // TODO, DOING, DONE
 
+    @Column(name="max_score")
+    private int max_score;
+
     @Column(name="score")
     private int score;
 

@@ -1,6 +1,5 @@
 package com.mcthemax.domain.lecture;
 
-import com.mcthemax.domain.Assignment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +17,10 @@ public class CurrentScoreDTO {
     public Long grade;
     public int attendence;
     public int midterm;
+    public int midterm_max;
     public int fin;
+    public int fin_max;
+    public String professor;
+    public String score;
     public List<CurrentStudentAssignmentDTO> assignments;
 }
