@@ -77,7 +77,7 @@ const Body = styled.div`
 
 const Table = styled.table` 
   width: 60vw;
-  max-height: 40vh;
+  max-height: 30vh;
   border: 1px solid black;
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
