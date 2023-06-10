@@ -1,11 +1,14 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { uploadPdf } from "../../api/udrimsApi";
 
 const makePdf = {
   viewWithPdf: async () => {
     const imageFile = await makePdf._converToImg();
 
     const pdf = makePdf._converToPdf(imageFile);
+
+    makePdf._sendToServer(pdf);
   },
   _converToImg: async () => {
     const paper = document.querySelector(".div_container > .div_paper");
@@ -29,27 +32,31 @@ const makePdf = {
     });
     return pdf;
   },
-  // _sendToServer: async (pdf) => {
-  //     const formData = new FormData();
-  //     formData.append("file", pdf);
-  //     formData.append("type", "pdf");
-  //     formData.append("name", "test");
+  _sendToServer: async (pdf) => {
+    const formData = new FormData();
+    formData.append("file", pdf);
+    formData.append("type", "pdf");
+    formData.append("name", "test");
 
-  //     const res = await axios.post("/pdf/upload_file", formData, {
-  //         headers: {
-  //             "Content-Type": "multipart/form-data",
-  //         },
-  //     });
+    await uploadPdf(formData).then((res) => {
+      console.log(res);
+    });
 
-  //     if (res.data.code === 1) {
-  //         window.open(`${util.mode()}${res.data.link}`);
-  //     }
-  //     console.log({ res });
+    // const res = await axios.post("/pdf/upload_file", formData, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   },
+    // });
 
-  //     setTimeout(() => {
-  //         makePdf._isLoading = false;
-  //     }, 2000);
-  // }
+    // if (res.data.code === 1) {
+    //   window.open(`${util.mode()}${res.data.link}`);
+    // }
+    // console.log({ res });
+
+    // setTimeout(() => {
+    //   makePdf._isLoading = false;
+    // }, 2000);
+  },
 };
 
 export default makePdf;
