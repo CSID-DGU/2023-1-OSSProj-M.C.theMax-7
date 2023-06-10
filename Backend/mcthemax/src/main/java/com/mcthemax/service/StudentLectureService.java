@@ -148,6 +148,7 @@ public class StudentLectureService {
                     .name(studentlecture.getLecture().getName())
                     .grade(studentlecture.getLecture().getGrade())
                     .attendence(studentlecture.getAttendanceScore())
+                    .attendence_max(studentlecture.getAttendanceMax())
                     .midterm(studentlecture.getMidtermScore())
                     .midterm_max(studentlecture.getMidtermMax())
                     .fin(studentlecture.getFinalScore())

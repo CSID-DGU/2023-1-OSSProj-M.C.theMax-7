@@ -16,6 +16,7 @@ public class CurrentScoreDTO {
     public String name;
     public Long grade;
     public int attendence;
+    public int attendence_max;
     public int midterm;
     public int midterm_max;
     public int fin;
