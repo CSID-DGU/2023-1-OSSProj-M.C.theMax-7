@@ -47,7 +47,7 @@ export const getGrade = async (data) => {
 
 export const uploadPdf = async (data) => {
   let config = {
-    headers: { "Content-Type": "multipart/form-data" },
+    headers: { "content-type": "multipart/form-data" },
   };
 
   const response = await api.post(

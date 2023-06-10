@@ -34,17 +34,17 @@ const makePdf = {
   },
 
   _sendToServer: async (pdf) => {
-    // let formData = new FormData();
+    const formData = new FormData();
 
-    // formData.append("file", pdf);
-    // formData.append("type", "pdf");
-    // formData.append("name", "test");
+    formData.append("file", pdf);
+    formData.append("type", "pdf");
+    formData.append("name", "test");
 
-    // for (let value of formData.values()) {
-    //   console.log(value);
-    // }
+    for (let value of formData.values()) {
+      console.log(value);
+    }
 
-    uploadPdf(pdf).then((res) => console.log(res));
+    await uploadPdf(pdf).then((res) => console.log(res));
 
     // const res = await axios.post(
     //   `${process.env.REACT_APP_SERVER_URL}/certpia/upload`,
