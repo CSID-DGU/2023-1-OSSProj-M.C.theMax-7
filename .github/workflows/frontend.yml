@@ -27,8 +27,6 @@ jobs:
     - name: npm install
       run: 
         cd Frontend/mcthemax && npm install
-      env : 
-          CI : false
     - name: npm run build 
       run : 
         cd Frontend/mcthemax && npm run build 
@@ -45,5 +43,5 @@ jobs:
 
     - name: Deploy AWS S3
       run: 
-        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend && aws cloudfront create-invalidation --distribution-id ${{ secrets.distribution_id }} --paths /*
+        aws s3 sync ./Frontend/mcthemax/build s3://mcthemax-frontend
         
