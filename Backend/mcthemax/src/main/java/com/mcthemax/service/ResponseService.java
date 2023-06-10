@@ -5,7 +5,9 @@ import com.mcthemax.domain.response.ListResult;
 import com.mcthemax.domain.response.SingleResult;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ResponseService {
@@ -25,6 +27,10 @@ public class ResponseService {
         result.setMessage(msg);
         return result;
     }
+
+//    public <T> MapResult<T> getMapResult(HashMap<T> map, int code, String msg) {
+//
+//    }
     public CommonResult getCommonResult(int code, String msg) {
         CommonResult result = new CommonResult();
         result.setCode(code);

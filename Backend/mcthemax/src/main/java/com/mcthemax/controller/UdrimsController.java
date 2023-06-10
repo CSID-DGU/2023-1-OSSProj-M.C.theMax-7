@@ -56,7 +56,7 @@ public class UdrimsController {
         return responseService.getListResult(resultList, 200, "test");
     }
 
-    @GetMapping("udrims/timetable")
+    @GetMapping("/udrims/timetable")
     public ListResult<CurrentLectureDTO> getTimetable() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
@@ -69,7 +69,7 @@ public class UdrimsController {
         return responseService.getListResult(studentLectures, 200, "test");
     }
 
-    @GetMapping("udrims/score")
+    @GetMapping("/udrims/score")
     public ListResult<CurrentScoreDTO> getScore() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
