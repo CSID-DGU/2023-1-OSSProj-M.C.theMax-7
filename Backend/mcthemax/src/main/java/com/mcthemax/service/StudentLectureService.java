@@ -15,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -143,7 +144,7 @@ public class StudentLectureService {
                     .name(studentlecture.getLecture().getName())
                     .grade(studentlecture.getLecture().getGrade())
                     .classroom(studentlecture.getLecture().getClassroom())
-                    .lectureTime(studentlecture.getLecture().getLectureTime())
+                    .lectureTime(Collections.singletonList(studentlecture.getLecture().getLectureTime()))
                     .score(studentlecture.getScore())
                     .build();
             result.add(c);
@@ -181,6 +182,7 @@ public class StudentLectureService {
                     .name(studentlecture.getLecture().getName())
                     .grade(studentlecture.getLecture().getGrade())
                     .attendence(studentlecture.getAttendanceScore())
+                    .attendence_max(studentlecture.getAttendanceMax())
                     .midterm(studentlecture.getMidtermScore())
                     .midterm_max(studentlecture.getMidtermMax())
                     .fin(studentlecture.getFinalScore())

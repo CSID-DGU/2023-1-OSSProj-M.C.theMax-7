@@ -44,6 +44,9 @@ public class StudentLecture {
     @Column(name="attendance")
     private int attendanceScore;
 
+    @Column(name="attendance_max")
+    private int attendanceMax;
+
     @Column(name="total")
     private int totalScore;
 
