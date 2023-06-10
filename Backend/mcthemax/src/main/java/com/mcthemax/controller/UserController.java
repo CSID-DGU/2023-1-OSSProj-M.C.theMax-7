@@ -2,6 +2,7 @@ package com.mcthemax.controller;
 
 import com.mcthemax.config.JwtTokenProvider;
 import com.mcthemax.domain.Department;
+import com.mcthemax.domain.response.CommonResult;
 import com.mcthemax.domain.response.SingleResult;
 import com.mcthemax.domain.user.Professor;
 import com.mcthemax.domain.user.Student;
@@ -76,6 +77,10 @@ public class UserController {
         return responseService.getSingleResult(String.valueOf(user), 403, "login failed");
     }
 
+    @PostMapping("/logout")
+    public CommonResult logout() {
+        return responseService.getCommonResult(200, "logout succeed");
+    }
     @Data
     static class CreateUserRequest {
         private User user;

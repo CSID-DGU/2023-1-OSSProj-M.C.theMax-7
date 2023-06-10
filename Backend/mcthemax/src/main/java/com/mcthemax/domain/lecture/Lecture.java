@@ -1,5 +1,6 @@
 package com.mcthemax.domain.lecture;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mcthemax.domain.Department;
 import com.mcthemax.domain.user.Professor;
 import lombok.Getter;
@@ -47,6 +48,9 @@ public class Lecture {
 
     @Column(name="student_full")
     private int studentFull;
+
+    @Column(name="lecture_code")
+    private String code;
 
 
 }

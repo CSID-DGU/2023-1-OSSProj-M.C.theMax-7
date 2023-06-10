@@ -37,6 +37,12 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserStatus authority; //PROFESSOR, STUDENT
 
+    @Column(name="birthdate")
+    private String birthdate;
+
+    @Column(name="phone")
+    private String phone;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(authority.name()));

@@ -16,4 +16,5 @@ public class CurrentStudentAssignmentDTO {
     private String lectureName;
     private AssignmentStatus assignmentStatus;
     private LocalDateTime dueDate;
+    private int score;
 }
