@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { FeatureState } from "../../../stores/class-store";
+import { FeatureState, selectedValueState } from "../../../stores/class-store";
 import { DarkGray, Orange } from "../../../assets/color/color";
 import { FEATURES } from "../../../db/class_feats";
 import styled from "styled-components";
@@ -9,6 +9,7 @@ import { useState } from "react";
 const ExitFeats = () => {
   const [isActive, setIsActive] = useState("");
   const [feature, setFeature] = useRecoilState(FeatureState);
+  const selectedValue = useRecoilValue(selectedValueState);
 
   const changeColor = (e) => {
     setIsActive(() => {
@@ -16,11 +17,12 @@ const ExitFeats = () => {
       return e.target.value;
     });
   };
+
   useEffect(() => {
     setIsActive(() => {
       return 0;
     });
-  }, [feature]);
+  }, [selectedValue]);
 
   return (
     <Container>

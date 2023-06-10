@@ -1,19 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import dummy from "../../db/ClassDB";
+import { useRecoilValue } from "recoil";
+import { selectedValueState } from "../../stores/class-store";
 
-const Classprof = (props) => {
-  //console.log(props);
-  //교수명 출력
-  const classlist = dummy.classes.filter((cls) => cls.name === props.name);
-  console.log(classlist);
+const Classprof = ({ lectures }) => {
+  const selectedValue = useRecoilValue(selectedValueState);
+  console.log(lectures);
+  console.log(selectedValue);
+
+  const classlist =
+    lectures &&
+    lectures.filter((lecture) => lecture.lectureName === selectedValue);
 
   return (
     <div>
-      {/* {dummy.props.professor} */}
-      {classlist.map((cls) => (
-        <Span key={cls.id}>{cls.professor} 교수님</Span>
-      ))}
+      {classlist &&
+        classlist.map((cls) => (
+          <Span key={cls.id}>{cls.professor} 교수님</Span>
+        ))}
     </div>
   );
 };

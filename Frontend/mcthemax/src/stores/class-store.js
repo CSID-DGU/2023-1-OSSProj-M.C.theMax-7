@@ -7,5 +7,5 @@ export const FeatureState = atom({
 
 export const selectedValueState = atom({
   key: "selectedValueState",
-  default: "선택된 강의실이 없습니다.",
+  default: "init",
 });
