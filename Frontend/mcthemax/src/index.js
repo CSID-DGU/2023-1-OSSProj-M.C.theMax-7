@@ -7,8 +7,7 @@ import "./assets/fonts/font.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
+  <RecoilRoot>
+    <App />
+  </RecoilRoot>
 );

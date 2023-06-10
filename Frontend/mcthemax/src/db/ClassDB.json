@@ -120,10 +120,13 @@
           "completed" : "DONE"
         }
     ],
-    "score" : [
+    "grade" : [
         {
           "id" :"1",
-          "name": "오픈소스프로젝트"
+          "name": "오픈소스프로젝트",
+          "classify": "중간고사",
+          "score" : "30",
+          "mean" : "15"
         }
 
     ]

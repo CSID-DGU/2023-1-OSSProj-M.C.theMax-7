@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import Login from "../components/Login/Login";
@@ -7,12 +7,21 @@ import { LoginState } from "../stores/login-store";
 import { AppStart } from "../components/Eclass/features/AppStart";
 import { FeatureState } from "../stores/class-store";
 import { selectedValueState } from "../stores/class-store";
+import { Navigate, useNavigate } from "react-router-dom"
 
 const EclassHome = lazy(() => import("../components/Eclass/EclassHome"));
 
 export default function Eclass(){
     const isLoggedIn = useRecoilValue(LoginState);
     const [feature, setFeature] = useRecoilState(FeatureState);
+    // const navigate = useNavigate();
+
+    // useEffect(() => {
+    //   if (isLoggedIn === false) {
+    //     alert("로그인 후 이용해주세요.");
+    //     navigate("/");
+    //   }
+    // }, []);
     
     return (
         <div>

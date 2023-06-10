@@ -35,7 +35,7 @@ const NotLogin = () => {
         LoginApi(data).then((res) => {
           console.log(res);
           if (res.status === 200) {
-            window.localStorage.setItem("AUTH-TOKEN", res.data.id);
+            window.localStorage.setItem("X-AUTH-TOKEN", res.data.data);
             setIsLoggedIn(true);
           }
         });

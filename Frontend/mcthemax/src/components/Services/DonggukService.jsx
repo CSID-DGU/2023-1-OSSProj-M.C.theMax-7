@@ -8,27 +8,34 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
 import { useNavigate } from "react-router-dom";
-import {useRecoilValue} from "recoil";
-import {LoginState} from "../../stores/login-store";
+import { useRecoilValue } from "recoil";
+import { LoginState } from "../../stores/login-store";
 
 const DonggukService = () => {
-  // onClick만 하면 됨
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(LoginState);
 
-  const eclassHandler = () => {
+  const udrimsHandler = () => {
     if (!isLoggedIn) {
       alert("로그인 후 이용해주세요.");
     } else {
-      navigate("/eclass");
+      navigate("/udrims");
     }
-  }
+  };
+
+  const certpiaHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/certpia");
+    }
+  };
   return (
     <Container>
       <Header>Dongguk Service</Header>
       <Body>
         <Grid>
-          <Button>
+          <Button onClick={udrimsHandler}>
             <FontAwesomeIcon icon={faLaptopMedical} size="2x" color={Orange} />
           </Button>
           <Text>학사 정보 시스템</Text>
@@ -40,13 +47,13 @@ const DonggukService = () => {
           <Text>수강 신청</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={certpiaHandler}>
             <FontAwesomeIcon icon={faChartColumn} size="2x" color={Orange} />
           </Button>
           <Text>성적 조회</Text>
         </Grid>
         <Grid>
-          <Button onClick={eclassHandler}>
+          <Button>
             <FontAwesomeIcon icon={faClipboard} size="2x" color={Orange} />
           </Button>
           <Text>이클래스</Text>

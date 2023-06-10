@@ -1,0 +1,19 @@
+.div_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150vh;
+  width: 100%;
+  background-color: grey;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.div_paper {
+  height: 842px;
+  width: 595px;
+  margin: 30px;
+  margin-top: 0;
+  background-color: white;
+  text-align: center;
+}
