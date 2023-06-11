@@ -9,13 +9,11 @@ import { LoginState } from "../../stores/login-store";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { lazy, useState } from "react";
-import { ModalState } from "../../stores/modal-store";
 
-const Modal = lazy(() => import("../Modal"));
+const Modal = lazy(() => import("../Bookmark"));
 
 const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
-  const [isModal, setIsModal] = useRecoilState(ModalState);
   const navigate = useNavigate();
   const logoutHandler = () => {
     LogoutApi().then((res) => {
@@ -50,7 +48,7 @@ const Login = () => {
         </Buttons>
         <Alarm
           onClick={() => {
-            setIsModal(true);
+            navigate("/bookmark");
           }}
         >
           <FontAwesomeIcon icon={faBell} color={Orange} size="2x" />
@@ -65,7 +63,6 @@ const Login = () => {
         10326 경기도 고양시 일산동구 동국로32 동국대학교 바이오메디캠퍼스
         <br /> TEL: 02-2260-3114
       </Footer>
-      {isModal && <Modal />}
     </Container>
   );
 };
