@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Column from "./Column";
-import { getAllAssignments, getAssignment } from "../../../../api/eclassApi";
+import {
+  changeAssignmentStatus,
+  getAllAssignments,
+  getAssignment,
+} from "../../../../api/eclassApi";
 import { Orange } from "../../../../assets/color/color";
 import { useRecoilValue } from "recoil";
 import { selectedValueState } from "../../../../stores/class-store";
+import { KanbanStatus } from "../../../../utils/KanbanUtils";
 
 export default function KanbanBoard() {
   const [done, setDone] = useState([]);
@@ -73,6 +78,9 @@ export default function KanbanBoard() {
     //source column에서 지운 item의 정보를 가져온다
     const task = findItemById(draggableId, [...todo, ...doing, ...done]);
 
+    // destination.droppableId == 1 : TODO, 2: DOING, 3: DONE
+    console.log(task, destination.droppableId);
+
     //destination column에 item을 새로 추가한다
     if (destination.droppableId == 3) {
       setDone([{ ...task, completed: !task.completed }, ...done]);
@@ -81,6 +89,16 @@ export default function KanbanBoard() {
     } else {
       setTodo([{ ...task, completed: !task.completed }, ...todo]);
     }
+
+    let data = {
+      id: task.id,
+      assignmentStatus: KanbanStatus[destination.droppableId],
+    };
+
+    console.log(data);
+
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    changeAssignmentStatus(data, token).then((res) => console.log(res));
   };
 
   function findItemById(id, array) {

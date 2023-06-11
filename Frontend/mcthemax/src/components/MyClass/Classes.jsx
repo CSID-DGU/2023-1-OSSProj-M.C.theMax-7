@@ -1,13 +1,17 @@
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { LoginState } from "../../stores/login-store";
 import { Orange } from "../../assets/color/color";
 import { useEffect, useState } from "react";
 import { getClassApi } from "../../api/studentApi";
+import { useNavigate } from "react-router-dom";
+import { selectedValueState } from "../../stores/class-store";
 
 const Classes = () => {
   const isLoggedIn = useRecoilValue(LoginState);
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
   const [classes, setClasses] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -29,7 +33,14 @@ const Classes = () => {
               classes.map((lecture) => (
                 <LectureContainer key={lecture.id}>
                   <Lecture>{lecture.name}</Lecture>
-                  <Button>강의실 가기</Button>
+                  <Button
+                    onClick={() => {
+                      setSelectedValue(lecture.name);
+                      navigate("/eclass");
+                    }}
+                  >
+                    강의실 가기
+                  </Button>
                 </LectureContainer>
               ))}
           </Lectures>
