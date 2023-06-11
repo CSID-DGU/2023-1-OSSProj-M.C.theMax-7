@@ -14,6 +14,7 @@ const ExitFeat = lazy(() => import("../components/Eclass/features/ExitFeats"));
 
 export default function Eclass() {
   const isLoggedIn = useRecoilValue(LoginState);
+  const [feature, setFeature] = useRecoilState(FeatureState);
   const selectedValue = useRecoilValue(selectedValueState);
   const navigate = useNavigate();
 
@@ -24,7 +25,9 @@ export default function Eclass() {
     }
   }, []);
 
-  useEffect(() => {}, [selectedValue]);
+  useEffect(() => {
+    setFeature(1);
+  }, [selectedValue]);
 
   return (
     <div>
@@ -40,7 +43,7 @@ export default function Eclass() {
             <EclassHome />
           </SelectClass>
           <ClassDetail>
-            <ExitFeat name={selectedValue} />
+            <ExitFeat />
             <AppStart />
           </ClassDetail>
         </ClassContainer>
