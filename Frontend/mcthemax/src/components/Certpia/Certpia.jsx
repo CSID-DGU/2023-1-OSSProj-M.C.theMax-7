@@ -10,51 +10,6 @@ import { QRCodeSVG } from "qrcode.react";
 import { getGrade, getInfo } from "../../api/udrimsApi";
 
 const Certpia = () => {
-  const datas = [
-    {
-      id: "1",
-      lectureName: "오픈소스소프트웨어프로젝트",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "2",
-      lectureName: "웹프로그래밍",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "3",
-      lectureName: "오픈소스소프트웨어실습",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "4",
-      lectureName: "컴퓨터공학종합설계1",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "5",
-      lectureName: "컴퓨터네트워킹",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "6",
-      lectureName: "일본한자음쉽게이해하기",
-      credit: "1.0",
-      grade: "P",
-    },
-    {
-      id: "7",
-      lectureName: "기업사회맞춤형캡스톤디자인1",
-      credit: "3.0",
-      grade: "P",
-    },
-  ];
-
   const headerKey = CHEADERS.map((header) => header.value);
 
   const onClick = async (e) => {
