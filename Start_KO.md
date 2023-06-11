@@ -79,3 +79,5 @@ DonggukPortal에 사용되는 라이브러리들을 설치합니다.
 <br />
 
 ## 3. Set up MySQL
+```npm install```
+```node server```
