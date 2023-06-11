@@ -7,7 +7,7 @@
 <br />
 
 ### Docs Map
-1. [Get Project File](#1.-get-project-file)
+1. [Get Project File](##1.-get-project-file)
 2. [Install Libraries](#2.-install--ibraries)
 3. [Set up MySQL](#3.-set-up-mysql)
 
