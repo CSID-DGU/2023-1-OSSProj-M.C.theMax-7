@@ -82,15 +82,17 @@ const LectureContainer = styled.div`
 
 const Lecture = styled.div`
   /* flex: 2; */
+  width: 100%;
   margin-right: 20px;
   border-bottom: 1px solid #e6e8e7;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-weight: bold;
   margin-bottom: 5px;
+  line-height: 40px;
 `;
 
 const Button = styled.button`
-  width: 100px;
+  width: 9vw;
   border-radius: 10px;
   background-color: ${Orange};
   color: white;
