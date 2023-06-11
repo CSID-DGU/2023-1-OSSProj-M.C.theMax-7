@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -68,7 +69,7 @@ public class EclassController {
     /**
      * 이클래스란 이번 학기 강의별 과제 정보
      */
-    @GetMapping("/eclass/assignment/{currentYear}")
+    @PostMapping("/eclass/assignment/{currentYear}")
     public ListResult<CurrentStudentAssignmentDTO> getEclassByAssignment(@PathVariable("currentYear") String currentYear, @RequestBody @Validated LectureUserRequest request){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
