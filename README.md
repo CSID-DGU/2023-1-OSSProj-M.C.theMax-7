@@ -3,6 +3,8 @@
 
 <br />
 
+## 🔑 Guides
+License: [GPL v3.0]()
 <br />
 
 ## 💭 About
