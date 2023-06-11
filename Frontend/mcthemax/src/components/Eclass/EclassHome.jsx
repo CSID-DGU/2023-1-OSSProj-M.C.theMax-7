@@ -5,6 +5,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { FeatureState } from "../../stores/class-store";
 import { selectedValueState } from "../../stores/class-store";
 import { getLectureInfo } from "../../api/eclassApi";
+import { useNavigate } from "react-router-dom";
 
 const Classprof = lazy(() => import("./class_prof"));
 
@@ -12,6 +13,7 @@ const EclassHome = () => {
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
   const [feature, setFeature] = useRecoilState(FeatureState);
   const [lectures, setLectures] = useState();
+
   const handleSelectChange = (e) => {
     setSelectedValue(e.target.value);
   };
@@ -23,10 +25,6 @@ const EclassHome = () => {
       setLectures(res.list);
     });
   }, []);
-
-  useEffect(() => {
-    
-  }, [selectedValue]);
 
   return (
     <>
