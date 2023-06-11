@@ -74,6 +74,7 @@ Infra
 로그인 후 메인화면
 ![image](https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/3da3c42c-f84c-473a-bf03-96b68abf62f5)
 
+<br/>
 
 ## 📍 Commit Convention
 |**Type**|설명|
