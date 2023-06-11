@@ -1,10 +1,7 @@
 # 2023-1-OSSProj-M.C.theMax-7
 > 2023년 1학기, 오픈소스프로젝트, M.C.theMax, 7조
 
-<br />
 
-## 🔑 Guides
-License: [GPL v3.0](License)
 <br />
 
 ## 💭 About
@@ -19,23 +16,63 @@ License: [GPL v3.0](License)
 > - 교내에서 유드림스 학적을 조회할 때 <b>위변조 위험</b>이 있어 이를 방지하고자 <b>QR code</b>를 삽입하여 성적증명서의 진위를 가린다.
 
 
+<br />
 
+## 🔑 Guides
+License: [GPL v3.0](License)
+
+Install: [설치 방법](Start_KO.md)
+
+Execute: [실행 방법](Execute_KO.md)
 
 <br />
+
+## ⚙️ System Architecture
+
+------작성중--------
+
+- 전체 리소스 가상화
+
+<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/f19730a5-36ec-4dc8-994e-c4f6004c366b" width="70%" height="50%"></center>
+
+- 전체 DB구조
+
+<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/742e19a4-d5d4-4e46-8c87-d75d3258af1c" width="70%" height="50%"></center>
+
+- Entity
+
+<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/01cb2858-1029-4103-80e6-22efcf6c07bb" width="70%" height="50%"></center>
 
 ## 📚 Tech Stack
-Common <p>
-<img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" width="10%">
-   
 
+Common 
 
-- **React**
-- **Recoil**
-- **styled-components**
-- **Spring**
+![Visaul Studio Code](https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint)
+![Prettier](https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier)
 
+Frontend
+
+![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
+![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge&logo=recoil)
+![Styled-Components](https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents)
+
+Backend
+
+![Spring](https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring)
+![MySQL](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql)
+
+Infra
+
+![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker)
+![AWS EC2](https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws)
 
 <br />
+
+## 📺 Project Result
+
+로그인 후 메인화면
+![image](https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/3da3c42c-f84c-473a-bf03-96b68abf62f5)
 
 
 ## 📍 Commit Convention
