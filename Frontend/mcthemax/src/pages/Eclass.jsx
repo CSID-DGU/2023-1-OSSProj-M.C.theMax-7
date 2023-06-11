@@ -25,7 +25,7 @@ export default function Eclass(){
     
     return (
         <div>
-            <LoginContainer>{isLoggedIn ? <Login /> : <Login />}</LoginContainer>
+            <LoginContainer>{isLoggedIn ? <Login /> : <NotLogin />}</LoginContainer>
             <Container>
                 <Ehompage>
                   <Text>📝 Online 캠퍼스</Text>
