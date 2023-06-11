@@ -4,7 +4,7 @@
 <br />
 
 ## 🔑 Guides
-License: [GPL v3.0]()
+License: [GPL v3.0](License)
 <br />
 
 ## 💭 About
