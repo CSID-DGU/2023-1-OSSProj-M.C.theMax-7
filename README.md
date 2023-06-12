@@ -58,19 +58,19 @@ Execute: [실행방법_한글ver](Execute_KO.md)
 
 Common 
 
-<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=ESLint&logoColor=white"><img src="https://img.shields.io/badge/prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white">
+<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=ESLint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white">
 
 Frontend
 
-<img src="https://img.shields.io/badge/react-444444?style=flat-square&logo=react&logoColor=white"><img src="https://img.shields.io/badge/recoil-f26b00?style=flat-square&logo=recoil&logoColor=white"><img src="https://img.shields.io/badge/styledcomponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=white">
+<img src="https://img.shields.io/badge/react-444444?style=flat-square&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/recoil-f26b00?style=flat-square&logo=recoil&logoColor=white"> <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=white">
 
 Backend
 
-<img src="https://img.shields.io/badge/spring-6DB33F??style=flat-square&logo=spring&logoColor=white"/><img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/spring-6DB33F??style=flat-square&logo=spring&logoColor=white"/> <img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
 
 Infra
 
-<img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/><img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/>
+<img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/>
 
 <br />
 
