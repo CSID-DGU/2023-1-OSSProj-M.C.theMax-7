@@ -34,3 +34,10 @@ export const getAssignmentApi = async (data) => {
   );
   return response;
 };
+
+export const getNotices = async () => {
+  const response = await api.get(
+    "https://7r320ngo26.execute-api.ap-northeast-2.amazonaws.com/dev/call"
+  );
+  return response;
+};
