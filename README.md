@@ -83,7 +83,9 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 - <b>로그인 이전 메인화면</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/e66dc824-e383-4c3f-ae4d-5715bf091b87" width="70%" heoght="50%"></p>
+학생/ 교수/ 교직원 여부에 따라 로그인 컴포넌트가 달라집니다.
+
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/02be4118-9ed9-4d2e-ac22-5e8a7391890a" width="300" height="500"> <img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/bc09420d-de1f-4fb9-99c2-7e92f489e3f1" width="300" height="500"> </p>
 
 - <b>로그인 후 메인화면</b>
 
@@ -91,55 +93,66 @@ DonggukClick에서 올바른 로그인을 진행하면 자신의 학사정보에
 분리된 사이트들 중에서 원하는 공지사항들을 따로 알림으로 받기위해 '즐겨찾기'기능을 활용할 수 있습니다. <br/>
 이클래스에서만 확인가능한 과제의 제출여부와 과제사항들을 DonggukClick 메인페이지에서 확인할 수 있습니다.
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/8c1b2f53-3723-4cf1-9549-8df340e911c8" width="70%" height="50%"></p>
-   
-<br/>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/8e7f315f-3d20-4d17-8339-165e7a1fc1d2" width="70%" height="50%"></p>
+
+왼쪽 상단에서 즐겨찾기기능을 활용하면 관심분야의 공지들만을 따로 확인할 수 있습니다.
+
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/72fcd701-618f-4a2e-8fd3-c60dc6e43829" width="300" height="500"></p>
    
 #### 👉 메인화면에서 이클래스페이지 
 
-'강의실을 선택하세요' 부분의 ```<selectbox>```를 클릭하면 각 강의실별 주요사항들(과제,공지사항, 출석부.성적)을 확인할 수 있습니다.
+- <b>메인</b>
+
+DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 되면 '강의실을 선택하세요' 부분의 ```<selectbox>```를 클릭하여 각 강의실별 주요사항들(과제,공지사항, 출석부.성적)을 확인할 수 있습니다.
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/bb628892-4cf6-45ae-81e3-f63c76e9ea89" width="70%" height="50%"></p>
 
 - <b>과제</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/ff883076-4550-44c3-8cdd-d27b3dfcd938" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/a7d0988b-ed90-48a1-9f76-48b66fa34c5b" width="70%" height="50%"></p>
 
 - <b>공지사항</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/762a2fd8-da3a-431a-845e-12c65896b6ad" width="70%" heith="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/c5c599ad-645d-4ca4-820c-f3005c6d2ddc" width="70%" heith="50%"></p>
 
 - <b>출석부</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/5ed3a1ac-bf9d-422a-8570-f3a8c4a4bc4d" width="70%" height="50%"></p>
+<p align="center"><img src="[https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/5ed3a1ac-bf9d-422a-8570-f3a8c4a4bc4d](https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/1939be54-4e21-4194-8513-3ddb1f756220)" width="70%" height="50%"></p>
 
 - <b>성적</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b5fe212e-d6af-468a-8898-ade031ed6102" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/ace24018-977f-4366-9ddb-50846264014a" width="70%" height="50%"></p>
 
-<br/>
-   
+
 #### 👉 메인화면에서 유드림스페이지
 
 현 uDrims의 전체 UI를 참고하였습니다.
 
 - <b>원스탑  메인페이지</b>
    
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/44c13059-139c-4285-a4ee-82710be981c7" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/7209d8bf-1313-4503-9798-420042320ead" width="70%" height="50%"></p>
 
 - <b>학사정보 페이지</b>
    - <b>학적부 열람</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/cb32c60b-f387-481d-bda7-1a78df9e1447" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/4cba1f2a-58f1-45e8-a3e9-907670b72d5d" width="70%" height="50%"></p>
 
    - <b>개인 강의 시간표 조회</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/dc8706dc-4207-4977-b4a0-c058a3c22ee7" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/78cbf6a1-79fc-4b7a-aee3-c6e02e81e620" width="70%" height="50%"></p>
 
    - <b>금학기 성적관리</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b6af9e0a-107e-4740-8694-cc92dfbacead" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/7abbff00-4fab-465f-8b96-8b2d0cace0d9" width="70%" height="50%"></p>
 
-<br/>
-   
+#### 👉 메인화면에서 성적조회
+
+- <b>성적조회 페이지</b>
+
+미리보기로 성적증명서를 먼저 확인한고 PDF로 저장할 수 있습니다.<br/>
+추가로 QR코드를 삽입하여 위변조되지 않은 교내성적표임을 보장할 수 있습니다. 
+
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/4e3d8b55-d695-4df7-98f5-6462678c1488" width="70%" height="50%"> <img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/d73eef8c-9bb2-40ed-885e-0502ea81d8ed" width="70%" height="50%"></p>
+
 ## ✨ Expected Outcomes
 
    - <b>분산되어 있는 학교 시스템을 통합적으로 구현하였습니다.</b>
