@@ -121,7 +121,7 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
 
 - <b>원스탑  메인페이지</b>
    
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/44c13059-139c-4285-a4ee-82710be981c7" width="0%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/44c13059-139c-4285-a4ee-82710be981c7" width="70%" height="50%"></p>
 
 - <b>학사정보 페이지</b>
    - <b>학적부 열람</b>
