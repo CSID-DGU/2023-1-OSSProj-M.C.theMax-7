@@ -21,7 +21,7 @@
 ## 🔑 Guides
 License: [GPL v3.0](License)
 
-Install: [설치방법_한글ver](Start_KO.md)
+Install: [설치방법_한글ver](Install_KO.md)
 
 Execute: [실행방법_한글ver](Execute_KO.md)
 
