@@ -21,12 +21,12 @@ export default function Eclass() {
   const selectedValue = useRecoilValue(selectedValueState);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isLoggedIn === false) {
-  //     alert("로그인 후 이용해주세요.");
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isLoggedIn === false) {
+      alert("로그인 후 이용해주세요.");
+      navigate("/");
+    }
+  }, []);
 
   useEffect(() => {
     setFeature(1);
