@@ -8,8 +8,9 @@ import { LogoutApi } from "../../api/authApi";
 import { LoginState } from "../../stores/login-store";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { lazy, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { ModalState } from "../../stores/modal-store";
+import { getInfo } from "../../api/udrimsApi";
 
 const Modal = lazy(() => import("../Bookmark"));
 
@@ -17,6 +18,9 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [isModal, setIsModal] = useRecoilState(ModalState);
   const navigate = useNavigate();
+  const [name, setName] = useState();
+  const [major, setMajor] = useState();
+  const [number, setNumber] = useState();
   const logoutHandler = () => {
     LogoutApi().then((res) => {
       if (res.status === 200) {
@@ -31,6 +35,15 @@ const Login = () => {
     navigate("/");
   };
 
+  useEffect(() => {
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    getInfo(token).then((res) => {
+      setName(res.data.map.name);
+      setNumber(res.data.map.number);
+      setMajor(res.data.map.department);
+    });
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -40,10 +53,10 @@ const Login = () => {
       <Body>
         <Photo src={profile} />
         <Bio>
-          <Major>컴퓨터공학전공</Major>
-          <Number>2018112039</Number>
+          <Major>{major}</Major>
+          <Number>{number}</Number>
         </Bio>
-        <Name>정원호 님</Name>
+        <Name>{name} 님</Name>
         <Buttons>
           <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
           <ChangePasswordButton>비밀번호 변경</ChangePasswordButton>
