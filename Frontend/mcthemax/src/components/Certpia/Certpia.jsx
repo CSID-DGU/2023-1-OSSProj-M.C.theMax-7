@@ -100,7 +100,7 @@ const Certpia = () => {
         </Content>
         <Footer>
           <Img src={logo} />
-          <Print>출력자: 정*호(201811****)</Print>
+          <Print>출력자: {name}(201811****)</Print>
           <Print>출력일: {nowDate} </Print>
         </Footer>
       </div>
