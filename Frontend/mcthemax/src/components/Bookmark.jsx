@@ -9,60 +9,77 @@ const Bookmark = () => {
   const notices = [
     {
       id: "1",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "공과대학",
+      title: "2023학년도 1학기 동국장학회 장학생 신청 안내(~6/11(일))",
+      author: "학과 관리자",
+      date: "2023-06-09",
+      url: "https://engineer.dongguk.edu/article/notice1/detail/177555?article_seq=&prt_seq=&category_cd=&searchCondition=TA.SUBJECT&searchKeyword=",
     },
     {
       id: "2",
-      title: "2023년 깍쟁이장학 선발 일정 ",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "공과대학",
+      title: "2023학년도 캡스톤디자인 밸류업 프로그램 참여학생 모집(~6/16)",
+      author: "학과 관리자",
+      date: "2023-06-08",
+      url: "https://engineer.dongguk.edu/article/notice1/detail/177476?pageIndex=1&",
     },
     {
       id: "3",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "공과대학",
+      title: "[성적]2023-1학기 취득교과목 학점포기제 시행(2차) 안내(~6.12(월))",
+      author: "학과 관리자",
+      date: "2023-06-07",
+      url: "https://engineer.dongguk.edu/article/notice1/detail/177441?article_seq=&prt_seq=&category_cd=&searchCondition=TA.SUBJECT&searchKeyword=",
     },
     {
       id: "4",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "컴퓨터공학",
+      title: "[SW교육원] 2023 SW중심대학 공동 해커톤 참가자 모집 공지",
+      author: "학과 관리자",
+      date: "2023-06-08",
+      url: "https://cse.dongguk.edu/article/notice1/detail/177498?pageIndex=1&",
     },
     {
       id: "5",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "컴퓨터공학",
+      title: "클라우드 기반 금융 ICT 개발자 양성과정 설명회 공지",
+      author: "학과 관리자",
+      date: "2023-06-08",
+      url: "https://cse.dongguk.edu/article/notice1/detail/177468?pageIndex=1&",
     },
     {
       id: "6",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "컴퓨터공학",
+      title: "[필독] 2023-1 IPP 장기 현장실습 졸업기준 대체 인정 공지",
+      author: "학과 관리자",
+      date: "2023-06-07",
+      url: "https://cse.dongguk.edu/article/notice1/detail/177408?pageIndex=1&",
     },
     {
       id: "7",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "장학",
+      title: "2023-1학기 국가장학금 Ⅱ유형 지급 기준 및 일정 안내",
+      author: "이동렬",
+      date: "2023-06-08",
+      url: "https://www.dongguk.edu/article/JANGHAKNOTICE/detail/26750675",
     },
     {
       id: "8",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "장학",
+      title: "2023-1학기 국가장학금 Ⅰ유형 학생 지급 관련 안내",
+      author: "이동렬",
+      date: "2023-06-08",
+      url: "https://www.dongguk.edu/article/JANGHAKNOTICE/detail/26750670",
     },
     {
       id: "9",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
+      class: "장학",
+      title: "2023-2학기 교내장학(전체) 신청안내",
+      author: "김민경",
+      date: "2023-06-07",
+      url: "https://www.dongguk.edu/article/JANGHAKNOTICE/detail/26750641",
     },
   ];
-  const navigate = useNavigate();
   const [isModal, setIsModal] = useRecoilState(ModalState);
   return (
     // <Background>
@@ -81,9 +98,11 @@ const Bookmark = () => {
         {notices &&
           notices.map((notice, index) => (
             <NoticeContainer key={index}>
-              <Notices>공지</Notices>
+              <Notices>{notice.class}공지</Notices>
               <NoticeMain>
-                <NoticeTitle>{notice.title}</NoticeTitle>
+                <NoticeTitle>
+                  <A href={notice.url}>{notice.title}</A>
+                </NoticeTitle>
                 <NoticeAbout>
                   <NoticeDate>{notice.date}</NoticeDate>
                   <NoticeAuthor>{notice.author}</NoticeAuthor>
@@ -155,7 +174,7 @@ const Notices = styled.div`
   color: ${Orange};
   margin: 1rem 0rem 1rem 0;
   text-align: center;
-  flex: 1;
+  flex: 2;
 `;
 
 const NoticeMain = styled.div`
@@ -190,6 +209,12 @@ const NoticeDate = styled.div`
 const NoticeAuthor = styled.div`
   font-size: 8px;
   margin-left: 10px;
+`;
+
+const A = styled.a`
+  outline: none;
+  text-decoration: none;
+  color: black;
 `;
 
 export default Bookmark;
