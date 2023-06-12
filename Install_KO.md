@@ -1,6 +1,6 @@
-# How to start DonggukPortal
+# How to start DonggukClick
 
-> 본 문서는 local 환경에서의 DonggukPortal 설치 방안에 대해 알려드립니다.  
+> 본 문서는 local 환경에서의 DonggukClick 설치 방안에 대해 알려드립니다.  
 > <b>Windows11</b>을 기준으로 작성되었습니다.
 > 
 > 최종 수정: 2023.06.13
@@ -22,7 +22,7 @@ C:\ > cd 2023-1-OSSProj-M.C.theMax-7
 <br />
 
 ## 2. Install Libraries
-DonggukPortal에 사용되는 라이브러리들을 설치합니다.
+DonggukClick에 사용되는 라이브러리들을 설치합니다.
 - react 
 
   [Node.js](https://nodejs.org/ko) (LTS 버전)으로 npm을 설치한 후 Yarn을 설치합니다. 
@@ -60,19 +60,19 @@ DonggukPortal에 사용되는 라이브러리들을 설치합니다.
   
 - jspdf
   
-  DonggukPortal의 성적증명서를 pdf로 변환하기 위해 필요한 jspdf 라이브러리를 설치합니다.
+  DonggukClick의 성적증명서를 pdf로 변환하기 위해 필요한 jspdf 라이브러리를 설치합니다.
   
   ```yarn add jspdf```
 
 - qrcode.react
 
-  DonggukPortal의 성적증명서의 진위를 구분할 QR삽입을 위한 qrcode.react라이브러리를 설치합니다.
+  DonggukClick의 성적증명서의 진위를 구분할 QR삽입을 위한 qrcode.react라이브러리를 설치합니다.
   
   ```yarn add qrcode.react```
   
 - react-beutiful-dnd
 
-  DonggukPortal에서 학생별 과제란을 효율적으로 확인할 수 있도록 react-beautiful-dnd라이브러리를 설치합니다.
+  DonggukClick에서 학생별 과제란을 효율적으로 확인할 수 있도록 react-beautiful-dnd라이브러리를 설치합니다.
   
   ```yarn add react-beautiful-dnd```
   
