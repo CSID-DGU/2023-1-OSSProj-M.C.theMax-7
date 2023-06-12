@@ -19,7 +19,7 @@
 <br />
 
 ## 🔑 Guides
-License: [GPL v3.0](License)
+License: [Apache v2.0](License)
 
 Install: [설치방법_한글ver](Install_KO.md)
 
@@ -36,7 +36,9 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 > 이전에 EC2에 서버리소스와 RDS에 DB리소스를 분리하여 서버를 사용하고 있었습니다. 그리고 지금 해당 프로젝트는 전체 리소스를 가상화하여 다음과 같은 인프라 구조를 가지고 있습니다.
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/f19730a5-36ec-4dc8-994e-c4f6004c366b" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/9c70186a-ecb3-4c1f-a3ee-dde29a92f6f9" width="70%" height="50%"></p>
+<br/>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/46d3dff2-2ac0-4bfa-bcb7-5b59da4cfddf" width="70%" height="50%"></p>
 
 <br/>
 
@@ -95,7 +97,7 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
    
 #### 👉 메인화면에서 이클래스페이지 
 
-'강의실을 선택하세요' 부분의 ```<selectbox>```를 클릭하면 각 강의실별 주요사항들(과제,공지사항, 출석부.적성적)을 확인할 수 있습니다.
+'강의실을 선택하세요' 부분의 ```<selectbox>```를 클릭하면 각 강의실별 주요사항들(과제,공지사항, 출석부.성적)을 확인할 수 있습니다.
 
 - <b>과제</b>
 
@@ -111,7 +113,7 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
 
 - <b>성적</b>
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b5fe212e-d6af-468a-8898-ade031ed6102" width="70%" heith="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b5fe212e-d6af-468a-8898-ade031ed6102" width="70%" height="50%"></p>
 
 <br/>
    
@@ -224,6 +226,18 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
  **|-- models => 데이터 스키마 관리 <br />
    |-- middleware => auth 정보 관리 <br />
    |-- routes => router 관리 <br />**
+   
+   ## ✍️ Reference
+   
+   과제 관리
+   [React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+   성적증명 PDF
+   [jsPDF](https://github.com/parallax/jsPDF)
+   [html2canvas](https://github.com/atlassian/react-beautiful-dnd)
+   성적증명서 QR코드
+   [QRcode react](https://github.com/zpao/qrcode.react)
+   리액트 테이블
+   [React table](https://github.com/react-component/table.git)
    
    ## 🤝 Team Member 
 
