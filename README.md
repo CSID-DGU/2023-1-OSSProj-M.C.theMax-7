@@ -151,7 +151,7 @@ DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 
 미리보기로 성적증명서를 먼저 확인한고 PDF로 저장할 수 있습니다.<br/>
 추가로 QR코드를 삽입하여 위변조되지 않은 교내성적표임을 보장할 수 있습니다. 
 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/4e3d8b55-d695-4df7-98f5-6462678c1488" width="350" height="400"> <img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/d73eef8c-9bb2-40ed-885e-0502ea81d8ed" width="350" height="400"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/4e3d8b55-d695-4df7-98f5-6462678c1488" width="350" height="400"> <img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/d73eef8c-9bb2-40ed-885e-0502ea81d8ed" width="400" height="400"></p>
 
 ## ✨ Expected Outcomes
 
