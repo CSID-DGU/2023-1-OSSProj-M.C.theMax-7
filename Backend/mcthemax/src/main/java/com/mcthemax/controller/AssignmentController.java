@@ -42,7 +42,6 @@ public class AssignmentController {
         Long id = patchAssignmentDTO.getId();
         AssignmentStatus status = patchAssignmentDTO.getAssignmentStatus();
         Optional<Assignment> assignment = assignmentService.patchAssignment(id, status);
-        System.out.println(assignment.get().getName());
 
         return responseService.getCommonResult(200, "assignment patched");
     }
