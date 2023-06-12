@@ -25,7 +25,7 @@ Install: [설치방법_한글ver](Start_KO.md)
 
 Execute: [실행방법_한글ver](Execute_KO.md)
 
-Announcdment: [코드설명_한글ver]()
+Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 <br />
 
