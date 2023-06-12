@@ -22,14 +22,6 @@ const DonggukService = () => {
       navigate("/udrims");
     }
   };
-
-  const certpiaHandler = () => {
-    if (!isLoggedIn) {
-      alert("로그인 후 이용해주세요.");
-    } else {
-      navigate("/certpia");
-    }
-  };
   const eclassHandler = () => {
     if (!isLoggedIn) {
       alert("로그인 후 이용해주세요.");
@@ -54,7 +46,7 @@ const DonggukService = () => {
           <Text>수강 신청</Text>
         </Grid>
         <Grid>
-          <Button onClick={certpiaHandler}>
+          <Button>
             <FontAwesomeIcon icon={faChartColumn} size="2x" color={Orange} />
           </Button>
           <Text>성적 조회</Text>
