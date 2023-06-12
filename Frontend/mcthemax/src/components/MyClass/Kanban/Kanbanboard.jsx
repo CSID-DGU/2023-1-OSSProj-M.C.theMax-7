@@ -15,6 +15,7 @@ export default function KanbanBoard() {
   // inprogress는 todo에 있는 칸반들을 자의로 drag drop할 수 있게끔 설정
 
   // JSONplaceholder 로 백엔드 서버 대신 API시도
+
   useEffect(() => {
     let id = window.localStorage.getItem("X-AUTH-TOKEN");
 
@@ -38,7 +39,7 @@ export default function KanbanBoard() {
     if (source.droppableId == destination.droppableId) return;
 
     //drag한 곳과 drop한 곳의 위치가 다르면 source column에서 해당 item을 지워야한다
-    if (source.droppableId == 2) {
+    if (source.droppableId == 3) {
       setDone(removeItemById(draggableId, done));
     } else {
       setTodo(removeItemById(draggableId, todo));
