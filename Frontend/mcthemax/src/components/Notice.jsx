@@ -1,76 +1,32 @@
 import styled from "styled-components";
 import { Orange } from "../assets/color/color";
+import { useEffect } from "react";
+import { getNotices } from "../api/studentApi";
+import { useState } from "react";
 
 const Notice = () => {
-  const notices = [
-    {
-      id: "1",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "2",
-      title: "2023년 깍쟁이장학 선발 일정 ",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "3",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "4",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "5",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "6",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "7",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "8",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-    {
-      id: "9",
-      title: "2023년 깍쟁이장학 선발 일정",
-      author: "관리자",
-      date: "2023-05-10",
-    },
-  ];
+  const [datas, setDatas] = useState();
+  useEffect(() => {
+    getNotices().then((res) => {
+      setDatas(res.data.body);
+    });
+  }, []);
+
   return (
     <Container>
       <Header>통합 공지</Header>
       <Body>
-        {notices &&
-          notices.map((notice, index) => (
+        {datas &&
+          datas.map((notice, index) => (
             <NoticeContainer key={index}>
               <Notices>공지</Notices>
               <NoticeMain>
-                <NoticeTitle>{notice.title}</NoticeTitle>
+                <NoticeTitle>
+                  <A href={notice.link}>{notice.title}</A>
+                </NoticeTitle>
                 <NoticeAbout>
-                  <NoticeDate>{notice.date}</NoticeDate>
-                  <NoticeAuthor>{notice.author}</NoticeAuthor>
+                  <NoticeDate>{notice.upload_date}</NoticeDate>
+                  <NoticeAuthor>{notice.writer}</NoticeAuthor>
                 </NoticeAbout>
               </NoticeMain>
             </NoticeContainer>
@@ -147,6 +103,11 @@ const NoticeDate = styled.div`
 const NoticeAuthor = styled.div`
   font-size: 8px;
   margin-left: 10px;
+`;
+
+const A = styled.a`
+  text-decoration: none;
+  color: black;
 `;
 
 export default Notice;
