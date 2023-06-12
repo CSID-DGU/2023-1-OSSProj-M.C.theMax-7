@@ -8,9 +8,9 @@
 <br />
 
 ### Docs Map
-1. [Get Project File](#1.-get-project-file)
-2. [Install Libraries for Frontend](#2.-install-libraries-for-frontend)
-3. [Install Dependencies for Backend](#3.-install-dependencies-for-backend)
+1. [Get Project File](##1.-get-project-file)
+2. [Install Libraries for Frontend](##2.-install-libraries-for-frontend)
+3. [Install Dependencies for Backend](##.-install-dependencies-for-backend)
 
 ## 1. Get Project File
 로컬 환경 Workspace 에 프로젝트 파일을 다운로드합니다. 본 문서에서는 Workspace의 위치를 C:/Example 로 가정합니다.
