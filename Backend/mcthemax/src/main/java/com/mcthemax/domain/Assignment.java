@@ -1,17 +1,20 @@
 package com.mcthemax.domain;
 
 import com.mcthemax.domain.lecture.StudentLecture;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Entity
 @Table(name="student_assignment")
 @Getter
 @Setter
 public class Assignment {
+    @Builder
+    public Assignment() {
+    }
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -27,6 +30,9 @@ public class Assignment {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private AssignmentStatus status; // TODO, DOING, DONE
+
+    @Column(name="max_score")
+    private int max_score;
 
     @Column(name="score")
     private int score;

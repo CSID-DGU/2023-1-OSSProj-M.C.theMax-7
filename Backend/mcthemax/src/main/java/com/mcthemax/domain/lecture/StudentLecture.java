@@ -32,11 +32,20 @@ public class StudentLecture {
     @Column(name="midterm_exam")
     private int midtermScore;
 
+    @Column(name="midterm_max")
+    private int midtermMax;
+
     @Column(name="final_exam")
     private int finalScore;
 
+    @Column(name="final_max")
+    private int finalMax;
+
     @Column(name="attendance")
     private int attendanceScore;
+
+    @Column(name="attendance_max")
+    private int attendanceMax;
 
     @Column(name="total")
     private int totalScore;

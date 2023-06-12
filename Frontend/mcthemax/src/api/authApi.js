@@ -8,15 +8,9 @@ export const LoginApi = async (data) => {
   return response;
 };
 
-export const LogoutApi = async (data) => {
-  let config = {
-    headers: data,
-  };
-
+export const LogoutApi = async () => {
   const response = await api.post(
-    `${process.env.REACT_APP_SERVER_URL}/logout`,
-    null,
-    config
+    `${process.env.REACT_APP_SERVER_URL}/signout`
   );
 
   return response;

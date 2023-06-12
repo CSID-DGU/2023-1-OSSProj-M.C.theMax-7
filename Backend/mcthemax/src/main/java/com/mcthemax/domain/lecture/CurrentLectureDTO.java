@@ -2,6 +2,8 @@ package com.mcthemax.domain.lecture;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -12,5 +14,6 @@ public class CurrentLectureDTO {
     public String name;
     public Long grade;
     public String classroom;
-    public String lectureTime;
+    public List lectureTime;
+    public String score;
 }

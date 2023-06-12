@@ -7,53 +7,9 @@ import "./Certpia.css";
 import moment from "moment";
 import makePdf from "./make_pdf";
 import { QRCodeSVG } from "qrcode.react";
+import { getGrade, getInfo } from "../../api/udrimsApi";
 
 const Certpia = () => {
-  const datas = [
-    {
-      id: "1",
-      lectureName: "오픈소스소프트웨어프로젝트",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "2",
-      lectureName: "웹프로그래밍",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "3",
-      lectureName: "오픈소스소프트웨어실습",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "4",
-      lectureName: "컴퓨터공학종합설계1",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "5",
-      lectureName: "컴퓨터네트워킹",
-      credit: "3.0",
-      grade: "A+",
-    },
-    {
-      id: "6",
-      lectureName: "일본한자음쉽게이해하기",
-      credit: "1.0",
-      grade: "P",
-    },
-    {
-      id: "7",
-      lectureName: "기업사회맞춤형캡스톤디자인1",
-      credit: "3.0",
-      grade: "P",
-    },
-  ];
-
   const headerKey = CHEADERS.map((header) => header.value);
 
   const onClick = async (e) => {
@@ -62,31 +18,50 @@ const Certpia = () => {
   };
 
   const [nowDate, setNowDate] = useState();
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
+  const [syear, setSyear] = useState();
+  const [department, setDepartment] = useState();
+  const [d, setD] = useState();
 
   useEffect(() => {
+    let id = window.localStorage.getItem("X-AUTH-TOKEN");
     setNowDate(moment(new Date()).format("YYYY-MM-DD hh:mm:ss"));
+    getInfo(id).then((res) => {
+      setName(res.data.map.name);
+      setNumber(res.data.map.number);
+      setSyear(res.data.map.syear);
+      setDepartment(res.data.map.department);
+    });
+
+    getGrade(id).then((res) => {
+      setD(res.list);
+    });
   }, []);
+
+  let id = window.localStorage.getItem("X-AUTH-TOKEN");
+  console.log(id);
 
   return (
     <div className="div_container">
       <div className="div_paper">
         <Content>
           <QRContainer>
-            <QRCodeSVG value="www.naver.com" size="32" />
+            <QRCodeSVG value={`www.mcthemax.click/${id}`} size="32" />
           </QRContainer>
           <Title>2023학년도 1학기 성적증명서</Title>
           <UserInfo>
             <UserContainer>
               <SubTitle>성명</SubTitle>
-              <Info>정원호</Info>
+              <Info>{name}</Info>
             </UserContainer>
             <UserContainer>
               <SubTitle>학번</SubTitle>
-              <Info>2018112039</Info>
+              <Info>{number}</Info>
             </UserContainer>
             <UserContainer>
               <SubTitle>학년</SubTitle>
-              <Info>4</Info>
+              <Info>{syear}</Info>
             </UserContainer>
             <UserContainer>
               <SubTitle>대학</SubTitle>
@@ -94,7 +69,7 @@ const Certpia = () => {
             </UserContainer>
             <UserContainer gridColumn="span 2">
               <SubTitle>학과/전공</SubTitle>
-              <Info>컴퓨터공학전공</Info>
+              <Info>{department}</Info>
             </UserContainer>
           </UserInfo>
           <TableContainer>
@@ -107,8 +82,8 @@ const Certpia = () => {
                 </tr>
               </thead>
               <tbody>
-                {datas &&
-                  datas.map((data, index) => (
+                {d &&
+                  d.map((data, index) => (
                     <tr key={index}>
                       {headerKey.map((key) =>
                         key == "year-semester" ? (
@@ -125,7 +100,7 @@ const Certpia = () => {
         </Content>
         <Footer>
           <Img src={logo} />
-          <Print>출력자: 정*호(201811****)</Print>
+          <Print>출력자: {name}(201811****)</Print>
           <Print>출력일: {nowDate} </Print>
         </Footer>
       </div>

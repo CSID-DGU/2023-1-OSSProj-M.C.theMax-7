@@ -22,14 +22,14 @@ const DonggukService = () => {
       navigate("/udrims");
     }
   };
-
-  const certpiaHandler = () => {
+  const eclassHandler = () => {
     if (!isLoggedIn) {
       alert("로그인 후 이용해주세요.");
     } else {
-      navigate("/certpia");
+      navigate("/eclass");
     }
   };
+
   return (
     <Container>
       <Header>Dongguk Service</Header>
@@ -47,13 +47,13 @@ const DonggukService = () => {
           <Text>수강 신청</Text>
         </Grid>
         <Grid>
-          <Button onClick={certpiaHandler}>
+          <Button>
             <FontAwesomeIcon icon={faChartColumn} size="2x" color={Orange} />
           </Button>
-          <Text>성적 조회</Text>
+          <Text>드림 패스</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={eclassHandler}>
             <FontAwesomeIcon icon={faClipboard} size="2x" color={Orange} />
           </Button>
           <Text>이클래스</Text>

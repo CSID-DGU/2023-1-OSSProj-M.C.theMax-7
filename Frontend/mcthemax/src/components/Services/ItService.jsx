@@ -2,8 +2,21 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faFileInvoice } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { LoginState } from "../../stores/login-store";
 
 const ItService = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = useRecoilValue(LoginState);
+
+  const certpiaHandler = () => {
+    if (!isLoggedIn) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      navigate("/certpia");
+    }
+  };
   return (
     <Container>
       <Header>IT Service</Header>
@@ -15,7 +28,7 @@ const ItService = () => {
           <Text>웹 메일</Text>
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={certpiaHandler}>
             <FontAwesomeIcon icon={faFileInvoice} size="2x" color={Orange} />
           </Button>
           <Text>인터넷 증명서</Text>

@@ -1,20 +1,26 @@
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { LoginState } from "../../stores/login-store";
 import { Orange } from "../../assets/color/color";
 import { useEffect, useState } from "react";
 import { getClassApi } from "../../api/studentApi";
+import { useNavigate } from "react-router-dom";
+import { selectedValueState } from "../../stores/class-store";
 
 const Classes = () => {
   const isLoggedIn = useRecoilValue(LoginState);
-  const [classes, setClasses] = useState([]);
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
+  const [classes, setClasses] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    let id = window.localStorage.getItem("X-AUTH-TOKEN");
-    getClassApi(id).then((res) => {
-      setClasses(res.data);
-    });
-  }, []);
+    if (isLoggedIn) {
+      let id = window.localStorage.getItem("X-AUTH-TOKEN");
+      getClassApi(id).then((res) => {
+        setClasses(res.data);
+      });
+    }
+  }, [isLoggedIn]);
 
   console.log(classes);
   return (
@@ -27,7 +33,14 @@ const Classes = () => {
               classes.map((lecture) => (
                 <LectureContainer key={lecture.id}>
                   <Lecture>{lecture.name}</Lecture>
-                  <Button>강의실 가기</Button>
+                  <Button
+                    onClick={() => {
+                      setSelectedValue(lecture.name);
+                      navigate("/eclass");
+                    }}
+                  >
+                    강의실 가기
+                  </Button>
                 </LectureContainer>
               ))}
           </Lectures>
@@ -45,6 +58,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   border-left: 1px solid #e6e8e7;
+  overflow: scroll;
 `;
 
 const Header = styled.div`
@@ -80,15 +94,17 @@ const LectureContainer = styled.div`
 
 const Lecture = styled.div`
   /* flex: 2; */
+  width: 100%;
   margin-right: 20px;
   border-bottom: 1px solid #e6e8e7;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-weight: bold;
   margin-bottom: 5px;
+  line-height: 40px;
 `;
 
 const Button = styled.button`
-  width: 100px;
+  width: 9vw;
   border-radius: 10px;
   background-color: ${Orange};
   color: white;

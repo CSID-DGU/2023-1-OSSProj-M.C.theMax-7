@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
 
+//	static {
+//		System.setProperty("com.amazonaws.sdk.disableEc2Metadata", "true");
+//	}
+
 	@RequestMapping("/")
 	String home() {
 		return "Hello World!";
@@ -27,7 +31,7 @@ public class Application {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 						.allowedOrigins("*")
-						.allowedMethods("GET", "POST", "PUT", "DELETE")
+						.allowedMethods("GET", "POST", "PATCH", "DELETE")
 						.allowedHeaders("*")
 						.maxAge(3000);
 			}

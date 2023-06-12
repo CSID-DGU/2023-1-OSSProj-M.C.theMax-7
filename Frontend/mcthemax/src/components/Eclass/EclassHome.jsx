@@ -1,78 +1,94 @@
-import React, {lazy, useState, useEffect} from "react";
+import React, { lazy, useState, useEffect } from "react";
 import styled from "styled-components";
 import dummy from "../../db/ClassDB";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { FeatureState } from "../../stores/class-store";
-import { ExitFeats } from "./features/ExitFeats";
 import { selectedValueState } from "../../stores/class-store";
-import axios from 'axios';
+import { getLectureInfo } from "../../api/eclassApi";
+import { useNavigate } from "react-router-dom";
 
 const Classprof = lazy(() => import("./class_prof"));
 
 const EclassHome = () => {
-    const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
-    const handleSelectChange = (e) => {
-        setSelectedValue(e.target.value);
-    };
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
+  const [feature, setFeature] = useRecoilState(FeatureState);
+  const [lectures, setLectures] = useState();
 
-    const [feature, setFeature] = useRecoilState(FeatureState);
-    useEffect(() => {
-      setFeature(1);
-    }, []);
+  const handleSelectChange = (e) => {
+    setSelectedValue(e.target.value);
+  };
 
-    return(
-        <div>          
-            <Select className="eclass_name"  onChange={handleSelectChange} value={selectedValue}>
-                <option value="" > 강의실을 선택하세요</option>
-                {dummy.classes.map((option) => (
-                    <option
-                        key={option.id}
-                        value={option.name}
-                    >
-                        {option.name}
-                    </option>
-                ))}
-            </Select>
+  useEffect(() => {
+    setFeature(1);
+    // let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    // getLectureInfo(data).then((res) => {
+    //   setLectures(res.list);
+    // });
+    setLectures(dummy.classes);
+  }, []);
 
-            <Header>  {selectedValue} <Classprof name={selectedValue}/>  </Header>
-            <Container>
-                <ExitFeats name={selectedValue}/>
-            </Container>    
-        </div>
-    );
+  return (
+    <>
+      <Container>
+        <Select
+          className="eclass_name"
+          onChange={handleSelectChange}
+          value={selectedValue}
+        >
+          <option value="init"> 강의실을 선택하세요</option>
+          {lectures &&
+            lectures.map((option) => (
+              <option key={option.id} value={option.lectureName}>
+                {option.lectureName}
+              </option>
+            ))}
+          
+        </Select>
+        <Header>
+          <Selected>{selectedValue == "init" ? "" : selectedValue}</Selected>
+          <Classprof lectures={lectures} />
+        </Header>
+      </Container>
+    </>
+  );
 };
+
+const Container = styled.div`
+  display: flex;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  height: 30vh;
+  margin: 0 5vw;
+  align-items: center;
+`;
 
 const Select = styled.select`
   display: block;
-  margin: 1rem;
-  width: 17vw;
-  height: 5vh;
-  border-radius: 1rem;
+  height: 10vh;
+  margin: 0 1vw;
+  border-radius: 5px;
+  border: 1px solid #e6e8e7;
+  text-align: center;
+  appearance: none;
+  font-size: 12pt;
+  font-weight: bold;
+  outline: none;
+  flex: 1;
 `;
 
 const Header = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  margin-left: 1rem;
-  width: 20vw;
-  font-size: 1.5rem;
+  align-items: center;
+  border: 1px solid #e6e8e7;
+  border-radius: 5px;
+  height: 10vh;
+  flex: 1;
+`;
+
+const Selected = styled.div`
+  font-size: 16pt;
   font-weight: bold;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
-  border: 1px solid gray;
-  padding: 10px;
-  border-radius: 0.5rem;
-
 `;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 1rem;
-  height: 6vh;
-  width: 30vw;
-`;
-
-
 
 export default EclassHome;

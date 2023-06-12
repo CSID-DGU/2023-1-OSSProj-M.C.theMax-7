@@ -2,24 +2,45 @@ import styled from "styled-components";
 import { DarkGray, Orange, PhantomB } from "../../../assets/color/color";
 import { headers } from "../../../utils/AuthTable";
 import { useState } from "react";
+import { useEffect } from "react";
+import { getInfo, udrimsAuth } from "../../../api/udrimsApi";
 
 const Authority = () => {
-  const datas = [
-    {
-      authority: "학생(학부)",
-      campus: "서울캠퍼스",
-      user: "학생",
-      number: "2018112039",
-      authStatus: "true",
-    },
-  ];
   const headerKey = headers.map((header) => header.value);
 
   const [isChecked, setIsChecked] = useState(true);
+  const [number, setNumber] = useState();
+  const [authority, setAuthority] = useState();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    udrimsAuth(token).then((res) => {
+      setNumber(res.data.id);
+      if (res.data.authority == "STUDENT") {
+        setAuthority("학생(학부)");
+        setUser("학생");
+      } else {
+        setAuthority("교수");
+        setUser("교수");
+      }
+    });
+  }, []);
+
+  const datas = [
+    {
+      authority,
+      campus: "서울캠퍼스",
+      user,
+      number,
+      authStatus: "true",
+    },
+  ];
+
   return (
     <Container>
       <H2>대표권한변경</H2>
-      <Auth>현재 권한은 학생(학부)(2018112039)입니다.</Auth>
+      <Auth>현재 권한은 학생(학부)({number})입니다.</Auth>
       <AuthExplanation>
         <Color fontSize="14px">[대표권한 관련 설명]</Color>
         대표권한을 선택 후 "임시변경" 또는 "저장" 버튼을 눌러 대표권한을 변경할

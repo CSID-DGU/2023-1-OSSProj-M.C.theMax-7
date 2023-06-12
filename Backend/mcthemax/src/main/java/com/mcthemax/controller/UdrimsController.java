@@ -3,6 +3,7 @@ package com.mcthemax.controller;
 import com.mcthemax.domain.lecture.CurrentLectureDTO;
 import com.mcthemax.domain.lecture.CurrentScoreDTO;
 import com.mcthemax.domain.response.ListResult;
+import com.mcthemax.domain.response.MapResult;
 import com.mcthemax.domain.response.UserInfoResponse;
 import com.mcthemax.domain.user.Student;
 import com.mcthemax.domain.user.User;
@@ -38,25 +39,26 @@ public class UdrimsController {
     }
 
     @GetMapping("/udrims/info")
-    public ListResult getInfo() {
+    public MapResult getInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
 
         Optional<User> user = userService.findByUsername(id);
         Student student = studentService.findByUser(user);
 
-        List<Object> resultList = new ArrayList<>();
-        resultList.add(user.get().getId());
-        resultList.add(user.get().getName());
-        resultList.add(student.getGrade());
-        resultList.add(user.get().getBirthdate());
-        resultList.add(student.getDepartment().getName());
-        resultList.add(user.get().getAuthority());
-        resultList.add(user.get().getPhone());
-        return responseService.getListResult(resultList, 200, "test");
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("number", user.get().getId());
+        resultMap.put("name", user.get().getName());
+        resultMap.put("syear", student.getGrade());
+        resultMap.put("birthDate", user.get().getBirthdate());
+        resultMap.put("department", student.getDepartment().getName());
+        resultMap.put("userState", user.get().getAuthority());
+        resultMap.put("phoneNum", user.get().getPhone());
+
+        return responseService.getMapResult(resultMap, 200, "test");
     }
 
-    @GetMapping("udrims/timetable")
+    @GetMapping("/udrims/timetable")
     public ListResult<CurrentLectureDTO> getTimetable() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
@@ -69,7 +71,7 @@ public class UdrimsController {
         return responseService.getListResult(studentLectures, 200, "test");
     }
 
-    @GetMapping("udrims/score")
+    @GetMapping("/udrims/score")
     public ListResult<CurrentScoreDTO> getScore() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();

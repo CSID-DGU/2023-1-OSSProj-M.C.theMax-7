@@ -1,8 +1,9 @@
 package com.mcthemax.service;
 
 import com.mcthemax.domain.Assignment;
+import com.mcthemax.domain.AssignmentStatus;
+import com.mcthemax.domain.PatchAssignmentDTO;
 import com.mcthemax.domain.lecture.CurrentStudentAssignmentDTO;
-import com.mcthemax.domain.lecture.CurrentStudentLectureDTO;
 import com.mcthemax.domain.lecture.StudentLecture;
 import com.mcthemax.repository.AssignmentRepository;
 import com.mcthemax.repository.StudentLectureRepository;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -42,4 +43,11 @@ public class AssignmentService {
         return currentStudentAssignments;
     }
 
+    @Transactional
+    public Optional<Assignment> patchAssignment(Long id, AssignmentStatus status) {
+
+        Optional<Assignment> assignment = assignmentRepository.findById(id);
+        assignment.get().setStatus(status);
+        return assignment;
+    }
 }

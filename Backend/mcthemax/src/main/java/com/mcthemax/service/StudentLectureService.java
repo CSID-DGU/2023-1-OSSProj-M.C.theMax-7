@@ -15,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,7 +60,7 @@ public class StudentLectureService {
         return studentLecture.getId();
     }
     /**
-     * 현학기 수강정보 가져오기
+     * 현학기 수강정보 가져오기 (홈 버전)
      */
     @Transactional(readOnly = true)
     public List<CurrentStudentLectureDTO> GetCurrentSemesterCourse(Long student_id, String lectureYear){
@@ -88,6 +89,39 @@ public class StudentLectureService {
         }
         return result;
     }
+    /**
+     * 현학기 수강정보 가져오기 (이클래스 버전)
+     */
+    @Transactional(readOnly = true)
+    public List<CurrentStudentLectureDTO> GetEclassCurrentSemesterCourse(Long student_id, String lectureYear){
+
+        String jpql = "SELECT s1 " +
+                "FROM StudentLecture s1 " +
+                "JOIN s1.student s " +
+                "JOIN s1.lecture l " +
+                "WHERE s.id = :student_id " +
+                "AND s.semester = l.semester " +
+                "AND l.lectureYear = :lecture_year";
+
+        TypedQuery<StudentLecture> query = entityManager.createQuery(
+                jpql,
+                StudentLecture.class);
+        query.setParameter("student_id",student_id);
+        query.setParameter("lecture_year",lectureYear);
+        List<StudentLecture> sl = query.getResultList();
+        List<CurrentStudentLectureDTO> result = new ArrayList<>();
+        for (StudentLecture studentlecture : sl ){
+            CurrentStudentLectureDTO c = CurrentStudentLectureDTO.builder()
+                    .id(studentlecture.getId())
+                    .name(studentlecture.getLecture().getName())
+                    .lectureCode(studentlecture.getLecture().getCode())
+                    .lectureName(studentlecture.getLecture().getName())
+                    .professor(studentlecture.getLecture().getProfessor().getUser().getName())
+                    .build();
+            result.add(c);
+        }
+        return result;
+    }
 
     @Transactional
     public List<CurrentLectureDTO> GetCurrentCourse(Long student_id) {
@@ -110,7 +144,8 @@ public class StudentLectureService {
                     .name(studentlecture.getLecture().getName())
                     .grade(studentlecture.getLecture().getGrade())
                     .classroom(studentlecture.getLecture().getClassroom())
-                    .lectureTime(studentlecture.getLecture().getLectureTime())
+                    .lectureTime(Collections.singletonList(studentlecture.getLecture().getLectureTime()))
+                    .score(studentlecture.getScore())
                     .build();
             result.add(c);
         }
@@ -137,7 +172,9 @@ public class StudentLectureService {
             for (Assignment assignment : assignments) {
                 CurrentStudentAssignmentDTO currentStudentAssignmentDTO = new CurrentStudentAssignmentDTO();
                 currentStudentAssignmentDTO.setId(assignment.getId());
+                currentStudentAssignmentDTO.setAssignmentName(assignment.getName());
                 currentStudentAssignmentDTO.setScore(assignment.getScore());
+                currentStudentAssignmentDTO.setMax_score(assignment.getMax_score());
                 currentStudentAssignments.add(currentStudentAssignmentDTO);
             }
             CurrentScoreDTO c = CurrentScoreDTO.builder()
@@ -145,9 +182,14 @@ public class StudentLectureService {
                     .name(studentlecture.getLecture().getName())
                     .grade(studentlecture.getLecture().getGrade())
                     .attendence(studentlecture.getAttendanceScore())
+                    .attendence_max(studentlecture.getAttendanceMax())
                     .midterm(studentlecture.getMidtermScore())
+                    .midterm_max(studentlecture.getMidtermMax())
                     .fin(studentlecture.getFinalScore())
+                    .fin_max(studentlecture.getFinalMax())
                     .assignments(currentStudentAssignments)
+                    .professor(studentlecture.getLecture().getP_name())
+                    .score(studentlecture.getScore())
                     .build();
             result.add(c);
         }

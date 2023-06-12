@@ -7,6 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { lazy } from "react";
 import { CategoryState, SubCategoryState } from "../stores/category-store";
 import { AppNexus } from "../components/Udrims/contents/AppNexus";
+import { udrimsAuth } from "../api/udrimsApi";
 
 const Header = lazy(() => import("../components/Udrims/Header"));
 const Menu = lazy(() => import("../components/Udrims/Menu"));
@@ -22,6 +23,8 @@ function Udrims() {
       alert("로그인 후 이용해주세요.");
       navigate("/");
     }
+    let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    udrimsAuth(data).then((res) => console.log(res));
     setCategory(1);
     setSubcategory(1);
   }, []);

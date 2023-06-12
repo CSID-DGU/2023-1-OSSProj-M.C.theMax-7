@@ -4,6 +4,9 @@ import { DragDropContext } from "react-beautiful-dnd";
 // Drag&Dropcontext만 필요할 뿐
 import Column from "./Column";
 import { getAssignmentApi } from "../../../api/studentApi";
+import { Orange } from "../../../assets/color/color";
+import { KanbanStatus } from "../../../utils/KanbanUtils";
+import { changeAssignmentStatus } from "../../../api/eclassApi";
 
 export default function KanbanBoard() {
   const [done, setDone] = useState([]);
@@ -12,15 +15,10 @@ export default function KanbanBoard() {
   // inprogress는 todo에 있는 칸반들을 자의로 drag drop할 수 있게끔 설정
 
   // JSONplaceholder 로 백엔드 서버 대신 API시도
+
   useEffect(() => {
-    let id = window.localStorage.getItem("AUTH-TOKEN");
-    // fetch("https://jsonplaceholder.typicode.com/todos")
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     setDone(json.filter((task) => task.completed === "DONE"));
-    //     setTodo(json.filter((task) => task.completed === "TODO"));
-    //   });
+    let id = window.localStorage.getItem("X-AUTH-TOKEN");
+
     getAssignmentApi(id).then((res) => {
       console.log(res.data);
       setDone(
@@ -35,11 +33,13 @@ export default function KanbanBoard() {
   const handleDragEnd = (result) => {
     const { destination, source, draggableId } = result;
 
+    console.log(source, destination);
+
     // drag한 곳과 drop한 곳의 위치가 같은 경우 어떠한 변화도 일어나지 않는다
     if (source.droppableId == destination.droppableId) return;
 
     //drag한 곳과 drop한 곳의 위치가 다르면 source column에서 해당 item을 지워야한다
-    if (source.droppableId == 2) {
+    if (source.droppableId == 3) {
       setDone(removeItemById(draggableId, done));
     } else {
       setTodo(removeItemById(draggableId, todo));
@@ -48,12 +48,24 @@ export default function KanbanBoard() {
     //source column에서 지운 item의 정보를 가져온다
     const task = findItemById(draggableId, [...todo, ...done]);
 
+    console.log(task, destination.droppableId);
+    // destination.droppableId == 1: TODO,  3: DONE
+
     //destination column에 item을 새로 추가한다
-    if (destination.droppableId == 2) {
+    if (destination.droppableId == 3) {
       setDone([{ ...task, completed: !task.completed }, ...done]);
     } else {
       setTodo([{ ...task, completed: !task.completed }, ...todo]);
     }
+
+    // 서버 통신
+    let data = {
+      id: task.id,
+      assignmentStatus: KanbanStatus[destination.droppableId],
+    };
+
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    changeAssignmentStatus(data, token).then((res) => console.log(res));
   };
 
   function findItemById(id, array) {
@@ -79,14 +91,9 @@ export default function KanbanBoard() {
           title={"TO DO"}
           tasks={todo}
           id={"1"}
-          backgroundColor={"#D6E4EE"}
+          backgroundColor={Orange}
         />
-        <Column
-          title={"DONE"}
-          tasks={done}
-          id={"2"}
-          backgroundColor={"#DEECDC"}
-        />
+        <Column title={"DONE"} tasks={done} id={"3"} backgroundColor={Orange} />
         {/* <Column title={"TASKS"} tasks={[]} id={"3"} /> */}
       </div>
     </DragDropContext>

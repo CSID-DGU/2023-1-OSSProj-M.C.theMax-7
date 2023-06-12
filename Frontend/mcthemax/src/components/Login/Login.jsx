@@ -8,43 +8,65 @@ import { LogoutApi } from "../../api/authApi";
 import { LoginState } from "../../stores/login-store";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
+import { lazy, useEffect, useState } from "react";
+import { ModalState } from "../../stores/modal-store";
+import { getInfo } from "../../api/udrimsApi";
+
+const Modal = lazy(() => import("../Bookmark"));
 
 const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const [isModal, setIsModal] = useRecoilState(ModalState);
   const navigate = useNavigate();
+  const [name, setName] = useState();
+  const [major, setMajor] = useState();
+  const [number, setNumber] = useState();
   const logoutHandler = () => {
-    let data = {
-      "AUTH-TOKEN": window.localStorage.getItem("AUTH-TOKEN"),
-    };
-    setIsLoggedIn(false);
-    // navigate("/");
-    // LogoutApi(data).then((res) => {
-    //   console.log(res);
-    //   if (res.status === 200) {
-    //     window.localStorage.removeItem("AUTH-TOKEN");
-    //     setIsLoggedIn(false);
-    //   }
-    // });
+    LogoutApi().then((res) => {
+      if (res.status === 200) {
+        window.localStorage.removeItem("X-AUTH-TOKEN");
+        setIsLoggedIn(false);
+        navigate("/");
+      }
+    });
   };
+
+  const logoHandler = () => {
+    navigate("/");
+  };
+
+  useEffect(() => {
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    getInfo(token).then((res) => {
+      setName(res.data.map.name);
+      setNumber(res.data.map.number);
+      setMajor(res.data.map.department);
+    });
+  }, []);
 
   return (
     <Container>
       <Header>
-        <Logo src={logo} />
+        <Logo src={logo} onClick={logoHandler} />
         <Text>동국대학교 포털</Text>
       </Header>
       <Body>
         <Photo src={profile} />
         <Bio>
-          <Major>컴퓨터공학전공</Major>
-          <Number>2018112039</Number>
+          <Major>{major}</Major>
+          <Number>{number}</Number>
         </Bio>
-        <Name>정원호 님</Name>
+        <Name>{name} 님</Name>
         <Buttons>
           <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
           <ChangePasswordButton>비밀번호 변경</ChangePasswordButton>
         </Buttons>
-        <Alarm>
+        <Alarm
+          onClick={() => {
+            // navigate("/bookmark");
+            setIsModal(true);
+          }}
+        >
           <FontAwesomeIcon icon={faBell} color={Orange} size="2x" />
           <AlertText>즐겨 찾기 알림</AlertText>
           <AlertNumber>0</AlertNumber>
@@ -66,6 +88,7 @@ const Container = styled.div`
   flex-direction: column;
   background-color: ${Orange};
   height: 100vh;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
 
 const Header = styled.div`
@@ -78,12 +101,12 @@ const Logo = styled.img`
   flex: 1;
   width: 100px;
   margin: 5px 10px 5px 10px;
+  cursor: pointer;
 `;
 
 const Text = styled.div`
   flex: 2;
   text-align: center;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: x-large;
   font-weight: bold;
 `;

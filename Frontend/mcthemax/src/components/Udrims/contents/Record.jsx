@@ -1,22 +1,32 @@
 import styled from "styled-components";
 import { DarkGray, Orange } from "../../../assets/color/color";
 import { useEffect } from "react";
-
-const datas = [
-  {
-    number: "2018112039",
-    name: "정원호",
-    syear: "4",
-    birthDate: "1998-08-24",
-    college: "공과대학",
-    department: "컴퓨터정보통신공학부",
-    major: "컴퓨터공학전공",
-    userState: "학생",
-    phoneNum: "010-4173-5893",
-  },
-];
+import { getInfo } from "../../../api/udrimsApi";
+import { useState } from "react";
 
 const Record = () => {
+  const [name, setName] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [number, setNumber] = useState();
+  const [department, setDepartment] = useState("");
+  const [phoneNum, setPhoneNum] = useState("");
+  const [syear, setSyear] = useState();
+  const [userState, setUserState] = useState("");
+
+  let data = window.localStorage.getItem("X-AUTH-TOKEN");
+
+  useEffect(() => {
+    getInfo(data).then((res) => {
+      setName(res.data.map.name);
+      setBirthDate(res.data.map.birthDate);
+      setNumber(res.data.map.number);
+      setPhoneNum(res.data.map.phoneNum);
+      setSyear(res.data.map.syear);
+      setUserState(res.data.map.userState);
+      setDepartment(res.data.map.department);
+    });
+  }, []);
+
   return (
     <Container>
       <H2>학적부 열람</H2>
@@ -24,39 +34,39 @@ const Record = () => {
       <RecordContainer>
         <DataContainer>
           <Name>성명</Name>
-          <Data>{datas[0].name}</Data>
+          <Data>{name}</Data>
         </DataContainer>
         <DataContainer>
           <Name>생년월일</Name>
-          <Data>{datas[0].birthDate}</Data>
+          <Data>{birthDate}</Data>
         </DataContainer>
         <DataContainer>
           <Name>학번</Name>
-          <Data>{datas[0].number}</Data>
+          <Data>{number}</Data>
         </DataContainer>
         <DataContainer>
           <Name>대학</Name>
-          <Data>{datas[0].college}</Data>
+          <Data>공과대학</Data>
         </DataContainer>
         <DataContainer>
           <Name>학부(과)</Name>
-          <Data>{datas[0].department}</Data>
+          <Data>컴퓨터정보통신공학부</Data>
         </DataContainer>
         <DataContainer>
           <Name>주전공</Name>
-          <Data>{datas[0].major}</Data>
+          <Data>{department}</Data>
         </DataContainer>
         <DataContainer>
           <Name>학년</Name>
-          <Data>{datas[0].syear}</Data>
+          <Data>{syear}</Data>
         </DataContainer>
         <DataContainer>
           <Name>학생 구분</Name>
-          <Data>{datas[0].userState}</Data>
+          <Data>{userState == "STUDENT" ? "학생" : "교수"}</Data>
         </DataContainer>
         <DataContainer>
           <Name>연락처</Name>
-          <Data>{datas[0].phoneNum}</Data>
+          <Data>{phoneNum}</Data>
         </DataContainer>
       </RecordContainer>
     </Container>

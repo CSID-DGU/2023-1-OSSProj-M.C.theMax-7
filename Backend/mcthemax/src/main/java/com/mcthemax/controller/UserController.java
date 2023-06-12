@@ -77,7 +77,7 @@ public class UserController {
         return responseService.getSingleResult(String.valueOf(user), 403, "login failed");
     }
 
-    @PostMapping("/logout")
+    @PostMapping("/signout")
     public CommonResult logout() {
         return responseService.getCommonResult(200, "logout succeed");
     }
