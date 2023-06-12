@@ -4,11 +4,18 @@ export const udrimsAuth = async (data) => {
   let config = {
     headers: { "X-AUTH-TOKEN": data },
   };
-  const response = await api.get(
-    `${process.env.REACT_APP_SERVER_URL}/udrims/auth`,
-    config
-  );
-  return response;
+
+  try {
+    const response = await api.get(
+      `${process.env.REACT_APP_SERVER_URL}/udrims/auth`,
+      config
+    );
+    return response;
+  } catch (e) {
+    if (e) {
+      return e.response;
+    }
+  }
 };
 
 export const getInfo = async (data) => {
