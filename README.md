@@ -36,7 +36,7 @@ Announcdment: [코드설명_한글ver]()
 
 > 이전에 EC2에 서버리소스와 RDS에 DB리소스를 분리하여 서버를 사용하고 있었습니다. 그리고 지금 해당 프로젝트는 전체 리소스를 가상화하여 다음과 같은 인프라 구조를 가지고 있습니다.
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/f19730a5-36ec-4dc8-994e-c4f6004c366b" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/f19730a5-36ec-4dc8-994e-c4f6004c366b" width="70%" height="50%"></p>
 
 <br/>
 
@@ -44,7 +44,7 @@ Announcdment: [코드설명_한글ver]()
 
 > RDBMS는 학교 행정 시스템과 같이 대용량의 데이터를 빠르게 처리하는 종류의 데이터로 데이터간의 관계를 명확히 합니다. 또한 확장성이 높은 관계형 데이터베이스 구조를 위해 MySQL을 사용하였습니다.
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/742e19a4-d5d4-4e46-8c87-d75d3258af1c" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/742e19a4-d5d4-4e46-8c87-d75d3258af1c" width="70%" height="50%"></p>
 
 <br/>
 
@@ -52,7 +52,7 @@ Announcdment: [코드설명_한글ver]()
 
 > <b>데이터베이스</b>의 테이블에 존재하는 column들을 필드로 가지는 객체(entity)를 JPA로 구현하였습니다. <p>
 > _데이터베이스에 접근할 때 객체단위로 접근하는데 이떄 데이터베이스의 일관성을 유지하기 위해 데이터베이스를 Entity로 매핑하였습니다._
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/01cb2858-1029-4103-80e6-22efcf6c07bb" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/01cb2858-1029-4103-80e6-22efcf6c07bb" width="70%" height="50%"></p>
    
 <br/>
    
@@ -81,14 +81,14 @@ Infra
 
 - <b>로그인 이전 메인화면</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/e66dc824-e383-4c3f-ae4d-5715bf091b87" width="70%" heoght="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/e66dc824-e383-4c3f-ae4d-5715bf091b87" width="70%" heoght="50%"></p>
 
 - <b>로그인 후 메인화면</b>
 
 DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보에 따른 다음과 같은 화면이 나타납니다.<br/>
 분리된 사이트들 중에서 원하는 공지사항들을 따로 알림으로 받기위해 '즐겨찾기'기능을 활용할 수 있습니다. 
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/8c1b2f53-3723-4cf1-9549-8df340e911c8" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/8c1b2f53-3723-4cf1-9549-8df340e911c8" width="70%" height="50%"></p>
    
 <br/>
    
@@ -98,19 +98,19 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
 
 - <b>과제</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/ff883076-4550-44c3-8cdd-d27b3dfcd938" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/ff883076-4550-44c3-8cdd-d27b3dfcd938" width="70%" height="50%"></p>
 
 - <b>공지사항</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/762a2fd8-da3a-431a-845e-12c65896b6ad" width="70%" heith="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/762a2fd8-da3a-431a-845e-12c65896b6ad" width="70%" heith="50%"></p>
 
 - <b>출석부</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/5ed3a1ac-bf9d-422a-8570-f3a8c4a4bc4d" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/5ed3a1ac-bf9d-422a-8570-f3a8c4a4bc4d" width="70%" height="50%"></p>
 
 - <b>성적</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b5fe212e-d6af-468a-8898-ade031ed6102" width="70%" heith="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b5fe212e-d6af-468a-8898-ade031ed6102" width="70%" heith="50%"></p>
 
 <br/>
    
@@ -120,20 +120,20 @@ DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보�
 
 - <b>원스탑  메인페이지</b>
    
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/44c13059-139c-4285-a4ee-82710be981c7" width="0%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/44c13059-139c-4285-a4ee-82710be981c7" width="0%" height="50%"></p>
 
 - <b>학사정보 페이지</b>
    - <b>학적부 열람</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/cb32c60b-f387-481d-bda7-1a78df9e1447" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/cb32c60b-f387-481d-bda7-1a78df9e1447" width="70%" height="50%"></p>
 
    - <b>개인 강의 시간표 조회</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/dc8706dc-4207-4977-b4a0-c058a3c22ee7" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/dc8706dc-4207-4977-b4a0-c058a3c22ee7" width="70%" height="50%"></p>
 
    - <b>금학기 성적관리</b>
 
-<center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b6af9e0a-107e-4740-8694-cc92dfbacead" width="70%" height="50%"></center>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/b6af9e0a-107e-4740-8694-cc92dfbacead" width="70%" height="50%"></p>
 
 <br/>
    
