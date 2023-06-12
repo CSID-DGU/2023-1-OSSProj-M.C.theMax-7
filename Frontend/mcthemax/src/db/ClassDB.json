@@ -1,113 +1,206 @@
 {
     "classes" : [
-        {"id":1, "value": "ossp", "name": "오픈소스프로젝트", "professor": "김동호" },
-        {"id":2, "value": "comnetwork", "name": "컴퓨터네트워킹", "professor": "안종석"},
-        {"id":3, "value": "analysis", "name": "해석개론", "professor": "안재욱"},
-        {"id":4, "value": "comthinking", "name": "계산적 사고법", "professor": "손윤식"}
+        {"id":1, "value": "ossproj", "lectureName": "오픈소스프로젝트", "professor": "김동호" },
+        {"id":2, "value": "ossp", "lectureName": "오픈소스소프트웨어 실습", "professor": "김동국"},
+        {"id":3, "value": "webp", "lectureName": "웹프로그래밍", "professor": "이동국"}
+  
     ],
     "attendance" : [
-        {"id":1, "name": "오픈소스프로젝트", "day": "1주차 1강", "atd":"출석"},
-        {"id":2, "name": "오픈소스프로젝트", "day": "1주차 2강", "atd":"출석"},
-        {"id":3, "name": "오픈소스프로젝트", "day": "2주차 1강", "atd":"결석"},
-        {"id":4, "name": "오픈소스프로젝트", "day": "2주차 2강", "atd":"결석"},
-        {"id":5, "name": "오픈소스프로젝트", "day": "3주차 1강", "atd":"결석"},
-        {"id":6, "name": "오픈소스프로젝트", "day": "3주차 2강", "atd":"출석"},
-        {"id":7, "name": "오픈소스프로젝트", "day": "4주차 1강", "atd":"출석"},
-        {"id":8, "name": "오픈소스프로젝트", "day": "4주차 2강", "atd":"출석"},
-        {"id":9, "name": "오픈소스프로젝트", "day": "5주차 1강", "atd":"출석"},
-        {"id":10, "name": "오픈소스프로젝트", "day": "5주차 2강", "atd":"출석"},
-        {"id":11, "name": "오픈소스프로젝트", "day": "5주차 2강", "atd":"출석"},
-        {"id":12, "name": "오픈소스프로젝트", "day": "6주차 1강", "atd":"출석"},
-        {"id":13, "name": "오픈소스프로젝트", "day": "6주차 2강", "atd":"출석"},
-        {"id":14, "name": "오픈소스프로젝트", "day": "7주차 1강", "atd":"출석"},
-        {"id":15, "name": "오픈소스프로젝트", "day": "7주차 2강", "atd":"출석"},
-        {"id":16, "name": "오픈소스프로젝트", "day": "8주차 1강", "atd":"출석"},
-        {"id":17, "name": "오픈소스프로젝트", "day": "8주차 2강", "atd":"출석"}
-
+        {"id":1, "lectureName": "오픈소스프로젝트", "day": "1주차 1강", "atd":"출석"},
+        {"id":2, "lectureName": "오픈소스프로젝트", "day": "1주차 2강", "atd":"출석"},
+        {"id":3, "lectureName": "오픈소스프로젝트", "day": "2주차 1강", "atd":"결석"},
+        {"id":4, "lectureName": "오픈소스프로젝트", "day": "2주차 2강", "atd":"결석"},
+        {"id":5, "lectureName": "오픈소스프로젝트", "day": "3주차 1강", "atd":"결석"},
+        {"id":6, "lectureName": "오픈소스프로젝트", "day": "3주차 2강", "atd":"출석"},
+        {"id":7, "lectureName": "오픈소스프로젝트", "day": "4주차 1강", "atd":"출석"},
+        {"id":8, "lectureName": "오픈소스프로젝트", "day": "4주차 2강", "atd":"출석"},
+        {"id":9, "lectureName": "오픈소스프로젝트", "day": "5주차 1강", "atd":"출석"},
+        {"id":10, "lectureName": "오픈소스프로젝트", "day": "5주차 2강", "atd":"출석"},
+        {"id":11, "lectureName": "오픈소스프로젝트", "day": "5주차 2강", "atd":"출석"},
+        {"id":12, "lectureName": "오픈소스프로젝트", "day": "6주차 1강", "atd":"출석"},
+        {"id":13, "lectureName": "오픈소스프로젝트", "day": "6주차 2강", "atd":"결석"},
+        {"id":14, "lectureName": "오픈소스프로젝트", "day": "7주차 1강", "atd":"출석"},
+        {"id":15, "lectureName": "오픈소스프로젝트", "day": "7주차 2강", "atd":"출석"},
+        {"id":16, "lectureName": "오픈소스프로젝트", "day": "8주차 1강", "atd":"출석"},
+        {"id":17, "lectureName": "오픈소스프로젝트", "day": "8주차 2강", "atd":"출석"},
+        {"id":18, "lectureName": "오픈소스프로젝트", "day": "9주차 2강", "atd":"출석"},
+        {"id":19, "lectureName": "오픈소스프로젝트", "day": "9주차 2강", "atd":"출석"},
+        {"id":20, "lectureName": "오픈소스프로젝트", "day": "10주차 2강", "atd":"출석"},
+        {"id":21, "lectureName": "오픈소스프로젝트", "day": "10주차 2강", "atd":"출석"},
+        {"id":22, "lectureName": "오픈소스프로젝트", "day": "11주차 2강", "atd":"결석"},
+        {"id":23, "lectureName": "오픈소스프로젝트", "day": "11주차 2강", "atd":"출석"},
+        {"id":24, "lectureName": "오픈소스프로젝트", "day": "12주차 2강", "atd":"출석"},
+        {"id":25, "lectureName": "오픈소스프로젝트", "day": "12주차 2강", "atd":"출석"},
+        {"id":26, "lectureName": "오픈소스프로젝트", "day": "13주차 2강", "atd":"출석"},
+        {"id":27, "lectureName": "오픈소스프로젝트", "day": "13주차 2강", "atd":"결석"},
+        {"id":28, "lectureName": "오픈소스프로젝트", "day": "14주차 2강", "atd":"미처리"},
+        {"id":29, "lectureName": "오픈소스프로젝트", "day": "14주차 2강", "atd":"미처리"},
+        {"id":30, "lectureName": "오픈소스프로젝트", "day": "15주차 2강", "atd":"미처리"},
+        {"id":1, "lectureName": "오픈소스소프트웨어 실습", "day": "1주차 1강", "atd":"출석"},
+        {"id":2, "lectureName": "오픈소스소프트웨어 실습", "day": "1주차 2강", "atd":"출석"},
+        {"id":3, "lectureName": "오픈소스소프트웨어 실습", "day": "2주차 1강", "atd":"결석"},
+        {"id":4, "lectureName": "오픈소스소프트웨어 실습", "day": "2주차 2강", "atd":"결석"},
+        {"id":5, "lectureName": "오픈소스소프트웨어 실습", "day": "3주차 1강", "atd":"결석"},
+        {"id":6, "lectureName": "오픈소스소프트웨어 실습", "day": "3주차 2강", "atd":"출석"},
+        {"id":7, "lectureName": "오픈소스소프트웨어 실습", "day": "4주차 1강", "atd":"출석"},
+        {"id":8, "lectureName": "오픈소스소프트웨어 실습", "day": "4주차 2강", "atd":"출석"},
+        {"id":9, "lectureName": "오픈소스소프트웨어 실습", "day": "5주차 1강", "atd":"출석"},
+        {"id":10, "lectureName": "오픈소스소프트웨어 실습", "day": "5주차 2강", "atd":"출석"},
+        {"id":11, "lectureName": "오픈소스소프트웨어 실습", "day": "5주차 2강", "atd":"출석"},
+        {"id":12, "lectureName": "오픈소스소프트웨어 실습", "day": "6주차 1강", "atd":"출석"},
+        {"id":13, "lectureName": "오픈소스소프트웨어 실습", "day": "6주차 2강", "atd":"결석"},
+        {"id":14, "lectureName": "오픈소스소프트웨어 실습", "day": "7주차 1강", "atd":"출석"},
+        {"id":15, "lectureName": "오픈소스소프트웨어 실습", "day": "7주차 2강", "atd":"출석"},
+        {"id":16, "lectureName": "오픈소스소프트웨어 실습", "day": "8주차 1강", "atd":"출석"},
+        {"id":17, "lectureName": "오픈소스소프트웨어 실습", "day": "8주차 2강", "atd":"출석"},
+        {"id":18, "lectureName": "오픈소스소프트웨어 실습", "day": "9주차 2강", "atd":"출석"},
+        {"id":19, "lectureName": "오픈소스소프트웨어 실습", "day": "9주차 2강", "atd":"출석"},
+        {"id":20, "lectureName": "오픈소스소프트웨어 실습", "day": "10주차 2강", "atd":"출석"},
+        {"id":21, "lectureName": "오픈소스소프트웨어 실습", "day": "10주차 2강", "atd":"출석"},
+        {"id":22, "lectureName": "오픈소스소프트웨어 실습", "day": "11주차 2강", "atd":"결석"},
+        {"id":23, "lectureName": "오픈소스소프트웨어 실습", "day": "11주차 2강", "atd":"출석"},
+        {"id":24, "lectureName": "오픈소스소프트웨어 실습", "day": "12주차 2강", "atd":"출석"},
+        {"id":25, "lectureName": "오픈소스소프트웨어 실습", "day": "12주차 2강", "atd":"출석"},
+        {"id":26, "lectureName": "오픈소스소프트웨어 실습", "day": "13주차 2강", "atd":"출석"},
+        {"id":27, "lectureName": "오픈소스소프트웨어 실습", "day": "13주차 2강", "atd":"결석"},
+        {"id":28, "lectureName": "오픈소스소프트웨어 실습", "day": "14주차 2강", "atd":"미처리"},
+        {"id":29, "lectureName": "오픈소스소프트웨어 실습", "day": "14주차 2강", "atd":"미처리"},
+        {"id":30, "lectureName": "오픈소스소프트웨어 실습", "day": "15주차 2강", "atd":"미처리"},
+        {"id":1, "lectureName": "웹프로그래밍", "day": "1주차 1강", "atd":"출석"},
+        {"id":2, "lectureName": "웹프로그래밍", "day": "1주차 2강", "atd":"출석"},
+        {"id":3, "lectureName": "웹프로그래밍", "day": "2주차 1강", "atd":"결석"},
+        {"id":4, "lectureName": "웹프로그래밍", "day": "2주차 2강", "atd":"결석"},
+        {"id":5, "lectureName": "웹프로그래밍", "day": "3주차 1강", "atd":"결석"},
+        {"id":6, "lectureName": "웹프로그래밍", "day": "3주차 2강", "atd":"출석"},
+        {"id":7, "lectureName": "웹프로그래밍", "day": "4주차 1강", "atd":"출석"},
+        {"id":8, "lectureName": "웹프로그래밍", "day": "4주차 2강", "atd":"출석"},
+        {"id":9, "lectureName": "웹프로그래밍", "day": "5주차 1강", "atd":"출석"},
+        {"id":10, "lectureName": "웹프로그래밍", "day": "5주차 2강", "atd":"출석"},
+        {"id":11, "lectureName": "웹프로그래밍", "day": "5주차 2강", "atd":"출석"},
+        {"id":12, "lectureName": "웹프로그래밍", "day": "6주차 1강", "atd":"출석"},
+        {"id":13, "lectureName": "웹프로그래밍", "day": "6주차 2강", "atd":"결석"},
+        {"id":14, "lectureName": "웹프로그래밍", "day": "7주차 1강", "atd":"출석"},
+        {"id":15, "lectureName": "웹프로그래밍", "day": "7주차 2강", "atd":"출석"},
+        {"id":16, "lectureName": "웹프로그래밍", "day": "8주차 1강", "atd":"출석"},
+        {"id":17, "lectureName": "웹프로그래밍", "day": "8주차 2강", "atd":"출석"},
+        {"id":18, "lectureName": "웹프로그래밍", "day": "9주차 2강", "atd":"출석"},
+        {"id":19, "lectureName": "웹프로그래밍", "day": "9주차 2강", "atd":"출석"},
+        {"id":20, "lectureName": "웹프로그래밍", "day": "10주차 2강", "atd":"출석"},
+        {"id":21, "lectureName": "웹프로그래밍", "day": "10주차 2강", "atd":"출석"},
+        {"id":22, "lectureName": "웹프로그래밍", "day": "11주차 2강", "atd":"결석"},
+        {"id":23, "lectureName": "웹프로그래밍", "day": "11주차 2강", "atd":"출석"},
+        {"id":24, "lectureName": "웹프로그래밍", "day": "12주차 2강", "atd":"출석"},
+        {"id":25, "lectureName": "웹프로그래밍", "day": "12주차 2강", "atd":"출석"},
+        {"id":26, "lectureName": "웹프로그래밍", "day": "13주차 2강", "atd":"출석"},
+        {"id":27, "lectureName": "웹프로그래밍", "day": "13주차 2강", "atd":"결석"},
+        {"id":28, "lectureName": "웹프로그래밍", "day": "14주차 2강", "atd":"미처리"},
+        {"id":29, "lectureName": "웹프로그래밍", "day": "14주차 2강", "atd":"미처리"},
+        {"id":30, "lectureName": "웹프로그래밍", "day": "15주차 2강", "atd":"미처리"}
     ],
     "notification" : [
         {
             "id": "1",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
-            "content": "2023년 깍쟁이장학 선발 일정"
+            "title": "이력서",
+            "lectureName": "오픈소스프로젝트",
+            "date": "2023-03-16",
+            "content": "이력서 폴더는 Slack에도 올려놨으니 혹시 다운이 안되는 학생들은 Slack을 통해 다운받아주세요."
           },
           {
             "id": "2",
-            "title": "2023년 깍쟁이장학 선발 일정 ",
-            "name": "오픈소스프로젝트",
+            "title": "2022년 2학기 OSSProj 시험문제입니다.",
+            "lectureName": "오픈소스프로젝트",
             "date": "2023-05-10",
-            "content": "2023년 깍쟁이장학 선발 일정"
+            "content": "PRF#1 보고서형식 제출"
           },
           {
             "id": "3",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "title": "중간 발표 관련 공지사항입니다.",
+            "lectureName": "오픈소스프로젝트",
+            "date": "2023-05-11",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
             "id": "4",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "title": "유고결석 사유서 제출 관련 공지",
+            "lectureName": "오픈소스프로젝트",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
             "id": "5",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "title": "최종발표 관련 공지사항입니다.",
+            "lectureName": "오픈소스프로젝트",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "6",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
+            "id": "1",
+            "title": "이력서",
+            "lectureName": "오픈소스소프트웨어 실습",
+            "date": "2023-03-16",
+            "content": "이력서 폴더는 Slack에도 올려놨으니 혹시 다운이 안되는 학생들은 Slack을 통해 다운받아주세요."
+          },
+          {
+            "id": "2",
+            "title": "2022년 2학기 OSSP 시험문제입니다.",
+            "lectureName": "오픈소스소프트웨어 실습",
             "date": "2023-05-10",
+            "content": "PRF#1 보고서형식 제출"
+          },
+          {
+            "id": "3",
+            "title": "중간 발표 관련 공지사항입니다.",
+            "lectureName": "오픈소스소프트웨어 실습",
+            "date": "2023-05-11",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "7",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "id": "4",
+            "title": "유고결석 사유서 제출 관련 공지",
+            "lectureName": "오픈소스소프트웨어 실습",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "8",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "id": "5",
+            "title": "최종발표 관련 공지사항입니다.",
+            "lectureName": "오픈소스소프트웨어 실습",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "9",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
+            "id": "1",
+            "title": "이력서",
+            "lectureName": "웹프로그래밍",
+            "date": "2023-03-16",
+            "content": "이력서 폴더는 Slack에도 올려놨으니 혹시 다운이 안되는 학생들은 Slack을 통해 다운받아주세요."
+          },
+          {
+            "id": "2",
+            "title": "2022년 2학기 WebProgramming 시험문제입니다.",
+            "lectureName": "웹프로그래밍",
             "date": "2023-05-10",
+            "content": "PRF#1 보고서형식 제출"
+          },
+          {
+            "id": "3",
+            "title": "중간 발표 관련 공지사항입니다.",
+            "lectureName": "웹프로그래밍",
+            "date": "2023-05-11",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "10",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "id": "4",
+            "title": "유고결석 사유서 제출 관련 공지",
+            "lectureName": "웹프로그래밍",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           },
           {
-            "id": "11",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
-            "content": "2023년 깍쟁이장학 선발 일정"
-          },
-          {
-            "id": "12",
-            "title": "2023년 깍쟁이장학 선발 일정",
-            "name": "오픈소스프로젝트",
-            "date": "2023-05-10",
+            "id": "5",
+            "title": "최종발표 관련 공지사항입니다.",
+            "lectureName": "웹프로그래밍",
+            "date": "2023-06-08",
             "content": "2023년 깍쟁이장학 선발 일정"
           }
     ],
@@ -123,46 +216,138 @@
     "grade" : [
         {
           "id" :"1",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "중간고사",
           "score" : "30",
           "mean" : "15"
         },
         {
           "id" :"2",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "과제1",
           "score" : "30",
           "mean" : "15"
         },
         {
           "id" :"3",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "과제2",
           "score" : "30",
           "mean" : "15"
         },        {
           "id" :"4",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "과제3",
           "score" : "30",
           "mean" : "15"
         },        {
           "id" :"5",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "과제4",
           "score" : "30",
           "mean" : "15"
         },
         {
           "id" :"6",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
           "classify": "과제 5",
           "score" : "30",
           "mean" : "15"
         },        {
           "id" :"7",
-          "name": "오픈소스프로젝트",
+          "lectureName": "오픈소스프로젝트",
+          "classify": "기말고사",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"1",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "중간고사",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"2",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "과제1",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"3",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "과제2",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"4",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "과제3",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"5",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "과제4",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"6",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "과제 5",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"7",
+          "lectureName": "오픈소스소프트웨어 실습",
+          "classify": "기말고사",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"1",
+          "lectureName": "웹프로그래밍",
+          "classify": "중간고사",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"2",
+          "lectureName": "웹프로그래밍",
+          "classify": "과제1",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"3",
+          "lectureName": "웹프로그래밍",
+          "classify": "과제2",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"4",
+          "lectureName": "웹프로그래밍",
+          "classify": "과제3",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"5",
+          "lectureName": "웹프로그래밍",
+          "classify": "과제4",
+          "score" : "30",
+          "mean" : "15"
+        },
+        {
+          "id" :"6",
+          "lectureName": "웹프로그래밍",
+          "classify": "과제 5",
+          "score" : "30",
+          "mean" : "15"
+        },        {
+          "id" :"7",
+          "lectureName": "웹프로그래밍",
           "classify": "기말고사",
           "score" : "30",
           "mean" : "15"

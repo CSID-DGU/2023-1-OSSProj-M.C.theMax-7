@@ -20,10 +20,11 @@ const EclassHome = () => {
 
   useEffect(() => {
     setFeature(1);
-    let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    getLectureInfo(data).then((res) => {
-      setLectures(res.list);
-    });
+    // let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    // getLectureInfo(data).then((res) => {
+    //   setLectures(res.list);
+    // });
+    setLectures(dummy.classes);
   }, []);
 
   return (
@@ -41,6 +42,7 @@ const EclassHome = () => {
                 {option.lectureName}
               </option>
             ))}
+          
         </Select>
         <Header>
           <Selected>{selectedValue == "init" ? "" : selectedValue}</Selected>

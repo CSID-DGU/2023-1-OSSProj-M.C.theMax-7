@@ -6,8 +6,9 @@ import { Orange } from "../../../assets/color/color";
 // import "./table.css"
 
 const Attendance = (props) => {
+  console.log(props);
   const attendlist = dummy.attendance.filter(
-    (attend) => attend.name === props.name
+    (attend) => attend.lectureName === props.name
   );
   const data = React.useMemo(() => attendlist, []);
   const columns = React.useMemo(

@@ -5,7 +5,7 @@ import { useTable } from "react-table";
 import { Orange } from "../../../assets/color/color";
 
 const Score = (props) => {
-  const gradelist = dummy.grade.filter((grade) => grade.name === props.name);
+  const gradelist = dummy.grade.filter((grade) => grade.lectureName === props.name);
   const data = React.useMemo(() => gradelist, []);
   const columns = React.useMemo(
     () => [

@@ -6,7 +6,7 @@ import { Orange } from "../../../assets/color/color";
 
 const Notification = (props) => {
   const notilist = dummy.notification.filter(
-    (notice) => notice.name === props.name
+    (notice) => notice.lectureName === props.name
   );
   const data = React.useMemo(() => notilist, []);
   const columns = React.useMemo(
