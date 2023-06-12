@@ -58,6 +58,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   border-left: 1px solid #e6e8e7;
+  overflow: scroll;
 `;
 
 const Header = styled.div`

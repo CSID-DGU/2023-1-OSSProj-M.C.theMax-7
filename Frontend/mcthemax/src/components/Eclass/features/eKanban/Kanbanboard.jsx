@@ -63,13 +63,15 @@ export default function KanbanBoard() {
   const handleDragEnd = (result) => {
     const { destination, source, draggableId } = result;
 
+    console.log(source, destination, draggableId);
+
     // drag한 곳과 drop한 곳의 위치가 같은 경우 어떠한 변화도 일어나지 않는다
     if (source.droppableId == destination.droppableId) return;
 
     //drag한 곳과 drop한 곳의 위치가 다르면 source column에서 해당 item을 지워야한다
     if (source.droppableId == 3) {
       setDone(removeItemById(draggableId, done));
-    } else if (source.draggableId == 2) {
+    } else if (source.droppableId == 2) {
       setDoing(removeItemById(draggableId, doing));
     } else {
       setTodo(removeItemById(draggableId, todo));

@@ -1,8 +1,10 @@
 import React, { lazy, useEffect } from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { LoginState } from "../stores/login-store";
 import { udrimsAuth } from "../api/udrimsApi";
+import { ModalState } from "../stores/modal-store";
+import Bookmark from "../components/Bookmark";
 
 const Login = lazy(() => import("../components/Login/Login"));
 const NotLogin = lazy(() => import("../components/Login/NotLogin"));
@@ -16,6 +18,7 @@ const Notice = lazy(() => import("../components/Notice"));
 
 function Home() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const isModal = useRecoilValue(ModalState);
 
   useEffect(() => {
     let token = window.localStorage.getItem("X-AUTH-TOKEN");
@@ -57,6 +60,7 @@ function Home() {
             <Notice />
           </NoticeContainer>
         </RightContainer>
+        {isModal ? <Bookmark /> : <></>}
       </Container>
     </div>
   );

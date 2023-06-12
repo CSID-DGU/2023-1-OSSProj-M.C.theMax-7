@@ -47,7 +47,20 @@ const GradeDetail = ({ datas, selectedIndex }) => {
         <Name>기말고사 만점점수</Name>
         <Data>{datas[selectedIndex].fin_max}</Data>
       </DataContainer>
-      <DataContainer>
+      {datas[selectedIndex] &&
+        datas[selectedIndex].assignments.map((assignment, index) => (
+          <>
+            <DataContainer>
+              <Name>과제{index + 1}</Name>
+              <Data>{datas[selectedIndex].assignments[index].score}</Data>
+            </DataContainer>
+            <DataContainer>
+              <Name>과제{index + 1} 만점점수</Name>
+              <Data>{datas[selectedIndex].assignments[index].max_score}</Data>
+            </DataContainer>
+          </>
+        ))}
+      {/* <DataContainer>
         <Name>과제1</Name>
         <Data>{datas[selectedIndex].assignments[0].score}</Data>
       </DataContainer>
@@ -70,7 +83,7 @@ const GradeDetail = ({ datas, selectedIndex }) => {
       <DataContainer>
         <Name>과제3 만점점수</Name>
         <Data>{datas[selectedIndex].assignments[2].max_score}</Data>
-      </DataContainer>
+      </DataContainer> */}
     </GradeContainer>
   );
 };
