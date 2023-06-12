@@ -116,7 +116,7 @@ DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 
 
 - <b>출석부</b>
 
-<p align="center"><img src="[https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/5ed3a1ac-bf9d-422a-8570-f3a8c4a4bc4d](https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/1939be54-4e21-4194-8513-3ddb1f756220)" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/1939be54-4e21-4194-8513-3ddb1f756220" width="70%" height="50%"></p>
 
 - <b>성적</b>
 
