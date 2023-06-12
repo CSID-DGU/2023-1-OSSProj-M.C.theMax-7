@@ -8,12 +8,15 @@ import { AppStart } from "../components/Eclass/features/AppStart";
 import { FeatureState } from "../stores/class-store";
 import { selectedValueState } from "../stores/class-store";
 import { useNavigate } from "react-router-dom";
+import { ModalState } from "../stores/modal-store";
+import Bookmark from "../components/Bookmark";
 
 const EclassHome = lazy(() => import("../components/Eclass/EclassHome"));
 const ExitFeat = lazy(() => import("../components/Eclass/features/ExitFeats"));
 
 export default function Eclass() {
   const isLoggedIn = useRecoilValue(LoginState);
+  const isModal = useRecoilValue(ModalState);
   const [feature, setFeature] = useRecoilState(FeatureState);
   const selectedValue = useRecoilValue(selectedValueState);
   const navigate = useNavigate();
@@ -47,6 +50,7 @@ export default function Eclass() {
             <AppStart />
           </ClassDetail>
         </ClassContainer>
+        {isModal ? <Bookmark /> : <></>}
       </Container>
     </div>
   );

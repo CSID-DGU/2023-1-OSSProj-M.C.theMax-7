@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Orange } from "../assets/color/color";
+import { useRecoilState } from "recoil";
+import { ModalState } from "../stores/modal-store";
 
 const Bookmark = () => {
   const notices = [
@@ -61,71 +63,67 @@ const Bookmark = () => {
     },
   ];
   const navigate = useNavigate();
+  const [isModal, setIsModal] = useRecoilState(ModalState);
   return (
-    <Background>
-      <Container>
-        <Header>
-          <Button
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            &lt;
-          </Button>
-          <Title>공지 알람</Title>
-        </Header>
-        <Body>
-          {notices &&
-            notices.map((notice, index) => (
-              <NoticeContainer key={index}>
-                <Notices>공지</Notices>
-                <NoticeMain>
-                  <NoticeTitle>{notice.title}</NoticeTitle>
-                  <NoticeAbout>
-                    <NoticeDate>{notice.date}</NoticeDate>
-                    <NoticeAuthor>{notice.author}</NoticeAuthor>
-                  </NoticeAbout>
-                </NoticeMain>
-              </NoticeContainer>
-            ))}
-        </Body>
-      </Container>
-    </Background>
+    // <Background>
+    <Container>
+      <Header>
+        <Button
+          onClick={() => {
+            setIsModal(false);
+          }}
+        >
+          &lt;
+        </Button>
+        <Title>공지 알람</Title>
+      </Header>
+      <Body>
+        {notices &&
+          notices.map((notice, index) => (
+            <NoticeContainer key={index}>
+              <Notices>공지</Notices>
+              <NoticeMain>
+                <NoticeTitle>{notice.title}</NoticeTitle>
+                <NoticeAbout>
+                  <NoticeDate>{notice.date}</NoticeDate>
+                  <NoticeAuthor>{notice.author}</NoticeAuthor>
+                </NoticeAbout>
+              </NoticeMain>
+            </NoticeContainer>
+          ))}
+      </Body>
+    </Container>
+    // </Background>
   );
 };
-const Background = styled.div`
-  background-image: url("https://eclass.dongguk.edu/lmsdata/img/template1/main_bg.jpg");
-  width: 100vw;
-  height: 100vh;
-`;
 
 const Container = styled.div`
+  position: fixed;
+  align-items: flex-start;
+  width: 27vw;
   background-color: white;
-  position: absolute;
-  width: 30vw;
-  height: 80vh;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  height: 100vh;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   border: 1px solid black;
   overflow: scroll;
 `;
 
 const Header = styled.div`
-  margin-top: 2vh;
-  padding-bottom: 2vh;
+  padding: 2vh 0;
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
+  background-color: ${Orange};
 `;
 
 const Button = styled.button`
   cursor: pointer;
   border: none;
-  background-color: white;
+  background-color: ${Orange};
   font-size: 18px;
   margin-left: 1vw;
+  color: white;
 `;
 
 const Title = styled.div`
@@ -134,6 +132,7 @@ const Title = styled.div`
   left: 50%;
   transform: translate(-50%, 0%);
   font-size: 18px;
+  color: white;
 `;
 
 const Body = styled.div``;

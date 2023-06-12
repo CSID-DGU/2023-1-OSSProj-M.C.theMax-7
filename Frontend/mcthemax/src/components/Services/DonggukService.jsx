@@ -50,7 +50,7 @@ const DonggukService = () => {
           <Button>
             <FontAwesomeIcon icon={faChartColumn} size="2x" color={Orange} />
           </Button>
-          <Text>성적 조회</Text>
+          <Text>드림 패스</Text>
         </Grid>
         <Grid>
           <Button onClick={eclassHandler}>
