@@ -9,8 +9,8 @@
 
 ### Docs Map
 1. [Get Project File](#1.-get-project-file)
-2. [Install Libraries](#2.-install--ibraries)
-3. [Set up MySQL](#3.-set-up-mysql)
+2. [Install Libraries](#2.-install-libraries-for-frontend)
+3. [Set up MySQL](#3.-install-dependencies-for-backend)
 
 ## 1. Get Project File
 로컬 환경 Workspace 에 프로젝트 파일을 다운로드합니다. 본 문서에서는 Workspace의 위치를 C:/Example 로 가정합니다.
@@ -21,7 +21,7 @@ C:\ > cd 2023-1-OSSProj-M.C.theMax-7
 ```
 <br />
 
-## 2. Install Libraries
+## 2. Install Libraries for Frontend
 DonggukClick에 사용되는 라이브러리들을 설치합니다.
 - react 
 
@@ -32,10 +32,6 @@ DonggukClick에 사용되는 라이브러리들을 설치합니다.
   [next.js](https://nextjs.org/)에서 next.js를 다운받거나 다음과 같이 ``C:/Example/2023-1-OSSProj-M.C.theMax-7/``폴더에 설치합니다.
   ```
   npx create-next-app
-  ```
-  보다 안정적인 React17버전으로 교체합니다.
-  ```
-  yarn add next@12.1.0 react@17.0.2 react-dom@17.0.2 --exact
   ```
 
 - styled-components
@@ -79,6 +75,24 @@ DonggukClick에 사용되는 라이브러리들을 설치합니다.
 이외에 모든 라이브러리를 일괄적으로 설치하기 위해서는 ```yarn install```을 입력하면 됩니다.
 <br />
 
-## 3. Set up MySQL
-```npm install```
-```node server```
+## 3. Install Dependencies for Backend
+
+- MySQL
+
+  Spring Boot 프로젝트에서 MySQL과의 연결을 위해 MySQL 드라이버를 추가로 설치해야 합니다.<br/>
+  _본 프로젝트는 gradle 관리도구를 사용하였습니다._
+  
+  ```gradle dependencies```
+  
+  또는
+  
+  ```mvn dependency::resolve```
+  
+  
+- Spring Boot
+
+  사용된 프레임워크를 설치하기위해 다음의 명령어를 입력합니다.
+  
+  ```gradle bootRun```
+
+이외에 종속성 관리도구를 설치하기 위해서는 ```npm install``` ```node server``` 를 입력하면 됩니다.
