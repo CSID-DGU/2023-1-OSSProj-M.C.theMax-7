@@ -4,11 +4,12 @@ import styled from "styled-components";
 
 const Kanbanboard = lazy(() => import("./eKanban/Kanbanboard"));
 
-const Assignment = () => {
+const Assignment = (props) => {
+
   return (
     <Container>
       <Body>
-        <Kanbanboard />
+        <Kanbanboard lecture={props} />
       </Body>
     </Container>
   );
