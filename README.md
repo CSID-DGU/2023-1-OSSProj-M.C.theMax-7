@@ -53,7 +53,7 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 - Entity
 
 > <b>데이터베이스</b>의 테이블에 존재하는 column들을 필드로 가지는 객체(entity)를 JPA로 구현하였습니다. <p>
-> _데이터베이스에 접근할 때 객체단위로 접근하는데 이떄 데이터베이스의 일관성을 유지하기 위해 데이터베이스를 Entity로 매핑하였습니다._
+> _데이터베이스에 접근할 때 객체단위로 접근하는데 이 데이터베이스의 일관성을 유지하기 위해 데이터베이스를 Entity로 매핑하였습니다._
 <p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/01cb2858-1029-4103-80e6-22efcf6c07bb" width="70%" height="50%"></p>
    
 <br/>
@@ -229,14 +229,17 @@ DonggukClick에서 올바른 로그인을 진행하면 자신의 학사정보에
    
    ## ✍️ Reference
    
-   과제 관리
+   <b>과제 관리</b><br/> 
    [React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
-   성적증명 PDF
+   
+   <b>성적증명 PDF</b><br/>
    [jsPDF](https://github.com/parallax/jsPDF)
    [html2canvas](https://github.com/atlassian/react-beautiful-dnd)
-   성적증명서 QR코드
+   
+   <b>성적증명서 QR코드</b><br/>
    [QRcode react](https://github.com/zpao/qrcode.react)
-   리액트 테이블
+   
+   <b>리액트 테이블</b><br/>
    [React table](https://github.com/react-component/table.git)
    
    ## 🤝 Team Member 
