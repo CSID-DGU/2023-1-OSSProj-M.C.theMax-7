@@ -58,19 +58,19 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
    
 ## 📚 Tech Stack
 
-Common 
+<b>Common</b>
 
 <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=ESLint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white">
 
-Frontend
+<b>Frontend</b>
 
 <img src="https://img.shields.io/badge/react-444444?style=flat-square&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/recoil-f26b00?style=flat-square&logo=recoil&logoColor=white"> <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=white">
 
-Backend
+<b>Backend</b>
 
 <img src="https://img.shields.io/badge/spring-6DB33F??style=flat-square&logo=spring&logoColor=white"/> <img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
 
-Infra
+<b>Infra</b>
 
 <img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/>
 
@@ -86,7 +86,8 @@ Infra
 - <b>로그인 후 메인화면</b>
 
 DonggukPortal에서 올바른 로그인을 진행하면 자신의 학사정보에 따른 다음과 같은 화면이 나타납니다.<br/>
-분리된 사이트들 중에서 원하는 공지사항들을 따로 알림으로 받기위해 '즐겨찾기'기능을 활용할 수 있습니다. 
+분리된 사이트들 중에서 원하는 공지사항들을 따로 알림으로 받기위해 '즐겨찾기'기능을 활용할 수 있습니다. <br/>
+이클래스에서만 확인가능한 과제의 제출여부와 과제사항들을 DonggukPortal 메인페이지에서 확인할 수 있습니다.
 
 <p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/8c1b2f53-3723-4cf1-9549-8df340e911c8" width="70%" height="50%"></p>
    
