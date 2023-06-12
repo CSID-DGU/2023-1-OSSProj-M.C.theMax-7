@@ -154,6 +154,7 @@ DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 
 <p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/4e3d8b55-d695-4df7-98f5-6462678c1488" width="350" height="400"> <img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/d73eef8c-9bb2-40ed-885e-0502ea81d8ed" width="400" height="400"></p>
 
 <br/>
+
 ## ✨ Expected Outcomes
 
    - <b>분산되어 있는 학교 시스템을 통합적으로 구현하였습니다.</b>
