@@ -35,6 +35,7 @@ Execute: [실행방법_한글ver](Execute_KO.md)
 > 이전에 EC2에 서버리소스와 RDS에 DB리소스를 분리하여 서버를 사용하고 있었습니다. 그리고 지금 해당 프로젝트는 전체 리소스를 가상화하여 다음과 같은 인프라 구조를 가지고 있습니다.
 
 <center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/f19730a5-36ec-4dc8-994e-c4f6004c366b" width="70%" height="50%"></center>
+
 <br/>
 
 - 전체 DB구조
@@ -42,6 +43,7 @@ Execute: [실행방법_한글ver](Execute_KO.md)
 > RDBMS는 학교 행정 시스템과 같이 대용량의 데이터를 빠르게 처리하는 종류의 데이터로 데이터간의 관계를 명확히 합니다. 또한 확장성이 높은 관계형 데이터베이스 구조를 위해 MySQL을 사용하였습니다.
 
 <center><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/742e19a4-d5d4-4e46-8c87-d75d3258af1c" width="70%" height="50%"></center>
+
 <br/>
 
 - Entity
@@ -56,25 +58,19 @@ Execute: [실행방법_한글ver](Execute_KO.md)
 
 Common 
 
-![Visaul Studio Code](https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode)
-![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint)
-![Prettier](https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier)
+<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/ESLint-4B3263?style=flat-square&logo=ESLint&logoColor=white"><img src="https://img.shields.io/badge/prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white">
 
 Frontend
 
-![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
-![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge&logo=recoil)
-![Styled-Components](https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents)
+<img src="https://img.shields.io/badge/react-444444?style=flat-square&logo=react&logoColor=white"><img src="https://img.shields.io/badge/recoil-f26b00?style=flat-square&logo=recoil&logoColor=white"><img src="https://img.shields.io/badge/styledcomponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=white">
 
 Backend
 
-![Spring](https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring)
-![MySQL](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql)
+<img src="https://img.shields.io/badge/spring-6DB33F??style=flat-square&logo=spring&logoColor=white"/><img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
 
 Infra
 
-![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker)
-![AWS EC2](https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws)
+<img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/><img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/>
 
 <br />
 
