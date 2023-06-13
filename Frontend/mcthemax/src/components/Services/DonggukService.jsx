@@ -8,12 +8,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Orange } from "../../assets/color/color";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { LoginState } from "../../stores/login-store";
+import { selectedValueState } from "../../stores/class-store";
 
 const DonggukService = () => {
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(LoginState);
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState);
 
   const udrimsHandler = () => {
     if (!isLoggedIn) {
@@ -26,6 +28,7 @@ const DonggukService = () => {
     if (!isLoggedIn) {
       alert("로그인 후 이용해주세요.");
     } else {
+      setSelectedValue("init");
       navigate("/eclass");
     }
   };
