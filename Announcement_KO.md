@@ -105,7 +105,7 @@
 
 - ```Category``` 및 ```SubCategory```로 유드림스 컴포넌트 관리
 
-    ```
+```
       export const AppNexus = () => {
   const category = useRecoilValue(CategoryState);
   const subcategory = useRecoilValue(SubCategoryState);
@@ -116,11 +116,12 @@
   if (category === 2 && subcategory === 3) return <Grade />;
   return <></>;
 };
-    ```
+```
 
  ### 🧑‍💻 성적증명서 기능
 
 - ```qrcode.react```를 통한 성적 위변조 확인
 
  ```const { id } = useParams();```
+ <br/>
 params를 통해 학생의 성적 정보를 가져올 수 있음
