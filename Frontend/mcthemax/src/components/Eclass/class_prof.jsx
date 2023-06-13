@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import dummy from "../../db/ClassDB";
 import { useRecoilValue } from "recoil";
 import { selectedValueState } from "../../stores/class-store";
 
 const Classprof = ({ lectures }) => {
   const selectedValue = useRecoilValue(selectedValueState);
-  console.log(lectures);
   console.log(selectedValue);
 
   const classlist =
