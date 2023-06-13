@@ -47,7 +47,7 @@ const Certpia = () => {
       <div className="div_paper">
         <Content>
           <QRContainer>
-            <QRCodeSVG value={`www.mcthemax.click/${id}`} size="32" />
+            <QRCodeSVG value={`www.mcthemax.click/certpia/${id}`} size="32" />
           </QRContainer>
           <Title>2023학년도 1학기 성적증명서</Title>
           <UserInfo>
