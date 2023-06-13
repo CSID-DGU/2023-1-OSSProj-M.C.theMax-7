@@ -11,7 +11,6 @@ import { LoginState } from "../../stores/login-store";
 import { useNavigate } from "react-router-dom";
 
 const NotLogin = () => {
-  // console.log(isLoggedIn, setIsLoggedIn);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [value, setValue] = useState("STUDENT");
 
@@ -34,9 +33,11 @@ const NotLogin = () => {
         // setIsLoggedIn(true);
         LoginApi(data).then((res) => {
           console.log(res);
-          if (res.status === 200) {
+          if (res.data.code === 200) {
             window.localStorage.setItem("X-AUTH-TOKEN", res.data.data);
             setIsLoggedIn(true);
+          } else if (res.data.code == 403) {
+            alert("로그인 정보를 확인해주세요.");
           }
         });
       }, 500);

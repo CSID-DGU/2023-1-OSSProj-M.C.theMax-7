@@ -1,11 +1,17 @@
 import api from "./index";
 
 export const LoginApi = async (data) => {
-  const response = await api.post(
-    `${process.env.REACT_APP_SERVER_URL}/signin`,
-    data
-  );
-  return response;
+  try {
+    const response = await api.post(
+      `${process.env.REACT_APP_SERVER_URL}/signin`,
+      data
+    );
+    return response;
+  } catch (e) {
+    if (e) {
+      return e.response;
+    }
+  }
 };
 
 export const LogoutApi = async () => {
