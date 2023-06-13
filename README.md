@@ -244,7 +244,7 @@ DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 
    
    ## ✍️ Reference
    
-   <b>과제 관리</b><br/> 
+   <b>과제 관리 </b><br/> 
    [React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
    
    <b>성적증명 PDF</b><br/>
