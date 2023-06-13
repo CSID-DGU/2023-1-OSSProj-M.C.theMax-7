@@ -47,7 +47,7 @@ const NotLogin = () => {
     <Container>
       <Header>
         <Logo src={logo} />
-        <Text>동국대학교 포털</Text>
+        <Text>Dongguk Click</Text>
       </Header>
       <Body>
         <Slogan>세상을 비추는 힘, 세상을 깨우는 이름</Slogan>

@@ -48,7 +48,7 @@ const Login = () => {
     <Container>
       <Header>
         <Logo src={logo} onClick={logoHandler} />
-        <Text>동국대학교 포털</Text>
+        <Text>Dongguk Click</Text>
       </Header>
       <Body>
         <Photo src={profile} />
