@@ -1,6 +1,5 @@
 import React, { lazy, useState, useEffect } from "react";
 import styled from "styled-components";
-import dummy from "../../db/ClassDB";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { FeatureState } from "../../stores/class-store";
 import { selectedValueState } from "../../stores/class-store";
@@ -20,11 +19,10 @@ const EclassHome = () => {
 
   useEffect(() => {
     setFeature(1);
-    // let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    // getLectureInfo(data).then((res) => {
-    //   setLectures(res.list);
-    // });
-    setLectures(dummy.classes);
+    let data = window.localStorage.getItem("X-AUTH-TOKEN");
+    getLectureInfo(data).then((res) => {
+      setLectures(res.list);
+    });
   }, []);
 
   return (
@@ -42,7 +40,6 @@ const EclassHome = () => {
                 {option.lectureName}
               </option>
             ))}
-          
         </Select>
         <Header>
           <Selected>{selectedValue == "init" ? "" : selectedValue}</Selected>

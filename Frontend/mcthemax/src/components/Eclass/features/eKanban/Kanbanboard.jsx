@@ -10,89 +10,55 @@ import { Orange } from "../../../../assets/color/color";
 import { useRecoilValue } from "recoil";
 import { selectedValueState } from "../../../../stores/class-store";
 import { KanbanStatus } from "../../../../utils/KanbanUtils";
-import dummy from "../../../../db/ClassDB.json";
+// import dummy from "../../../../db/ClassDB.json";
 
 export default function KanbanBoard() {
   const [done, setDone] = useState([]);
   const [doing, setDoing] = useState([]);
   const [todo, setTodo] = useState([]);
-  
+
   const selectedValue = useRecoilValue(selectedValueState);
-  const assignlist = dummy.assignment.filter(
-    (assign) => assign.lectureName === selectedValue
-  );
   console.log(selectedValue);
 
   useEffect(() => {
     let data = window.localStorage.getItem("X-AUTH-TOKEN");
     if (selectedValue == "init") {
-      // getAllAssignments(data).then((res) => {
-      //   setDone(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "DONE"
-      //     )
-      //   );
-      //   setTodo(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "TODO"
-      //     )
-      //   );
-      //   setDoing(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "DOING"
-      //     )
-      //   );
-      // });
-      
-      // setDone(
-      //   assignlist.filter(
-      //     (assignment) => assignment.assignmentStatus === "DONE"
-      //   )
-      // );
-      // setTodo(
-      //   assignlist.filter(
-      //     (assignment) => assignment.assignmentStatus === "TODO"
-      //   )
-      // );
-      // setDoing(
-      //   assignlist.filter(
-      //     (assignment) => assignment.assignmentStatus === "DOING"
-      //   )
-      // );
+      getAllAssignments(data).then((res) => {
+        setDone(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "DONE"
+          )
+        );
+        setTodo(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "TODO"
+          )
+        );
+        setDoing(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "DOING"
+          )
+        );
+      });
     } else {
       let id = { name: selectedValue };
-      // getAssignment(data, id).then((res) => {
-        // setDone(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "DONE"
-      //     )
-      //   );
-      //   setTodo(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "TODO"
-      //     )
-      //   );
-      //   setDoing(
-      //     res.list.filter(
-      //       (assignment) => assignment.assignmentStatus === "DOING"
-      //     )
-      //   );
-      // });
-      setDone(
-        assignlist.filter(
-          (assignment) => assignment.assignmentStatus === "DONE"
-        )
-      );
-      setTodo(
-        assignlist.filter(
-          (assignment) => assignment.assignmentStatus === "TODO"
-        )
-      );
-      setDoing(
-        assignlist.filter(
-          (assignment) => assignment.assignmentStatus === "DOING"
-        )
-      );
+      getAssignment(data, id).then((res) => {
+        setDone(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "DONE"
+          )
+        );
+        setTodo(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "TODO"
+          )
+        );
+        setDoing(
+          res.list.filter(
+            (assignment) => assignment.assignmentStatus === "DOING"
+          )
+        );
+      });
     }
   }, [selectedValue]);
 
