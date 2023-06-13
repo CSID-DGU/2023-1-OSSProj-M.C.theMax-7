@@ -37,6 +37,7 @@ export default function Column({ title, tasks, id, backgroundColor }) {
     <Container className="column">
       <Title
         style={{
+          top: 0,
           backgroundColor: backgroundColor,
           position: "sticky",
         }}
