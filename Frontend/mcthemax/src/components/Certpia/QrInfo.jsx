@@ -2,27 +2,13 @@ import styled from "styled-components";
 import { DarkGray, Orange } from "../../assets/color/color";
 import { useEffect, useState } from "react";
 import { getGrade } from "../../api/udrimsApi";
+import { useParams } from "react-router-dom";
 
 const QrInfo = () => {
-  // const datas = [
-  //   {
-  //     number: "2018112039",
-  //     name: "정원호",
-  //     syear: "4",
-  //     birthDate: "1998-08-24",
-  //     college: "공과대학",
-  //     department: "컴퓨터정보통신공학부",
-  //     major: "컴퓨터공학전공",
-  //     userState: "학생",
-  //     phoneNum: "010-4173-5893",
-  //   },
-  // ];
-
   const [datas, setDatas] = useState();
-
+  const { id } = useParams();
   useEffect(() => {
-    let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    getGrade(data).then((res) => {
+    getGrade(id).then((res) => {
       setDatas(res.list);
     });
   }, []);
@@ -82,6 +68,7 @@ const GradeContainer = styled.div`
   border: 1px solid #e6e8e7;
   width: 80vw;
   height: 60vh;
+  overflow: scroll;
 `;
 
 const DataContainer = styled.div`

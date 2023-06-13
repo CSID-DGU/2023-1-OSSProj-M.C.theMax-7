@@ -40,7 +40,6 @@ const Certpia = () => {
   }, []);
 
   let id = window.localStorage.getItem("X-AUTH-TOKEN");
-  console.log(id);
 
   return (
     <div className="div_container">
