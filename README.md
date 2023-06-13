@@ -38,7 +38,8 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 <p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/9c70186a-ecb3-4c1f-a3ee-dde29a92f6f9" width="70%" height="50%"></p>
 <br/>
-<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/46d3dff2-2ac0-4bfa-bcb7-5b59da4cfddf" width="70%" height="50%"></p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-1-OSSProj-M.C.theMax-7/assets/96400257/73997c96-cadc-40d2-89a7-d99bfb2f67d8" width="70%" height="50%"></p>
+
 
 <br/>
 
