@@ -33,6 +33,12 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 <br />
 
+## <img class="emojidex-emoji" src="https://cdn.emojidex.com/emoji/seal/YouTube.png" emoji-code="YouTube" alt="YouTube" width="20" height="20"/> Video
+
+[시연영상 보러가기👀](https://youtu.be/W_0CwKTI3jE)
+
+<br/>
+
 ## ⚙️ System Architecture
 
 - Project Architecture
