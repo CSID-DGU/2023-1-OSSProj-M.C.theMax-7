@@ -77,22 +77,50 @@ DonggukClick에 사용되는 라이브러리들을 설치합니다.
 
 ## 3. Install Dependencies for Backend
 
-- MySQL
+- IDEA 
 
-  Spring Boot 프로젝트에서 MySQL과의 연결을 위해 MySQL 드라이버를 추가로 설치해야 합니다.<br/>
-  _본 프로젝트는 gradle 관리도구를 사용하였습니다._
-  
-  ```gradle dependencies```
-  
-  또는
-  
-  ```mvn dependency::resolve```
-  
+  ```IntelliJ IDEA```
   
 - Spring Boot
-
-  사용된 프레임워크를 설치하기위해 다음의 명령어를 입력합니다.
   
-  ```gradle bootRun```
+  java Version : ```JDK 11```
+
+  SpringBoot Version :  ```Spring Boot 2.7.12```
+
+  MySQL Version : ```MySQL 8.0.32```
+
+  - MySQL
+
+  gradle이 프로젝트를 자동으로 관리해주기 때문에 채택하기 때문에 알아서 dependencies가 적용이 됩니다.
+
+  로컬에서 서버와 MySQL과 연결이 되려면  ```Backend/mcthemax/src/main/resources/application.yml```의 2~6번째를 복사한 뒤 주석처리를 하고, 7~8번째 줄의 주석을 풀어주세요.
+
+  ```Backend/mcthemax/src/main/resources/``` 경로에 application-mysql.yml 파일을 생성하고, 앞서 복사한 내용을 붙여 넣은 후 로컬 MySQL의 url, username, password를 기입해주세요.
+
+
+## 4. Docker image Build Project
+
+도커를 통해 로컬에서 테스트를 진행하는 방법
+
+- Frontend 
+
+  - 프론트엔드 경로로 들어가 Dockerfile을 빌드 합니다. (ENV REACT_APP_SERVER_URL= 실행중인 서버 URL)
+
+  ```cd Frontend/mcthemax && docker image build --tag:<이름>:<버전> . ```
+  
+  - 빌드된 도커 이미지를 확인합니다.
+
+  ```docker images ```
+
+
+- Backend
+  
+  - Spring 프로젝트 경로 Backend/
+
+  ```cd Backend/mcthemax && docker image build --tag:<이름>:<버전> . ```
+
+  - 빌드된 도커 이미지를 확인합니다.
+
+  ```docker images ```
 
 이외에 종속성 관리도구를 설치하기 위해서는 ```npm install``` ```node server``` 를 입력하면 됩니다.

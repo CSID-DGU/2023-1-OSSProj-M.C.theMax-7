@@ -79,7 +79,7 @@ Announcement: [코드설명_한글ver](Announcement_KO.md)
 
 <b>Infra</b>
 
-<img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/>
+<img src="https://img.shields.io/badge/docker-2496ED??style=flat-square&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/amazonaws-232F3E??style=flat-square&logo=amazonaws&logoColor=white"/> 
 
 <br />
 
@@ -243,9 +243,13 @@ DonggukClick에서 로그인된 상태로 이클래스페이지에 들어오게 
    |-- constants => 상수(매직넘버)  <br />
    |-- assets => 프로젝트에 쓸 font, image 등 <br />**
 ### - BE
- **|-- models => 데이터 스키마 관리 <br />
-   |-- middleware => auth 정보 관리 <br />
-   |-- routes => router 관리 <br />**
+ **|-- config => JWT, Cors 처리 관리 <br />
+   |-- controller => API 호출 관리 <br />
+   |-- domain => Entity 관리 <br />
+   |-- repository => DB 트랜잭션 쿼리 처리 <br />
+   |-- service => DTO에 데이터 매핑 <br />
+   |-- resources => MySQL 및 AWS 환경 변수 관리<br />**
+   
    
    ## ✍️ Reference
    

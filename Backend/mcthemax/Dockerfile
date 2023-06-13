@@ -28,7 +28,7 @@ RUN ./gradlew build
 FROM openjdk:11
 
 # 애플리케이션 JAR 파일 복사
-COPY --from=builder build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder build/libs/mcthemax.jar app.jar
 
 # 애플리케이션 실행을 위한 커맨드 설정
 EXPOSE 8080
