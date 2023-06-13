@@ -7,11 +7,18 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { CategoryState, SubCategoryState } from "../../stores/category-store";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { getInfo } from "../../api/udrimsApi";
+import { LogoutApi } from "../../api/authApi";
+import { LoginState } from "../../stores/login-store";
 
 const Header = () => {
   const [isActive, setIsActive] = useState("");
   const [category, setCategory] = useRecoilState(CategoryState);
   const [subcategory, setSubcategory] = useRecoilState(SubCategoryState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
   const navigate = useNavigate();
 
   const changeColor = () => {
@@ -24,6 +31,24 @@ const Header = () => {
     navigate("/");
   };
 
+  const logoutHandler = () => {
+    LogoutApi().then((res) => {
+      if (res.status === 200) {
+        window.localStorage.removeItem("X-AUTH-TOKEN");
+        setIsLoggedIn(false);
+        navigate("/");
+      }
+    });
+  };
+
+  useEffect(() => {
+    let token = window.localStorage.getItem("X-AUTH-TOKEN");
+    getInfo(token).then((res) => {
+      setName(res.data.map.name);
+      setNumber(res.data.map.number);
+    });
+  }, []);
+
   return (
     <Container>
       <Img src={logo} alt="dgu-logo" onClick={imgHandler} />
@@ -32,9 +57,9 @@ const Header = () => {
           <Button>Password</Button>
           <UserInfo>
             <FontAwesomeIcon icon={faGear} size="sm" color={MenuLightGray} />{" "}
-            정원호(2018112039) 님
+            {name}({number}) 님
           </UserInfo>
-          <Button>로그아웃</Button>
+          <Button onClick={logoutHandler}>로그아웃</Button>
         </UserBar>
         <NavBar>
           <MenuButton
