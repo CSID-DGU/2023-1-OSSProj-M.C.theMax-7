@@ -5,6 +5,8 @@
 > 
 > 최종 수정: 2023.06.13
 
+  <br/>
+
 ### 🧑‍💻 메인페이지 로그인 컴포넌트
 
   - 학생, 교수, 교직원 구분을 위해 ```radio button``` 이용
@@ -73,10 +75,27 @@
   ### 🧑‍💻 이클래스 기능
   
   - ```login state```로 학생정보를 바탕으로 수강중인 강의실을 get
-  ```
-   let data = window.localStorage.getItem("X-AUTH-TOKEN");
-    getLectureInfo(data).then((res) => {
-      setLectures(res.list);
-    });
-  ```
-  - 강의실을 선택하여 
+  
+    ```
+      let data = window.localStorage.getItem("X-AUTH-TOKEN");
+        getLectureInfo(data).then((res) => {
+         setLectures(res.list);
+       });
+    ```
+   
+  - GET통신으로 받아온 리스트를 ```<selectbox>```에 넣기 위해 ```useState```로 관리
+  
+    ```const [lecture, setLectures] = useState()```
+    
+  - 선택한 강의실 값을 컴포넌트가 전환되어도 유지하기 위해```useRecoilState```로 저장
+  
+    ```const [selectedValue, setSelectedValue] = useRecoilState(selectedValueState)```
+    
+  - [과제, 공지사항, 성적부, 출석]에 해당하는 컴포넌트들을 ```useRecoilState```로 관리
+  
+     ```const [feature, setFeature] = useRecoilState(FeatureState)```
+     
+  - ```filter()```함수를 사용하여 각 컴포넌트에 맞게 값들을 불러옴
+ 
+ ### 🧑‍💻 이클래스 기능
+
